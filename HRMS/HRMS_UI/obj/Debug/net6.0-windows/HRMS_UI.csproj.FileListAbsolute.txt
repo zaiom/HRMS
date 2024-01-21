@@ -18,3 +18,5 @@ C:\Gry\Inżynierka\HRMS\HRMS_UI\obj\Debug\net6.0-windows\HRMS_UI.genruntimeconfi
 C:\Gry\Inżynierka\HRMS\HRMS_UI\obj\Debug\net6.0-windows\ref\HRMS_UI.dll
 C:\Gry\Inżynierka\HRMS\HRMS_UI\obj\Debug\net6.0-windows\HRMS_UI.ZadaniaForm.resources
 C:\Gry\Inżynierka\HRMS\HRMS_UI\obj\Debug\net6.0-windows\HRMS_UI.UprawnieniaForm.resources
+C:\Gry\Inżynierka\HRMS\HRMS_UI\obj\Debug\net6.0-windows\HRMS_UI.DodajPracownikaForm.resources
+C:\Gry\Inżynierka\HRMS\HRMS_UI\obj\Debug\net6.0-windows\HRMS_UI.ZarzadzajFOrm.resources

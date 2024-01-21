@@ -30,7 +30,7 @@
         {
             uprawnieniaButton = new Button();
             zadaniaButton = new Button();
-            szczegolyButton = new Button();
+            zarzadzajButton = new Button();
             menuLabel = new Label();
             SuspendLayout();
             // 
@@ -65,20 +65,20 @@
             zadaniaButton.UseVisualStyleBackColor = true;
             zadaniaButton.Click += button2_Click;
             // 
-            // szczegolyButton
+            // zarzadzajButton
             // 
-            szczegolyButton.FlatAppearance.BorderColor = Color.Silver;
-            szczegolyButton.FlatAppearance.BorderSize = 0;
-            szczegolyButton.FlatAppearance.MouseDownBackColor = Color.Gray;
-            szczegolyButton.FlatAppearance.MouseOverBackColor = Color.WhiteSmoke;
-            szczegolyButton.FlatStyle = FlatStyle.Flat;
-            szczegolyButton.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            szczegolyButton.Location = new Point(49, 332);
-            szczegolyButton.Name = "szczegolyButton";
-            szczegolyButton.Size = new Size(367, 80);
-            szczegolyButton.TabIndex = 2;
-            szczegolyButton.Text = "Szczegóły";
-            szczegolyButton.UseVisualStyleBackColor = true;
+            zarzadzajButton.FlatAppearance.BorderColor = Color.Silver;
+            zarzadzajButton.FlatAppearance.BorderSize = 0;
+            zarzadzajButton.FlatAppearance.MouseDownBackColor = Color.Gray;
+            zarzadzajButton.FlatAppearance.MouseOverBackColor = Color.WhiteSmoke;
+            zarzadzajButton.FlatStyle = FlatStyle.Flat;
+            zarzadzajButton.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            zarzadzajButton.Location = new Point(49, 332);
+            zarzadzajButton.Name = "zarzadzajButton";
+            zarzadzajButton.Size = new Size(367, 80);
+            zarzadzajButton.TabIndex = 2;
+            zarzadzajButton.Text = "Zarządzaj";
+            zarzadzajButton.UseVisualStyleBackColor = true;
             // 
             // menuLabel
             // 
@@ -98,7 +98,7 @@
             BackColor = Color.White;
             ClientSize = new Size(474, 425);
             Controls.Add(menuLabel);
-            Controls.Add(szczegolyButton);
+            Controls.Add(zarzadzajButton);
             Controls.Add(zadaniaButton);
             Controls.Add(uprawnieniaButton);
             Name = "MenuForm";
@@ -112,7 +112,7 @@
 
         private Button uprawnieniaButton;
         private Button zadaniaButton;
-        private Button szczegolyButton;
+        private Button zarzadzajButton;
         private Label menuLabel;
     }
 }

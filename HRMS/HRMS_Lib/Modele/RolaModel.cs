@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HRMS_Lib
+namespace HRMS_Lib.Modele
 {
-    public class WydzialModel
+    public class RolaModel
     {
         public string Nazwa { get; set; }
-        public int szefWydzialu { get; set; }
+        public string Opis { get; set; }
     }
 }
