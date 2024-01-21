@@ -7,5 +7,11 @@
     <Compile Update="MenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="UprawnieniaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ZadaniaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

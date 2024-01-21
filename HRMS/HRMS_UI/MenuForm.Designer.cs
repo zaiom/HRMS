@@ -73,7 +73,7 @@
             szczegolyButton.FlatAppearance.MouseOverBackColor = Color.WhiteSmoke;
             szczegolyButton.FlatStyle = FlatStyle.Flat;
             szczegolyButton.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            szczegolyButton.Location = new Point(49, 333);
+            szczegolyButton.Location = new Point(49, 332);
             szczegolyButton.Name = "szczegolyButton";
             szczegolyButton.Size = new Size(367, 80);
             szczegolyButton.TabIndex = 2;
