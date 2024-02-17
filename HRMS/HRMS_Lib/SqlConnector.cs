@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using System.Data;
 using Dapper;
 
-
 namespace HRMS_Lib
 {
     public class SqlConnector : IDataConnection
@@ -31,6 +30,54 @@ namespace HRMS_Lib
             }
         }
 
-        
+        public List<string> PobierzNazweWydzialu()
+        {
+            List<string> wydzialNames = new List<string>();
+
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("HRMS_DB")))
+            {
+                connection.Open();
+
+                string query = "SELECT DISTINCT idWydzialu from Wydzial;"; // Zapytanie SQL pobierające unikalne id wydziałów
+                //string query = "SELECT DISTINCT Nazwa FROM Wydzial;"; // Zapytanie SQL pobierające unikalne nazwy wydziałów
+
+                wydzialNames = connection.Query<string>(query).AsList();
+
+                return wydzialNames;
+            }
+        }
+
+        public List<string> PobierzIdPrzelozonego()
+        {
+            List<string> przelozonyIds = new List<string>();
+
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("HRMS_DB")))
+            {
+                connection.Open();
+
+                string query = "SELECT idPracownika FROM Pracownicy WHERE Stanowisko=1 OR Stanowisko=3;";
+
+                przelozonyIds = connection.Query<string>(query).AsList();
+
+                return przelozonyIds;
+            }
+        }
+
+        public List<string> PobierzIdRoli()
+        {
+            List<string> rolaIds = new List<string>();
+
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("HRMS_DB")))
+            {
+                connection.Open();
+
+                string query = "SELECT DISTINCT idRoli from Rola;";
+
+                rolaIds = connection.Query<string>(query).AsList();
+
+                return rolaIds;
+            }
+        }
+
     }
 }

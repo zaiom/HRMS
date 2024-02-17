@@ -10,5 +10,10 @@ namespace HRMS_Lib
     public interface IDataConnection
     {
         UmowyModel DodajUmowe(UmowyModel model);
+
+        List<string> PobierzNazweWydzialu();
+        List<string> PobierzIdPrzelozonego();
+
+        List<string> PobierzIdRoli();
     }
 }

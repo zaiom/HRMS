@@ -50,7 +50,6 @@
             dataZatrudnieniaLabel = new Label();
             dataKoncaUmowyLabel = new Label();
             emailValue = new TextBox();
-            przelozonyValue = new TextBox();
             pensjaValue = new TextBox();
             dataUrodzeniaDateTimePicker = new DateTimePicker();
             dataZatrudnieniaDateTimePicker = new DateTimePicker();
@@ -61,6 +60,7 @@
             loginValue = new TextBox();
             hasloValue = new TextBox();
             rodzajUmowyComboBox = new ComboBox();
+            przelozonyComboBox = new ComboBox();
             SuspendLayout();
             // 
             // dodajButton
@@ -91,6 +91,7 @@
             zamknijButton.TabIndex = 6;
             zamknijButton.Text = "Zamknij";
             zamknijButton.UseVisualStyleBackColor = true;
+            zamknijButton.Click += zamknijButton_Click;
             // 
             // imieLabel
             // 
@@ -144,12 +145,12 @@
             // przelozonyLabel
             // 
             przelozonyLabel.AutoSize = true;
-            przelozonyLabel.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            przelozonyLabel.Location = new Point(40, 233);
+            przelozonyLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            przelozonyLabel.Location = new Point(9, 236);
             przelozonyLabel.Name = "przelozonyLabel";
-            przelozonyLabel.Size = new Size(84, 20);
+            przelozonyLabel.Size = new Size(168, 17);
             przelozonyLabel.TabIndex = 13;
-            przelozonyLabel.Text = "Przełożony:";
+            przelozonyLabel.Text = "Identyfikator przelozonego:";
             // 
             // numerKontaktowyLabel
             // 
@@ -187,7 +188,7 @@
             wydzialComboBox.FormattingEnabled = true;
             wydzialComboBox.Location = new Point(183, 190);
             wydzialComboBox.Name = "wydzialComboBox";
-            wydzialComboBox.Size = new Size(201, 28);
+            wydzialComboBox.Size = new Size(258, 28);
             wydzialComboBox.TabIndex = 17;
             // 
             // imieValue
@@ -281,14 +282,6 @@
             emailValue.Name = "emailValue";
             emailValue.Size = new Size(201, 27);
             emailValue.TabIndex = 30;
-            // 
-            // przelozonyValue
-            // 
-            przelozonyValue.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            przelozonyValue.Location = new Point(183, 231);
-            przelozonyValue.Name = "przelozonyValue";
-            przelozonyValue.Size = new Size(201, 27);
-            przelozonyValue.TabIndex = 31;
             // 
             // pensjaValue
             // 
@@ -386,12 +379,22 @@
             rodzajUmowyComboBox.Size = new Size(201, 28);
             rodzajUmowyComboBox.TabIndex = 42;
             // 
+            // przelozonyComboBox
+            // 
+            przelozonyComboBox.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            przelozonyComboBox.FormattingEnabled = true;
+            przelozonyComboBox.Location = new Point(183, 231);
+            przelozonyComboBox.Name = "przelozonyComboBox";
+            przelozonyComboBox.Size = new Size(201, 28);
+            przelozonyComboBox.TabIndex = 43;
+            // 
             // DodajPracownikaForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(868, 524);
+            Controls.Add(przelozonyComboBox);
             Controls.Add(rodzajUmowyComboBox);
             Controls.Add(hasloValue);
             Controls.Add(loginValue);
@@ -402,7 +405,6 @@
             Controls.Add(dataZatrudnieniaDateTimePicker);
             Controls.Add(dataUrodzeniaDateTimePicker);
             Controls.Add(pensjaValue);
-            Controls.Add(przelozonyValue);
             Controls.Add(emailValue);
             Controls.Add(dataKoncaUmowyLabel);
             Controls.Add(dataZatrudnieniaLabel);
@@ -456,7 +458,6 @@
         private Label dataZatrudnieniaLabel;
         private Label dataKoncaUmowyLabel;
         private TextBox emailValue;
-        private TextBox przelozonyValue;
         private TextBox pensjaValue;
         private DateTimePicker dataUrodzeniaDateTimePicker;
         private DateTimePicker dataZatrudnieniaDateTimePicker;
@@ -467,5 +468,6 @@
         private TextBox loginValue;
         private TextBox hasloValue;
         private ComboBox rodzajUmowyComboBox;
+        private ComboBox przelozonyComboBox;
     }
 }

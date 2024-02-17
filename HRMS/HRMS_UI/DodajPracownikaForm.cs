@@ -17,18 +17,29 @@ namespace HRMS_UI
         public DodajPracownikaForm()
         {
             InitializeComponent();
-            PopulateRodzajUmowyComboBox(); // Wywołanie metody do uzupełniania ComboBoxa
+            PopulateComboBoxes(); // Uzupełnia ComboBoxy w formularzu
         }
 
-        private void PopulateRodzajUmowyComboBox()
+        private void PopulateComboBoxes()
         {
+            //Wydział:
+            wydzialComboBox.Items.AddRange(GlobalConfig.Connection.PobierzNazweWydzialu().ToArray());
+
+            //Przelozony
+            przelozonyComboBox.Items.AddRange(GlobalConfig.Connection.PobierzIdPrzelozonego().ToArray());
+
+            //Rola
+            rolaComboBox.Items.AddRange(GlobalConfig.Connection.PobierzIdRoli().ToArray());
+
+            //Rodzaj umowy:
+
             // Dodaj 3 umowy do ComboBoxa
-            rodzajUmowyComboBox.Items.Add("Umowa o pracę");
+            rodzajUmowyComboBox.Items.Add("Umowa o prace");
             rodzajUmowyComboBox.Items.Add("Umowa o zlecenie");
             rodzajUmowyComboBox.Items.Add("B2B");
 
             // Domyślnie zaznacz pierwszą umowę
-            rodzajUmowyComboBox.SelectedIndex = 0;
+            rodzajUmowyComboBox.SelectedIndex = -1;
         }
 
         private bool ValidateForm()
@@ -40,6 +51,12 @@ namespace HRMS_UI
             //walidacja rodzaj umowy
             if (rodzajUmowyComboBox.SelectedIndex == -1)
             {
+                output = false;
+            }
+
+            if (rodzajUmowyComboBox.Text != "Umowa o prace" && rodzajUmowyComboBox.Text != "Umowa o zlecenie" && rodzajUmowyComboBox.Text != "B2B")
+            {
+                MessageBox.Show("Wartość w Rodzaj umowy jest niepoprawna. Proszę wybrać jedną z podanych opcji.");
                 output = false;
             }
 
@@ -61,6 +78,10 @@ namespace HRMS_UI
             {
                 output = false;
             }
+
+            //Dane dotyczące pracownika:
+
+            //walidacja 
 
             return output;
         }
@@ -92,6 +113,11 @@ namespace HRMS_UI
             {
                 MessageBox.Show("Formularz posiada niepoprawne dane. Proszę poprawić je i spróbować ponownie.");
             }
+        }
+
+        private void zamknijButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
