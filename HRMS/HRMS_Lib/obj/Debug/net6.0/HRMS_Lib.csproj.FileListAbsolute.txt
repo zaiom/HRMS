@@ -1,0 +1,12 @@
+C:\Gry\Inżynierka\HRMS\HRMS_Lib\bin\Debug\net6.0\HRMS_Lib.deps.json
+C:\Gry\Inżynierka\HRMS\HRMS_Lib\bin\Debug\net6.0\HRMS_Lib.dll
+C:\Gry\Inżynierka\HRMS\HRMS_Lib\bin\Debug\net6.0\HRMS_Lib.pdb
+C:\Gry\Inżynierka\HRMS\HRMS_Lib\obj\Debug\net6.0\HRMS_Lib.csproj.AssemblyReference.cache
+C:\Gry\Inżynierka\HRMS\HRMS_Lib\obj\Debug\net6.0\HRMS_Lib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Gry\Inżynierka\HRMS\HRMS_Lib\obj\Debug\net6.0\HRMS_Lib.AssemblyInfoInputs.cache
+C:\Gry\Inżynierka\HRMS\HRMS_Lib\obj\Debug\net6.0\HRMS_Lib.AssemblyInfo.cs
+C:\Gry\Inżynierka\HRMS\HRMS_Lib\obj\Debug\net6.0\HRMS_Lib.csproj.CoreCompileInputs.cache
+C:\Gry\Inżynierka\HRMS\HRMS_Lib\obj\Debug\net6.0\HRMS_Lib.dll
+C:\Gry\Inżynierka\HRMS\HRMS_Lib\obj\Debug\net6.0\refint\HRMS_Lib.dll
+C:\Gry\Inżynierka\HRMS\HRMS_Lib\obj\Debug\net6.0\HRMS_Lib.pdb
+C:\Gry\Inżynierka\HRMS\HRMS_Lib\obj\Debug\net6.0\ref\HRMS_Lib.dll

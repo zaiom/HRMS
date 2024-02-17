@@ -1,6 +1,6 @@
 ﻿namespace HRMS_UI
 {
-    partial class dodajPracownikaForm
+    partial class DodajPracownikaForm
     {
         /// <summary>
         /// Required designer variable.
@@ -48,19 +48,19 @@
             rodzajUmowyLabel = new Label();
             pensjaLabel = new Label();
             dataZatrudnieniaLabel = new Label();
-            dataKoncaUmowy = new Label();
+            dataKoncaUmowyLabel = new Label();
             emailValue = new TextBox();
             przelozonyValue = new TextBox();
             pensjaValue = new TextBox();
-            rodzajUmowyComboBox = new ComboBox();
             dataUrodzeniaDateTimePicker = new DateTimePicker();
             dataZatrudnieniaDateTimePicker = new DateTimePicker();
             dataKoncaUmowyDateTimePicker = new DateTimePicker();
-            daneLogowaniaForm = new Label();
+            daneLogowaniaLabel = new Label();
             loginLabel = new Label();
             hasloLabel = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            loginValue = new TextBox();
+            hasloValue = new TextBox();
+            rodzajUmowyValue = new TextBox();
             SuspendLayout();
             // 
             // dodajButton
@@ -233,7 +233,6 @@
             nazwiskoValue.Name = "nazwiskoValue";
             nazwiskoValue.Size = new Size(201, 27);
             nazwiskoValue.TabIndex = 24;
-            nazwiskoValue.TextChanged += textBox2_TextChanged;
             // 
             // rodzajUmowyLabel
             // 
@@ -241,9 +240,9 @@
             rodzajUmowyLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             rodzajUmowyLabel.Location = new Point(471, 69);
             rodzajUmowyLabel.Name = "rodzajUmowyLabel";
-            rodzajUmowyLabel.Size = new Size(118, 21);
+            rodzajUmowyLabel.Size = new Size(116, 21);
             rodzajUmowyLabel.TabIndex = 25;
-            rodzajUmowyLabel.Text = "Rodzaj Umowy:";
+            rodzajUmowyLabel.Text = "Rodzaj umowy:";
             // 
             // pensjaLabel
             // 
@@ -265,15 +264,15 @@
             dataZatrudnieniaLabel.TabIndex = 27;
             dataZatrudnieniaLabel.Text = "Data zatrudnienia:";
             // 
-            // dataKoncaUmowy
+            // dataKoncaUmowyLabel
             // 
-            dataKoncaUmowy.AutoSize = true;
-            dataKoncaUmowy.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dataKoncaUmowy.Location = new Point(471, 192);
-            dataKoncaUmowy.Name = "dataKoncaUmowy";
-            dataKoncaUmowy.Size = new Size(146, 21);
-            dataKoncaUmowy.TabIndex = 28;
-            dataKoncaUmowy.Text = "Data końca umowy:";
+            dataKoncaUmowyLabel.AutoSize = true;
+            dataKoncaUmowyLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataKoncaUmowyLabel.Location = new Point(471, 192);
+            dataKoncaUmowyLabel.Name = "dataKoncaUmowyLabel";
+            dataKoncaUmowyLabel.Size = new Size(146, 21);
+            dataKoncaUmowyLabel.TabIndex = 28;
+            dataKoncaUmowyLabel.Text = "Data końca umowy:";
             // 
             // emailValue
             // 
@@ -298,15 +297,6 @@
             pensjaValue.Name = "pensjaValue";
             pensjaValue.Size = new Size(201, 27);
             pensjaValue.TabIndex = 32;
-            // 
-            // rodzajUmowyComboBox
-            // 
-            rodzajUmowyComboBox.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            rodzajUmowyComboBox.FormattingEnabled = true;
-            rodzajUmowyComboBox.Location = new Point(639, 67);
-            rodzajUmowyComboBox.Name = "rodzajUmowyComboBox";
-            rodzajUmowyComboBox.Size = new Size(201, 28);
-            rodzajUmowyComboBox.TabIndex = 33;
             // 
             // dataUrodzeniaDateTimePicker
             // 
@@ -341,15 +331,15 @@
             dataKoncaUmowyDateTimePicker.Size = new Size(201, 27);
             dataKoncaUmowyDateTimePicker.TabIndex = 36;
             // 
-            // daneLogowaniaForm
+            // daneLogowaniaLabel
             // 
-            daneLogowaniaForm.AutoSize = true;
-            daneLogowaniaForm.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            daneLogowaniaForm.Location = new Point(455, 247);
-            daneLogowaniaForm.Name = "daneLogowaniaForm";
-            daneLogowaniaForm.Size = new Size(153, 25);
-            daneLogowaniaForm.TabIndex = 37;
-            daneLogowaniaForm.Text = "Dane logowania:";
+            daneLogowaniaLabel.AutoSize = true;
+            daneLogowaniaLabel.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            daneLogowaniaLabel.Location = new Point(455, 247);
+            daneLogowaniaLabel.Name = "daneLogowaniaLabel";
+            daneLogowaniaLabel.Size = new Size(153, 25);
+            daneLogowaniaLabel.TabIndex = 37;
+            daneLogowaniaLabel.Text = "Dane logowania:";
             // 
             // loginLabel
             // 
@@ -371,41 +361,49 @@
             hasloLabel.TabIndex = 39;
             hasloLabel.Text = "Hasło:";
             // 
-            // textBox1
+            // loginValue
             // 
-            textBox1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox1.Location = new Point(543, 291);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(201, 27);
-            textBox1.TabIndex = 40;
+            loginValue.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            loginValue.Location = new Point(543, 291);
+            loginValue.Name = "loginValue";
+            loginValue.Size = new Size(201, 27);
+            loginValue.TabIndex = 40;
             // 
-            // textBox2
+            // hasloValue
             // 
-            textBox2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox2.Location = new Point(543, 332);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(201, 27);
-            textBox2.TabIndex = 41;
+            hasloValue.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            hasloValue.Location = new Point(543, 332);
+            hasloValue.Name = "hasloValue";
+            hasloValue.Size = new Size(201, 27);
+            hasloValue.TabIndex = 41;
             // 
-            // dodajPracownikaForm
+            // rodzajUmowyValue
+            // 
+            rodzajUmowyValue.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            rodzajUmowyValue.Location = new Point(639, 67);
+            rodzajUmowyValue.Name = "rodzajUmowyValue";
+            rodzajUmowyValue.Size = new Size(201, 27);
+            rodzajUmowyValue.TabIndex = 42;
+            // 
+            // DodajPracownikaForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(868, 524);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(rodzajUmowyValue);
+            Controls.Add(hasloValue);
+            Controls.Add(loginValue);
             Controls.Add(hasloLabel);
             Controls.Add(loginLabel);
-            Controls.Add(daneLogowaniaForm);
+            Controls.Add(daneLogowaniaLabel);
             Controls.Add(dataKoncaUmowyDateTimePicker);
             Controls.Add(dataZatrudnieniaDateTimePicker);
             Controls.Add(dataUrodzeniaDateTimePicker);
-            Controls.Add(rodzajUmowyComboBox);
             Controls.Add(pensjaValue);
             Controls.Add(przelozonyValue);
             Controls.Add(emailValue);
-            Controls.Add(dataKoncaUmowy);
+            Controls.Add(dataKoncaUmowyLabel);
             Controls.Add(dataZatrudnieniaLabel);
             Controls.Add(pensjaLabel);
             Controls.Add(rodzajUmowyLabel);
@@ -426,7 +424,7 @@
             Controls.Add(imieLabel);
             Controls.Add(zamknijButton);
             Controls.Add(dodajButton);
-            Name = "dodajPracownikaForm";
+            Name = "DodajPracownikaForm";
             Text = "Dodaj pracownika";
             Load += DodajPracownikaForm_Load;
             ResumeLayout(false);
@@ -455,18 +453,18 @@
         private Label rodzajUmowyLabel;
         private Label pensjaLabel;
         private Label dataZatrudnieniaLabel;
-        private Label dataKoncaUmowy;
+        private Label dataKoncaUmowyLabel;
         private TextBox emailValue;
         private TextBox przelozonyValue;
         private TextBox pensjaValue;
-        private ComboBox rodzajUmowyComboBox;
         private DateTimePicker dataUrodzeniaDateTimePicker;
         private DateTimePicker dataZatrudnieniaDateTimePicker;
         private DateTimePicker dataKoncaUmowyDateTimePicker;
-        private Label daneLogowaniaForm;
+        private Label daneLogowaniaLabel;
         private Label loginLabel;
         private Label hasloLabel;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox loginValue;
+        private TextBox hasloValue;
+        private TextBox rodzajUmowyValue;
     }
 }

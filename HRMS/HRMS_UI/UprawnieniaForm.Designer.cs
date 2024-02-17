@@ -131,6 +131,7 @@
             Controls.Add(pracownicyListBox);
             Name = "UprawnieniaForm";
             Text = "Uprawnienia";
+            Load += UprawnieniaForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }

@@ -20,3 +20,16 @@ C:\Gry\Inżynierka\HRMS\HRMS_UI\obj\Debug\net6.0-windows\HRMS_UI.ZadaniaForm.res
 C:\Gry\Inżynierka\HRMS\HRMS_UI\obj\Debug\net6.0-windows\HRMS_UI.UprawnieniaForm.resources
 C:\Gry\Inżynierka\HRMS\HRMS_UI\obj\Debug\net6.0-windows\HRMS_UI.DodajPracownikaForm.resources
 C:\Gry\Inżynierka\HRMS\HRMS_UI\obj\Debug\net6.0-windows\HRMS_UI.ZarzadzajFOrm.resources
+C:\Gry\Inżynierka\HRMS\HRMS_UI\bin\Debug\net6.0-windows\HRMS_Lib.dll
+C:\Gry\Inżynierka\HRMS\HRMS_UI\bin\Debug\net6.0-windows\HRMS_Lib.pdb
+C:\Gry\Inżynierka\HRMS\HRMS_UI\obj\Debug\net6.0-windows\HRMS_UI.csproj.CopyComplete
+C:\Gry\Inżynierka\HRMS\HRMS_UI\bin\Debug\net6.0-windows\HRMS_UI.dll.config
+C:\Gry\Inżynierka\HRMS\HRMS_UI\bin\Debug\net6.0-windows\Dapper.dll
+C:\Gry\Inżynierka\HRMS\HRMS_UI\bin\Debug\net6.0-windows\System.Configuration.ConfigurationManager.dll
+C:\Gry\Inżynierka\HRMS\HRMS_UI\bin\Debug\net6.0-windows\System.Security.Cryptography.ProtectedData.dll
+C:\Gry\Inżynierka\HRMS\HRMS_UI\bin\Debug\net6.0-windows\System.Data.SqlClient.dll
+C:\Gry\Inżynierka\HRMS\HRMS_UI\bin\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll
+C:\Gry\Inżynierka\HRMS\HRMS_UI\bin\Debug\net6.0-windows\runtimes\win-x64\native\sni.dll
+C:\Gry\Inżynierka\HRMS\HRMS_UI\bin\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
+C:\Gry\Inżynierka\HRMS\HRMS_UI\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Gry\Inżynierka\HRMS\HRMS_UI\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll

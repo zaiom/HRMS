@@ -8,6 +8,7 @@ namespace HRMS_Lib.Modele
 {
     public class WydzialModel
     {
+        public int idWydzialu { get; set; }
         public string Nazwa { get; set; }
         public int szefWydzialu { get; set; }
     }

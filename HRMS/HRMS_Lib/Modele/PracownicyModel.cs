@@ -8,6 +8,7 @@ namespace HRMS_Lib.Modele
 {
     public class PracownicyModel
     {
+        public int idPracownika { get; set; }
         public string Imie { get; set; }
         public string Nazwisko { get; set; }
         public string dataUrodzenia { get; set; }

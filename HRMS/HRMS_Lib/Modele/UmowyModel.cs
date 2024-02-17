@@ -8,9 +8,27 @@ namespace HRMS_Lib.Modele
 {
     public class UmowyModel
     {
+        public int idUmowy { get; set; }
         public string Rodzaj { get; set; }
         public decimal Pensja { get; set; }
-        public string dataZatrudnienia { get; set; }
-        public string dataKoncaUmowy { get; set; }
+        public DateTime DataZatrudnienia { get; set; }
+        public DateTime DataKoncaUmowy { get; set; }
+
+        public UmowyModel()
+        {
+
+        }
+
+        public UmowyModel(string rodzaj, string pensja, DateTime dataZatrudnienia, DateTime dataKoncaUmowy)
+        {
+            Rodzaj = rodzaj;
+
+            decimal pensjaValue = 0;
+            decimal.TryParse(pensja, out pensjaValue);
+            Pensja = pensjaValue;
+
+            DataZatrudnienia = dataZatrudnienia;
+            DataKoncaUmowy = dataKoncaUmowy;
+        }
     }
 }

@@ -9,6 +9,6 @@ namespace HRMS_Lib
 {
     public interface IDataConnection
     {
-        PracownicyModel DodajPracownika(PracownicyModel model);
+        UmowyModel DodajUmowe(UmowyModel model);
     }
 }

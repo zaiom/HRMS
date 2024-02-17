@@ -26,5 +26,10 @@ namespace HRMS_UI
         {
 
         }
+
+        private void UprawnieniaForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

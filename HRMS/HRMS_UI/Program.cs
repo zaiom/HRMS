@@ -11,7 +11,11 @@ namespace HRMS_UI
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new dodajPracownikaForm());
+
+            // Inicjuj po³¹czenie z baz¹ danych
+            HRMS_Lib.GlobalConfig.InitializeConnection();
+
+            Application.Run(new LogowanieForm());
         }
     }
 }

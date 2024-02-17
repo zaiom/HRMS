@@ -8,6 +8,7 @@ namespace HRMS_Lib.Modele
 {
     public class RolaModel
     {
+        public int idRoli { get; set; }
         public string Nazwa { get; set; }
         public string Opis { get; set; }
     }
