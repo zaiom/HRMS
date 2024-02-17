@@ -17,6 +17,18 @@ namespace HRMS_UI
         public DodajPracownikaForm()
         {
             InitializeComponent();
+            PopulateRodzajUmowyComboBox(); // Wywołanie metody do uzupełniania ComboBoxa
+        }
+
+        private void PopulateRodzajUmowyComboBox()
+        {
+            // Dodaj 3 umowy do ComboBoxa
+            rodzajUmowyComboBox.Items.Add("Umowa o pracę");
+            rodzajUmowyComboBox.Items.Add("Umowa o zlecenie");
+            rodzajUmowyComboBox.Items.Add("B2B");
+
+            // Domyślnie zaznacz pierwszą umowę
+            rodzajUmowyComboBox.SelectedIndex = 0;
         }
 
         private bool ValidateForm()
@@ -25,8 +37,14 @@ namespace HRMS_UI
 
             //Dane dotyczące umowy:
 
-            // walidacja textboxow rodzaj umowy i pensja. Jezeli nic tam nie zostalo wpisane, walidacja nie udaje sie.
-            if (rodzajUmowyValue.Text.Length == 0 || pensjaValue.Text.Length == 0)
+            //walidacja rodzaj umowy
+            if (rodzajUmowyComboBox.SelectedIndex == -1)
+            {
+                output = false;
+            }
+
+            //walidacja pensji
+            if (pensjaValue.Text.Length == 0)
             {
                 output = false;
             }
@@ -57,14 +75,14 @@ namespace HRMS_UI
             if (ValidateForm())
             {
                 UmowyModel model = new UmowyModel(
-                    rodzajUmowyValue.Text,
+                    rodzajUmowyComboBox.Text,
                     pensjaValue.Text,
                     dataZatrudnieniaDateTimePicker.Value,
                     dataKoncaUmowyDateTimePicker.Value);
 
                 GlobalConfig.Connection.DodajUmowe(model);
 
-                rodzajUmowyValue.Text = "";
+                rodzajUmowyComboBox.SelectedIndex = -1;
                 pensjaValue.Text = "";
                 dataZatrudnieniaDateTimePicker.Text = "";
                 dataKoncaUmowyDateTimePicker.Text = "";
@@ -75,7 +93,5 @@ namespace HRMS_UI
                 MessageBox.Show("Formularz posiada niepoprawne dane. Proszę poprawić je i spróbować ponownie.");
             }
         }
-
-        
     }
 }

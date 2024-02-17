@@ -28,9 +28,9 @@ namespace HRMS_Lib
                 model.idUmowy = p.Get<int>("@idUmowy");
 
                 return model;
-
-
             }
         }
+
+        
     }
 }

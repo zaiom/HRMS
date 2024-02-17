@@ -60,7 +60,7 @@
             hasloLabel = new Label();
             loginValue = new TextBox();
             hasloValue = new TextBox();
-            rodzajUmowyValue = new TextBox();
+            rodzajUmowyComboBox = new ComboBox();
             SuspendLayout();
             // 
             // dodajButton
@@ -377,13 +377,14 @@
             hasloValue.Size = new Size(201, 27);
             hasloValue.TabIndex = 41;
             // 
-            // rodzajUmowyValue
+            // rodzajUmowyComboBox
             // 
-            rodzajUmowyValue.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            rodzajUmowyValue.Location = new Point(639, 67);
-            rodzajUmowyValue.Name = "rodzajUmowyValue";
-            rodzajUmowyValue.Size = new Size(201, 27);
-            rodzajUmowyValue.TabIndex = 42;
+            rodzajUmowyComboBox.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            rodzajUmowyComboBox.FormattingEnabled = true;
+            rodzajUmowyComboBox.Location = new Point(639, 67);
+            rodzajUmowyComboBox.Name = "rodzajUmowyComboBox";
+            rodzajUmowyComboBox.Size = new Size(201, 28);
+            rodzajUmowyComboBox.TabIndex = 42;
             // 
             // DodajPracownikaForm
             // 
@@ -391,7 +392,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(868, 524);
-            Controls.Add(rodzajUmowyValue);
+            Controls.Add(rodzajUmowyComboBox);
             Controls.Add(hasloValue);
             Controls.Add(loginValue);
             Controls.Add(hasloLabel);
@@ -465,6 +466,6 @@
         private Label hasloLabel;
         private TextBox loginValue;
         private TextBox hasloValue;
-        private TextBox rodzajUmowyValue;
+        private ComboBox rodzajUmowyComboBox;
     }
 }
