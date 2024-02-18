@@ -30,6 +30,40 @@ namespace HRMS_Lib
             }
         }
 
+        public PracownicyModel DodajPracownika(PracownicyModel model)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("HRMS_DB")))
+            {
+                connection.Open();
+
+                // Pobierz ostatnie idUmowy z tabeli Umowy
+                string query = "SELECT TOP 1 idUmowy FROM Umowy ORDER BY idUmowy DESC;";
+                int umowaPracownikaId = connection.QueryFirstOrDefault<int>(query);
+
+                model.umowaPracownika = umowaPracownikaId;
+
+                var p = new DynamicParameters();
+                p.Add("@Imie", model.Imie);
+                p.Add("@Nazwisko", model.Nazwisko);
+                p.Add("dataUrodzenia", model.dataUrodzenia);
+                p.Add("Wydzial", model.Wydzial);
+                p.Add("Stanowisko", model.Stanowisko);
+                p.Add("Przelozony", model.Przelozony);
+                p.Add("umowaPracownika", model.umowaPracownika);
+                p.Add("numerKontaktowy", model.numerKontaktowy);
+                p.Add("email", model.email);
+                p.Add("Rola", model.Rola);
+                p.Add("idPracownika", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
+
+                connection.Execute("dbo.spPracownik_Dodaj", p, commandType: CommandType.StoredProcedure);
+
+                model.idPracownika = p.Get<int>("@idPracownika");
+
+                return model;
+            }
+        }
+
+
         public List<string> PobierzNazweWydzialu()
         {
             List<string> wydzialNames = new List<string>();
@@ -46,6 +80,23 @@ namespace HRMS_Lib
                 return wydzialNames;
             }
         }
+
+        public List<string> PobierzIdStanowiska()
+        {
+            List<string> stanowiskaIds = new List<string>();
+
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("HRMS_DB")))
+            {
+                connection.Open();
+
+                string query = "SELECT DISTINCT idStanowiska from Stanowisko;";
+
+                stanowiskaIds = connection.Query<string>(query).AsList();
+
+                return stanowiskaIds;
+            }
+        }
+
 
         public List<string> PobierzIdPrzelozonego()
         {
@@ -78,6 +129,5 @@ namespace HRMS_Lib
                 return rolaIds;
             }
         }
-
     }
 }

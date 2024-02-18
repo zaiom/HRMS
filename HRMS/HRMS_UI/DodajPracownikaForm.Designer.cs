@@ -61,6 +61,8 @@
             hasloValue = new TextBox();
             rodzajUmowyComboBox = new ComboBox();
             przelozonyComboBox = new ComboBox();
+            stanowiskoComboBox = new ComboBox();
+            stanowiskoLabel = new Label();
             SuspendLayout();
             // 
             // dodajButton
@@ -137,7 +139,7 @@
             // 
             rolaComboBox.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             rolaComboBox.FormattingEnabled = true;
-            rolaComboBox.Location = new Point(183, 354);
+            rolaComboBox.Location = new Point(183, 395);
             rolaComboBox.Name = "rolaComboBox";
             rolaComboBox.Size = new Size(201, 28);
             rolaComboBox.TabIndex = 12;
@@ -146,7 +148,7 @@
             // 
             przelozonyLabel.AutoSize = true;
             przelozonyLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            przelozonyLabel.Location = new Point(9, 236);
+            przelozonyLabel.Location = new Point(9, 275);
             przelozonyLabel.Name = "przelozonyLabel";
             przelozonyLabel.Size = new Size(168, 17);
             przelozonyLabel.TabIndex = 13;
@@ -156,7 +158,7 @@
             // 
             numerKontaktowyLabel.AutoSize = true;
             numerKontaktowyLabel.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            numerKontaktowyLabel.Location = new Point(40, 274);
+            numerKontaktowyLabel.Location = new Point(40, 313);
             numerKontaktowyLabel.Name = "numerKontaktowyLabel";
             numerKontaktowyLabel.Size = new Size(137, 20);
             numerKontaktowyLabel.TabIndex = 14;
@@ -166,7 +168,7 @@
             // 
             emailLabel.AutoSize = true;
             emailLabel.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            emailLabel.Location = new Point(40, 315);
+            emailLabel.Location = new Point(40, 354);
             emailLabel.Name = "emailLabel";
             emailLabel.Size = new Size(49, 20);
             emailLabel.TabIndex = 15;
@@ -176,7 +178,7 @@
             // 
             rolaLabel.AutoSize = true;
             rolaLabel.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            rolaLabel.Location = new Point(40, 356);
+            rolaLabel.Location = new Point(40, 395);
             rolaLabel.Name = "rolaLabel";
             rolaLabel.Size = new Size(42, 20);
             rolaLabel.TabIndex = 16;
@@ -188,7 +190,7 @@
             wydzialComboBox.FormattingEnabled = true;
             wydzialComboBox.Location = new Point(183, 190);
             wydzialComboBox.Name = "wydzialComboBox";
-            wydzialComboBox.Size = new Size(258, 28);
+            wydzialComboBox.Size = new Size(201, 28);
             wydzialComboBox.TabIndex = 17;
             // 
             // imieValue
@@ -222,7 +224,7 @@
             // numerKontaktowyValue
             // 
             numerKontaktowyValue.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            numerKontaktowyValue.Location = new Point(183, 272);
+            numerKontaktowyValue.Location = new Point(183, 313);
             numerKontaktowyValue.Name = "numerKontaktowyValue";
             numerKontaktowyValue.Size = new Size(201, 27);
             numerKontaktowyValue.TabIndex = 23;
@@ -278,7 +280,7 @@
             // emailValue
             // 
             emailValue.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            emailValue.Location = new Point(183, 313);
+            emailValue.Location = new Point(183, 354);
             emailValue.Name = "emailValue";
             emailValue.Size = new Size(201, 27);
             emailValue.TabIndex = 30;
@@ -383,10 +385,29 @@
             // 
             przelozonyComboBox.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             przelozonyComboBox.FormattingEnabled = true;
-            przelozonyComboBox.Location = new Point(183, 231);
+            przelozonyComboBox.Location = new Point(183, 272);
             przelozonyComboBox.Name = "przelozonyComboBox";
             przelozonyComboBox.Size = new Size(201, 28);
             przelozonyComboBox.TabIndex = 43;
+            // 
+            // stanowiskoComboBox
+            // 
+            stanowiskoComboBox.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            stanowiskoComboBox.FormattingEnabled = true;
+            stanowiskoComboBox.Location = new Point(183, 231);
+            stanowiskoComboBox.Name = "stanowiskoComboBox";
+            stanowiskoComboBox.Size = new Size(201, 28);
+            stanowiskoComboBox.TabIndex = 44;
+            // 
+            // stanowiskoLabel
+            // 
+            stanowiskoLabel.AutoSize = true;
+            stanowiskoLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            stanowiskoLabel.Location = new Point(40, 231);
+            stanowiskoLabel.Name = "stanowiskoLabel";
+            stanowiskoLabel.Size = new Size(92, 21);
+            stanowiskoLabel.TabIndex = 45;
+            stanowiskoLabel.Text = "Stanowisko:";
             // 
             // DodajPracownikaForm
             // 
@@ -394,6 +415,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(868, 524);
+            Controls.Add(stanowiskoLabel);
+            Controls.Add(stanowiskoComboBox);
             Controls.Add(przelozonyComboBox);
             Controls.Add(rodzajUmowyComboBox);
             Controls.Add(hasloValue);
@@ -469,5 +492,7 @@
         private TextBox hasloValue;
         private ComboBox rodzajUmowyComboBox;
         private ComboBox przelozonyComboBox;
+        private ComboBox stanowiskoComboBox;
+        private Label stanowiskoLabel;
     }
 }
