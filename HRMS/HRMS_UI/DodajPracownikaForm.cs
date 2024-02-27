@@ -142,11 +142,11 @@ namespace HRMS_UI
                 output = false;
             }
 
-            if (wydzialComboBox.Text != "1" && wydzialComboBox.Text != "2" && wydzialComboBox.Text != "3")
-            {
-                //MessageBox.Show("Wartość w polu Wydział jest niepoprawna. Proszę wybrać jedną z podanych opcji.");
-                output = false;
-            }
+            //if (wydzialComboBox.Text != "1" && wydzialComboBox.Text != "2" && wydzialComboBox.Text != "3")
+            //{
+            //    //MessageBox.Show("Wartość w polu Wydział jest niepoprawna. Proszę wybrać jedną z podanych opcji.");
+            //    output = false;
+            //}
 
             //walidacja stanowisko
 
@@ -192,11 +192,11 @@ namespace HRMS_UI
 
             //sprawdzenie, czy podany email posiada znak @
             int at = 0;
-            foreach (char ch in emailValue.Text) 
+            foreach (char ch in emailValue.Text)
             {
                 if (ch == '@')
                 {
-                    at +=1;
+                    at += 1;
                 }
             }
 
@@ -217,6 +217,10 @@ namespace HRMS_UI
                 //MessageBox.Show("Wartość w polu Stanowisko jest niepoprawna. Proszę wybrać jedną z podanych opcji.");
                 output = false;
             }
+
+            // Dane dotyczące logowania
+
+
 
             return output;
         }
@@ -244,7 +248,6 @@ namespace HRMS_UI
                 dataKoncaUmowyDateTimePicker.Text = "";
 
 
-                // sprawdzic czy wszystko sie zgadza
                 PracownicyModel model2 = new PracownicyModel(
                     imieValue.Text,
                     nazwiskoValue.Text,
@@ -268,6 +271,18 @@ namespace HRMS_UI
                 numerKontaktowyValue.Text = "";
                 emailValue.Text = "";
                 rolaComboBox.SelectedIndex = -1;
+
+
+                UzytkownicyModel model3 = new UzytkownicyModel(
+                    //model.idPracownika
+                    loginValue.Text,
+                    hasloValue.Text);
+
+                GlobalConfig.Connection.DodajDaneLogowania(model3);
+
+                loginValue.Text = "";
+                hasloValue.Text = "";
+
             }
             else
             {
