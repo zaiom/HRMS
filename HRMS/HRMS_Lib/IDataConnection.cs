@@ -13,7 +13,6 @@ namespace HRMS_Lib
         List<string> PobierzNazweWydzialu();
         List<string> PobierzIdStanowiska();
         List<string> PobierzIdPrzelozonego();
-
         List<string> PobierzIdRoli();
         UmowyModel DodajUmowe(UmowyModel model);
         PracownicyModel DodajPracownika(PracownicyModel model);

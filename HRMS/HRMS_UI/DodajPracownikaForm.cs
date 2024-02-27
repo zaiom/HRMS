@@ -18,7 +18,6 @@ namespace HRMS_UI
         {
             InitializeComponent();
             PopulateComboBoxes(); // Uzupełnia ComboBoxy w formularzu
-            //ZmianaNazwComboBox(); //Zamienia nazwy działów, stanowisk itp do numerów id poszczególnych dziedzin
         }
 
         private void PopulateComboBoxes()
@@ -50,15 +49,15 @@ namespace HRMS_UI
         //{
         //    // wydzial
 
-        //    if (wydzialComboBox.Text == "Wydział Rozwoju Oprogramowania")
+        //    if (wydzialComboBox.Text == "Wydzial Rozwoju Oprogramowania")
         //    {
         //        wydzialComboBox.Text = "1";
         //    }
-        //    else if (wydzialComboBox.Text == "Wydział Marketingu Cyfrowego")
+        //    else if (wydzialComboBox.Text == "Wydzial Marketingu Cyfrowego")
         //    {
         //        wydzialComboBox.Text = "2";
         //    }
-        //    else if (wydzialComboBox.Text == "Dział Finansowo-Księgowy")
+        //    else if (wydzialComboBox.Text == "Dzial Finansowo-Ksiegowy")
         //    {
         //        wydzialComboBox.Text = "3";
         //    }
@@ -142,11 +141,11 @@ namespace HRMS_UI
                 output = false;
             }
 
-            //if (wydzialComboBox.Text != "1" && wydzialComboBox.Text != "2" && wydzialComboBox.Text != "3")
-            //{
-            //    //MessageBox.Show("Wartość w polu Wydział jest niepoprawna. Proszę wybrać jedną z podanych opcji.");
-            //    output = false;
-            //}
+            if (wydzialComboBox.Text != "Wydzial Rozwoju Oprogramowania" && wydzialComboBox.Text != "Dzial Finansowo-Ksiegowy" && wydzialComboBox.Text != "Wydzial Marketingu Cyfrowego")
+            {
+                //MessageBox.Show("Wartość w polu Wydział jest niepoprawna. Proszę wybrać jedną z podanych opcji.");
+                output = false;
+            }
 
             //walidacja stanowisko
 
@@ -155,7 +154,7 @@ namespace HRMS_UI
                 output = false;
             }
 
-            if (stanowiskoComboBox.Text != "1" && stanowiskoComboBox.Text != "2" && stanowiskoComboBox.Text != "3")
+            if (stanowiskoComboBox.Text != "Prezes" && stanowiskoComboBox.Text != "Programista" && stanowiskoComboBox.Text != "Manager")
             {
                 //MessageBox.Show("Wartość w polu Stanowisko jest niepoprawna. Proszę wybrać jedną z podanych opcji.");
                 output = false;
@@ -212,7 +211,7 @@ namespace HRMS_UI
                 output = false;
             }
 
-            if (rolaComboBox.Text != "1" && rolaComboBox.Text != "2" && rolaComboBox.Text != "3")
+            if (rolaComboBox.Text != "Administrator" && rolaComboBox.Text != "Moderator" && rolaComboBox.Text != "Użytkownik")
             {
                 //MessageBox.Show("Wartość w polu Stanowisko jest niepoprawna. Proszę wybrać jedną z podanych opcji.");
                 output = false;
@@ -248,17 +247,72 @@ namespace HRMS_UI
                 dataKoncaUmowyDateTimePicker.Text = "";
 
 
+                //zamiana nazwy wydzialu, stanowiska i roli, na odpowiedniki ich identyfikatorow z bazy
+                int wydzialId = 0;
+                switch (wydzialComboBox.Text)
+                {
+                    case "Wydzial Rozwoju Oprogramowania":
+                        wydzialId = 1;
+                        break;
+                    case "Wydzial Marketingu Cyfrowego":
+                        wydzialId = 2;
+                        break;
+                    case "Dzial Finansowo-Ksiegowy":
+                        wydzialId = 3;
+                        break;
+                    default:
+                        wydzialId = 0;
+                        break;
+                }
+
+                int stanowiskoId = 0;
+                switch (stanowiskoComboBox.Text)
+                {
+                    case "Prezes":
+                        stanowiskoId = 1;
+                        break;
+                    case "Programista":
+                        stanowiskoId = 2;
+                        break;
+                    case "Manager":
+                        stanowiskoId = 3;
+                        break;
+                    default:
+                        stanowiskoId = 0;
+                        break;
+                }
+
+                int rolaId = 0;
+                switch (rolaComboBox.Text)
+                {
+                    case "Administrator":
+                        rolaId = 1;
+                        break;
+                    case "Moderator":
+                        rolaId = 2;
+                        break;
+                    case "Użytkownik":
+                        rolaId = 3;
+                        break;
+                    default:
+                        rolaId = 0;
+                        break;
+                }
+
                 PracownicyModel model2 = new PracownicyModel(
                     imieValue.Text,
                     nazwiskoValue.Text,
                     dataUrodzeniaDateTimePicker.Value,
-                    wydzialComboBox.Text,
-                    stanowiskoComboBox.Text,
+                    //wydzialComboBox.Text,
+                    wydzialId.ToString(),
+                    //stanowiskoComboBox.Text,
+                    stanowiskoId.ToString(),
                     przelozonyComboBox.Text,
                     //model.idUmowy,
                     numerKontaktowyValue.Text,
                     emailValue.Text,
-                    rolaComboBox.Text);
+                    //rolaComboBox.Text);
+                    rolaId.ToString());
 
                 GlobalConfig.Connection.DodajPracownika(model2);
 

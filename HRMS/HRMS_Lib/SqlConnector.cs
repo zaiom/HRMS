@@ -129,7 +129,8 @@ namespace HRMS_Lib
             {
                 connection.Open();
 
-                string query = "SELECT DISTINCT idStanowiska from Stanowisko;";
+                //string query = "SELECT DISTINCT idStanowiska from Stanowisko;";
+                string query = "SELECT DISTINCT Nazwa FROM Stanowisko;";
 
                 stanowiskaIds = connection.Query<string>(query).AsList();
 
@@ -162,7 +163,8 @@ namespace HRMS_Lib
             {
                 connection.Open();
 
-                string query = "SELECT DISTINCT idRoli from Rola;";
+                //string query = "SELECT DISTINCT idRoli from Rola;";
+                string query = "SELECT DISTINCT Nazwa FROM Rola;";
 
                 rolaIds = connection.Query<string>(query).AsList();
 
