@@ -190,7 +190,7 @@
             wydzialComboBox.FormattingEnabled = true;
             wydzialComboBox.Location = new Point(183, 190);
             wydzialComboBox.Name = "wydzialComboBox";
-            wydzialComboBox.Size = new Size(201, 28);
+            wydzialComboBox.Size = new Size(250, 28);
             wydzialComboBox.TabIndex = 17;
             // 
             // imieValue

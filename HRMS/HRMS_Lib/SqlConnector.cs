@@ -78,6 +78,22 @@ namespace HRMS_Lib
                 return builder.ToString();
             }
         }
+
+        public List<string> PobierzLoginy()
+        {
+            List<string> loginy = new List<string>();
+
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("HRMS_DB")))
+            {
+                connection.Open();
+
+                string query = "SELECT DISTINCT Login from Uzytkownicy;"; // Zapytanie SQL pobierające unikalne loginy
+
+                loginy = connection.Query<string>(query).AsList();
+
+                return loginy;
+            }
+        }
         public UzytkownicyModel DodajDaneLogowania(UzytkownicyModel model)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("HRMS_DB")))
@@ -113,7 +129,8 @@ namespace HRMS_Lib
                 connection.Open();
 
                 //string query = "SELECT DISTINCT idWydzialu from Wydzial;"; // Zapytanie SQL pobierające unikalne id wydziałów
-                string query = "SELECT DISTINCT Nazwa FROM Wydzial;"; // Zapytanie SQL pobierające unikalne nazwy wydziałów
+                //string query = "SELECT DISTINCT Nazwa FROM Wydzial;"; // Zapytanie SQL pobierające unikalne nazwy wydziałów
+                string query = "SELECT Nazwa FROM Wydzial ORDER BY idWydzialu;";
 
                 wydzialNames = connection.Query<string>(query).AsList();
 
@@ -121,7 +138,7 @@ namespace HRMS_Lib
             }
         }
 
-        public List<string> PobierzIdStanowiska()
+        public List<string> PobierzNazweStanowiska()
         {
             List<string> stanowiskaIds = new List<string>();
 
@@ -130,7 +147,8 @@ namespace HRMS_Lib
                 connection.Open();
 
                 //string query = "SELECT DISTINCT idStanowiska from Stanowisko;";
-                string query = "SELECT DISTINCT Nazwa FROM Stanowisko;";
+                //string query = "SELECT DISTINCT Nazwa FROM Stanowisko;";
+                string query = "SELECT Nazwa FROM Stanowisko ORDER BY idStanowiska;";
 
                 stanowiskaIds = connection.Query<string>(query).AsList();
 
@@ -155,7 +173,7 @@ namespace HRMS_Lib
             }
         }
 
-        public List<string> PobierzIdRoli()
+        public List<string> PobierzNazweRoli()
         {
             List<string> rolaIds = new List<string>();
 
@@ -164,7 +182,8 @@ namespace HRMS_Lib
                 connection.Open();
 
                 //string query = "SELECT DISTINCT idRoli from Rola;";
-                string query = "SELECT DISTINCT Nazwa FROM Rola;";
+                //string query = "SELECT DISTINCT Nazwa FROM Rola;";
+                string query = "SELECT Nazwa FROM Rola ORDER BY idRoli;";
 
                 rolaIds = connection.Query<string>(query).AsList();
 

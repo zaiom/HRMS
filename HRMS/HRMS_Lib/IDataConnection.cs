@@ -11,11 +11,12 @@ namespace HRMS_Lib
     {
         //Metody do DodajPracownikaForm
         List<string> PobierzNazweWydzialu();
-        List<string> PobierzIdStanowiska();
+        List<string> PobierzNazweStanowiska();
         List<string> PobierzIdPrzelozonego();
-        List<string> PobierzIdRoli();
+        List<string> PobierzNazweRoli();
         UmowyModel DodajUmowe(UmowyModel model);
         PracownicyModel DodajPracownika(PracownicyModel model);
+        List<string> PobierzLoginy();
         string HashPassword(string password);
         UzytkownicyModel DodajDaneLogowania(UzytkownicyModel model);
 

@@ -6,7 +6,9 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -26,13 +28,13 @@ namespace HRMS_UI
             wydzialComboBox.Items.AddRange(GlobalConfig.Connection.PobierzNazweWydzialu().ToArray());
 
             //Stanowisko
-            stanowiskoComboBox.Items.AddRange(GlobalConfig.Connection.PobierzIdStanowiska().ToArray());
+            stanowiskoComboBox.Items.AddRange(GlobalConfig.Connection.PobierzNazweStanowiska().ToArray());
 
             //Przelozony
             przelozonyComboBox.Items.AddRange(GlobalConfig.Connection.PobierzIdPrzelozonego().ToArray());
 
             //Rola
-            rolaComboBox.Items.AddRange(GlobalConfig.Connection.PobierzIdRoli().ToArray());
+            rolaComboBox.Items.AddRange(GlobalConfig.Connection.PobierzNazweRoli().ToArray());
 
             //Rodzaj umowy:
             // Dodaj 3 umowy do ComboBoxa
@@ -217,8 +219,56 @@ namespace HRMS_UI
                 output = false;
             }
 
+
             // Dane dotyczące logowania
 
+            //login
+            if (loginValue.Text.Length <= 3)
+            {
+                MessageBox.Show("Login powinien zawierać minimum 3 znaki.");
+                output = false;
+            }
+
+            // sprawdz, czy istnieje już podany w formularzu login w bazie
+            //bool loginExists = false;
+            List<string> logins = new List<string>();
+            logins = GlobalConfig.Connection.PobierzLoginy();
+
+            foreach (string login in logins)
+            {
+                if (login == loginValue.Text)
+                {
+                    MessageBox.Show("Podany login już istnieje.");
+                    output = false;  
+                    break;
+                }
+            }
+
+            //haslo
+            if (hasloValue.Text.Length < 8)
+            {
+                output = false;
+            }
+            else if (!Regex.IsMatch(hasloValue.Text, @"\d"))
+            {
+                MessageBox.Show("Hasło powinno zawierać od 8 do 16 znaków, posiadać liczbę, znak specjalny, małą i dużą literę.");
+                output = false;
+            }
+            else if (!Regex.IsMatch(hasloValue.Text, @"[!@#$%^&*(),.?:{ }|<>]"))
+            {
+                MessageBox.Show("Hasło powinno zawierać od 8 do 16 znaków, posiadać liczbę, znak specjalny, małą i dużą literę.");
+                output = false;
+            }
+            else if (!Regex.IsMatch(hasloValue.Text, @"[a-z]"))
+            {
+                MessageBox.Show("Hasło powinno zawierać od 8 do 16 znaków, posiadać liczbę, znak specjalny, małą i dużą literę.");
+                output = false;
+            }
+            else if (!Regex.IsMatch(hasloValue.Text, @"[A-Z]"))
+            {
+                MessageBox.Show("Hasło powinno zawierać od 8 do 16 znaków, posiadać liczbę, znak specjalny, małą i dużą literę.");
+                output = false;
+            }
 
 
             return output;
