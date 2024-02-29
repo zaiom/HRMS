@@ -17,6 +17,7 @@ namespace HRMS_Lib
         UmowyModel DodajUmowe(UmowyModel model);
         PracownicyModel DodajPracownika(PracownicyModel model);
         List<string> PobierzLoginy();
+        string PobierzHaslo(string login);
         string HashPassword(string password);
         UzytkownicyModel DodajDaneLogowania(UzytkownicyModel model);
 

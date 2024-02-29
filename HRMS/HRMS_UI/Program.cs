@@ -15,7 +15,7 @@ namespace HRMS_UI
             // Inicjuj po³¹czenie z baz¹ danych
             HRMS_Lib.GlobalConfig.InitializeConnection();
 
-            Application.Run(new DodajPracownikaForm());
+            Application.Run(new LogowanieForm());
         }
     }
 }

@@ -94,6 +94,24 @@ namespace HRMS_Lib
                 return loginy;
             }
         }
+
+        public string PobierzHaslo(string login)
+        {
+            string haslo = "";
+
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("HRMS_DB")))
+            {
+                connection.Open();
+
+                string query = $"select haslo from Uzytkownicy where login='{login}';"; // Zapytanie SQL pobierające haslo o podanym loginie
+
+                var result = connection.Query<string>(query).AsList();
+
+                haslo = string.Join(",", result);
+
+                return haslo;
+            }
+        }
         public UzytkownicyModel DodajDaneLogowania(UzytkownicyModel model)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("HRMS_DB")))
@@ -105,7 +123,7 @@ namespace HRMS_Lib
                 int pracownikId = connection.QueryFirstOrDefault<int>(query);
 
                 model.idPracownika = pracownikId;
-                model.Haslo = "HASHBYTES('SHA2_256', '" + model.Haslo + "')";
+                //model.Haslo = "HASHBYTES('SHA2_256', '" + model.Haslo + "')";
 
                 var p = new DynamicParameters();
                 p.Add("@idPracownika", model.idPracownika);
