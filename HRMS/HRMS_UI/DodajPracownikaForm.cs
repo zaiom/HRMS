@@ -393,7 +393,7 @@ namespace HRMS_UI
 
         private void zamknijButton_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
         }
 
         // keybindowanie przyciskow

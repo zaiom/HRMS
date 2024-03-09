@@ -49,6 +49,7 @@ namespace HRMS_UI
                             MenuForm menuForm = new MenuForm();
                             menuForm.Show();
                             foundMatchingLogin = true;
+                            this.Hide();
                             break;
                         }
                     }
