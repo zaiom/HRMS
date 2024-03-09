@@ -100,6 +100,7 @@
             Controls.Add(loginLabel);
             Name = "LogowanieForm";
             Text = "Logowanie";
+            KeyDown += LogowanieForm_KeyDown;
             ResumeLayout(false);
             PerformLayout();
         }

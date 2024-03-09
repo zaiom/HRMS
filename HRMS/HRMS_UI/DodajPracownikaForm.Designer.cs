@@ -452,7 +452,7 @@
             Controls.Add(dodajButton);
             Name = "DodajPracownikaForm";
             Text = "Dodaj pracownika";
-            Load += DodajPracownikaForm_Load;
+            KeyDown += DodajPracownikaForm_KeyDown;
             ResumeLayout(false);
             PerformLayout();
         }

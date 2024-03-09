@@ -20,6 +20,7 @@ namespace HRMS_UI
         {
             InitializeComponent();
             PopulateComboBoxes(); // Uzupełnia ComboBoxy w formularzu
+            KeyPreview = true;      // do keybindow, pozwala formularzowi na przechwytywanie wszystkich klawiszy przez uzytkownika, niezaleznie gdzie znajduje sie focus
         }
 
         private void PopulateComboBoxes()
@@ -225,7 +226,7 @@ namespace HRMS_UI
             //login
             if (loginValue.Text.Length <= 3)
             {
-                MessageBox.Show("Login powinien zawierać minimum 3 znaki.");
+                MessageBox.Show("Login powinien zawierać minimum 3 znaki.", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 output = false;
             }
 
@@ -238,8 +239,8 @@ namespace HRMS_UI
             {
                 if (login == loginValue.Text)
                 {
-                    MessageBox.Show("Podany login już istnieje.");
-                    output = false;  
+                    MessageBox.Show("Podany login już istnieje.", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    output = false;
                     break;
                 }
             }
@@ -251,32 +252,27 @@ namespace HRMS_UI
             }
             else if (!Regex.IsMatch(hasloValue.Text, @"\d"))
             {
-                MessageBox.Show("Hasło powinno zawierać od 8 do 16 znaków, posiadać liczbę, znak specjalny, małą i dużą literę.");
+                MessageBox.Show("Hasło powinno zawierać od 8 do 16 znaków, posiadać liczbę, znak specjalny, małą i dużą literę.", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 output = false;
             }
             else if (!Regex.IsMatch(hasloValue.Text, @"[!@#$%^&*(),.?:{ }|<>]"))
             {
-                MessageBox.Show("Hasło powinno zawierać od 8 do 16 znaków, posiadać liczbę, znak specjalny, małą i dużą literę.");
+                MessageBox.Show("Hasło powinno zawierać od 8 do 16 znaków, posiadać liczbę, znak specjalny, małą i dużą literę.", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 output = false;
             }
             else if (!Regex.IsMatch(hasloValue.Text, @"[a-z]"))
             {
-                MessageBox.Show("Hasło powinno zawierać od 8 do 16 znaków, posiadać liczbę, znak specjalny, małą i dużą literę.");
+                MessageBox.Show("Hasło powinno zawierać od 8 do 16 znaków, posiadać liczbę, znak specjalny, małą i dużą literę.", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 output = false;
             }
             else if (!Regex.IsMatch(hasloValue.Text, @"[A-Z]"))
             {
-                MessageBox.Show("Hasło powinno zawierać od 8 do 16 znaków, posiadać liczbę, znak specjalny, małą i dużą literę.");
+                MessageBox.Show("Hasło powinno zawierać od 8 do 16 znaków, posiadać liczbę, znak specjalny, małą i dużą literę.", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 output = false;
             }
 
 
             return output;
-        }
-
-        private void DodajPracownikaForm_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void dodajButton_Click(object sender, EventArgs e)
@@ -387,16 +383,31 @@ namespace HRMS_UI
                 loginValue.Text = "";
                 hasloValue.Text = "";
 
+                MessageBox.Show("Zapisano dane poprawnie.", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("Formularz posiada niepoprawne dane. Proszę poprawić je i spróbować ponownie.");
+                MessageBox.Show("Formularz posiada niepoprawne dane. Proszę poprawić je i spróbować ponownie.", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
         private void zamknijButton_Click(object sender, EventArgs e)
         {
 
+        }
+
+        // keybindowanie przyciskow
+        private void DodajPracownikaForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                dodajButton.PerformClick();
+            }
+
+            if (e.KeyCode == Keys.Escape)
+            {
+                zamknijButton.PerformClick();
+            }
         }
     }
 }
