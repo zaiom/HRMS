@@ -32,6 +32,10 @@
             zadaniaButton = new Button();
             zarzadzajButton = new Button();
             menuLabel = new Label();
+            menuStrip = new MenuStrip();
+            idPracownikaToolStripMenuItem = new ToolStripMenuItem();
+            wylogujToolStripMenuItem = new ToolStripMenuItem();
+            menuStrip.SuspendLayout();
             SuspendLayout();
             // 
             // uprawnieniaButton
@@ -42,12 +46,13 @@
             uprawnieniaButton.FlatAppearance.MouseOverBackColor = Color.WhiteSmoke;
             uprawnieniaButton.FlatStyle = FlatStyle.Flat;
             uprawnieniaButton.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point);
-            uprawnieniaButton.Location = new Point(49, 102);
+            uprawnieniaButton.Location = new Point(105, 120);
             uprawnieniaButton.Name = "uprawnieniaButton";
-            uprawnieniaButton.Size = new Size(367, 80);
+            uprawnieniaButton.Size = new Size(370, 80);
             uprawnieniaButton.TabIndex = 0;
             uprawnieniaButton.Text = "Uprawnienia";
             uprawnieniaButton.UseVisualStyleBackColor = true;
+            uprawnieniaButton.Click += uprawnieniaButton_Click;
             // 
             // zadaniaButton
             // 
@@ -57,13 +62,13 @@
             zadaniaButton.FlatAppearance.MouseOverBackColor = Color.WhiteSmoke;
             zadaniaButton.FlatStyle = FlatStyle.Flat;
             zadaniaButton.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            zadaniaButton.Location = new Point(49, 217);
+            zadaniaButton.Location = new Point(105, 230);
             zadaniaButton.Name = "zadaniaButton";
-            zadaniaButton.Size = new Size(367, 80);
+            zadaniaButton.Size = new Size(370, 80);
             zadaniaButton.TabIndex = 1;
             zadaniaButton.Text = "Zadania";
             zadaniaButton.UseVisualStyleBackColor = true;
-            zadaniaButton.Click += button2_Click;
+            zadaniaButton.Click += zadaniaButton_Click;
             // 
             // zarzadzajButton
             // 
@@ -73,37 +78,64 @@
             zarzadzajButton.FlatAppearance.MouseOverBackColor = Color.WhiteSmoke;
             zarzadzajButton.FlatStyle = FlatStyle.Flat;
             zarzadzajButton.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            zarzadzajButton.Location = new Point(49, 332);
+            zarzadzajButton.Location = new Point(105, 340);
             zarzadzajButton.Name = "zarzadzajButton";
-            zarzadzajButton.Size = new Size(367, 80);
+            zarzadzajButton.Size = new Size(370, 80);
             zarzadzajButton.TabIndex = 2;
             zarzadzajButton.Text = "Zarządzaj";
             zarzadzajButton.UseVisualStyleBackColor = true;
+            zarzadzajButton.Click += zarzadzajButton_Click;
             // 
             // menuLabel
             // 
             menuLabel.AutoSize = true;
             menuLabel.Font = new Font("Segoe UI Semibold", 21.75F, FontStyle.Bold, GraphicsUnit.Point);
-            menuLabel.Location = new Point(188, 32);
+            menuLabel.Location = new Point(245, 37);
             menuLabel.Name = "menuLabel";
             menuLabel.Size = new Size(93, 40);
             menuLabel.TabIndex = 3;
             menuLabel.Text = "Menu";
-            menuLabel.Click += menuLabel_Click;
+            // 
+            // menuStrip
+            // 
+            menuStrip.BackColor = Color.White;
+            menuStrip.Items.AddRange(new ToolStripItem[] { idPracownikaToolStripMenuItem });
+            menuStrip.Location = new Point(0, 0);
+            menuStrip.Name = "menuStrip";
+            menuStrip.Size = new Size(564, 28);
+            menuStrip.TabIndex = 4;
+            // 
+            // idPracownikaToolStripMenuItem
+            // 
+            idPracownikaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { wylogujToolStripMenuItem });
+            idPracownikaToolStripMenuItem.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            idPracownikaToolStripMenuItem.ForeColor = Color.LightSeaGreen;
+            idPracownikaToolStripMenuItem.Name = "idPracownikaToolStripMenuItem";
+            idPracownikaToolStripMenuItem.Size = new Size(134, 24);
+            idPracownikaToolStripMenuItem.Text = "<idPracownika>";
+            // 
+            // wylogujToolStripMenuItem
+            // 
+            wylogujToolStripMenuItem.Name = "wylogujToolStripMenuItem";
+            wylogujToolStripMenuItem.Size = new Size(180, 24);
+            wylogujToolStripMenuItem.Text = "Wyloguj";
+            wylogujToolStripMenuItem.Click += wylogujToolStripMenuItem_Click;
             // 
             // MenuForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(474, 425);
+            ClientSize = new Size(564, 466);
             Controls.Add(menuLabel);
             Controls.Add(zarzadzajButton);
             Controls.Add(zadaniaButton);
             Controls.Add(uprawnieniaButton);
+            Controls.Add(menuStrip);
             Name = "MenuForm";
             Text = "Menu";
-            Load += MenuForm_Load;
+            menuStrip.ResumeLayout(false);
+            menuStrip.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -114,5 +146,8 @@
         private Button zadaniaButton;
         private Button zarzadzajButton;
         private Label menuLabel;
+        private MenuStrip menuStrip;
+        private ToolStripMenuItem idPracownikaToolStripMenuItem;
+        private ToolStripMenuItem wylogujToolStripMenuItem;
     }
 }

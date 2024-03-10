@@ -95,6 +95,22 @@ namespace HRMS_Lib
             }
         }
 
+        public int PobierzId(string login)
+        {
+            int id = 0;
+
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("HRMS_DB")))
+            {
+                connection.Open();
+
+                string query = $"select idPracownika from Uzytkownicy where login='{login}';"; // Zapytanie SQL pobierające idPracownika o podanym loginie
+
+                id = connection.QueryFirstOrDefault<int>(query);
+
+                return id;
+            }
+        }
+
         public string PobierzHaslo(string login)
         {
             string haslo = "";

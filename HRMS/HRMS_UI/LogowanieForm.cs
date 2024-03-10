@@ -1,4 +1,5 @@
 using HRMS_Lib;
+using HRMS_Lib.Modele;
 using Microsoft.VisualBasic.Logging;
 using System.Text.RegularExpressions;
 
@@ -45,6 +46,9 @@ namespace HRMS_UI
                         string matchingDB = GlobalConfig.Connection.PobierzHaslo(login);                               // selectuje z bazy has³o, o loginie podanym w textboxie
                         if (givenPassword == matchingDB)
                         {
+                            // Przypisanie ID zalogowanego u¿ytkownika do zmiennej globalnej
+                            GlobalData.LoggedUserId = GlobalConfig.Connection.PobierzId(login);
+
                             // przejdz na nastepne okno, zamknij okno logowania i zapamietaj uzytkownika
                             MenuForm menuForm = new MenuForm();
                             menuForm.Show();
