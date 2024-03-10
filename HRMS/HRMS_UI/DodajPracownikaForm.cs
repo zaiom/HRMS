@@ -393,7 +393,18 @@ namespace HRMS_UI
 
         private void zamknijButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            ZarzadzajForm existingZarzadzajForm = Application.OpenForms.OfType<ZarzadzajForm>().FirstOrDefault();
+
+            if (existingZarzadzajForm != null)
+            {
+                existingZarzadzajForm.Activate();
+            }
+            else
+            {
+                ZarzadzajForm zarzadzajForm = new ZarzadzajForm();
+                zarzadzajForm.Show();
+            }
+            this.Close();
         }
 
         // keybindowanie przyciskow

@@ -21,5 +21,45 @@ namespace HRMS_UI
         {
 
         }
+
+        private void dodajButton_Click(object sender, EventArgs e)
+        {
+            DodajPracownikaForm existingDodajPracownikaForm = Application.OpenForms.OfType<DodajPracownikaForm>().FirstOrDefault();
+
+            if (existingDodajPracownikaForm != null)
+            {
+                existingDodajPracownikaForm.Activate();
+            }
+            else
+            {
+                DodajPracownikaForm dodajPracownikaForm = new DodajPracownikaForm();
+                dodajPracownikaForm.Show();
+            }
+            this.Close();
+        }
+
+        private void zamknijButton_Click(object sender, EventArgs e)
+        {
+            MenuForm existingMenuForm = Application.OpenForms.OfType<MenuForm>().FirstOrDefault();
+
+            if (existingMenuForm != null)
+            {
+                existingMenuForm.Activate();
+            }
+            else
+            {
+                MenuForm menuForm = new MenuForm();
+                menuForm.Show();
+            }
+            this.Close();
+        }
+
+        private void ZarzadzajForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                zamknijButton.PerformClick();
+            }
+        }
     }
 }

@@ -59,6 +59,7 @@
             zamknijButton.TabIndex = 2;
             zamknijButton.Text = "Zamknij";
             zamknijButton.UseVisualStyleBackColor = true;
+            zamknijButton.Click += zamknijButton_Click;
             // 
             // pracownikInfoLabel
             // 
@@ -82,6 +83,7 @@
             dodajButton.TabIndex = 4;
             dodajButton.Text = "Dodaj";
             dodajButton.UseVisualStyleBackColor = true;
+            dodajButton.Click += dodajButton_Click;
             // 
             // modyfikujButton
             // 
@@ -124,6 +126,7 @@
             Controls.Add(listaPracownikowListBox);
             Name = "ZarzadzajForm";
             Text = "Zarządzaj";
+            KeyDown += ZarzadzajForm_KeyDown;
             ResumeLayout(false);
             PerformLayout();
         }

@@ -57,8 +57,15 @@ namespace HRMS_UI
         private void zarzadzajButton_Click(object sender, EventArgs e)
         {
             ZarzadzajForm existingZarzadzajForm = Application.OpenForms.OfType<ZarzadzajForm>().FirstOrDefault();
+            DodajPracownikaForm existingDodajPracownikaForm = Application.OpenForms.OfType<DodajPracownikaForm>().FirstOrDefault();
 
-            if (GlobalData.LoggedUserRole == 1 || GlobalData.LoggedUserRole == 2)
+            if (existingDodajPracownikaForm != null)
+            {
+                MessageBox.Show("Zamknij okno Dodaj Pracownika, żeby przejść do Zarządzaj.", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return;
+            }
+
+                if (GlobalData.LoggedUserRole == 1 || GlobalData.LoggedUserRole == 2)
             {
                 if (existingZarzadzajForm != null)
                 {

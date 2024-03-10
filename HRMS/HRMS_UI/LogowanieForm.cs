@@ -48,11 +48,20 @@ namespace HRMS_UI
                             GlobalData.LoggedUserRole = GlobalConfig.Connection.PobierzIdRoli(GlobalData.LoggedUserId);             // przypisanie roli zalogowanego uzytkownika do zmiennej globalnej
                                                                                                                                     // po jego id
 
-                            // przejdz na nastepne okno, zamknij okno logowania i zapamietaj uzytkownika
-                            MenuForm menuForm = new MenuForm();
-                            menuForm.Show();
+                            // przejdz na nastepne okno, zamknij okno logowania
+                            MenuForm existingMenuForm = Application.OpenForms.OfType<MenuForm>().FirstOrDefault();
+
+                            if (existingMenuForm != null)
+                            {
+                                existingMenuForm.Activate();
+                            }
+                            else
+                            {
+                                MenuForm menuForm = new MenuForm();
+                                menuForm.Show();
+                            }
                             foundMatchingLogin = true;
-                            this.Hide();
+                            this.Close();
                             break;
                         }
                     }
