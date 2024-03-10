@@ -16,12 +16,11 @@ namespace HRMS_Lib
         List<string> PobierzNazweRoli();
         UmowyModel DodajUmowe(UmowyModel model);
         PracownicyModel DodajPracownika(PracownicyModel model);
+        UzytkownicyModel DodajDaneLogowania(UzytkownicyModel model);
         List<string> PobierzLoginy();
         int PobierzId(string login);
         string PobierzHaslo(string login);
         string HashPassword(string password);
-        UzytkownicyModel DodajDaneLogowania(UzytkownicyModel model);
-
-        
+        int PobierzIdRoli(int idPracownika);
     }
 }

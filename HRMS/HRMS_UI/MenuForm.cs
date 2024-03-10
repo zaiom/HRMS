@@ -13,10 +13,12 @@ namespace HRMS_UI
 {
     public partial class MenuForm : Form
     {
+        //private int loggedUserRole = GlobalData.LoggedUserRole;
         public MenuForm()
         {
             InitializeComponent();
-            idPracownikaToolStripMenuItem.Text = GlobalData.LoggedUserId.ToString();
+            idPracownikaToolStripMenuItem.Text = GlobalData.LoggedUserId.ToString();                            // powoduje, ze w menuform w lewym gornym rogu wyswietla sie id aktualnie zalogowanego
+                                                                                                                // pracownika
         }
 
         private void uprawnieniaButton_Click(object sender, EventArgs e)
@@ -56,14 +58,22 @@ namespace HRMS_UI
         {
             ZarzadzajForm existingZarzadzajForm = Application.OpenForms.OfType<ZarzadzajForm>().FirstOrDefault();
 
-            if (existingZarzadzajForm != null)
+            if (GlobalData.LoggedUserRole == 1 || GlobalData.LoggedUserRole == 2)
             {
-                existingZarzadzajForm.Activate();
+                if (existingZarzadzajForm != null)
+                {
+                    existingZarzadzajForm.Activate();
+                }
+                else
+                {
+                    ZarzadzajForm zarzadzajForm = new ZarzadzajForm();
+                    zarzadzajForm.Show();
+                }
             }
             else
             {
-                ZarzadzajForm zarzadzajForm = new ZarzadzajForm();
-                zarzadzajForm.Show();
+                MessageBox.Show("Nie posiadasz odpowiednich uprawnień, żeby skorzystać z tej usługi. Skontaktuj się z Administratorem, żeby nadał Ci wyższą rolę w systemie.",
+                                "Błąd uprawnień", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
         }
 

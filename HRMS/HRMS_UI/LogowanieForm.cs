@@ -7,8 +7,6 @@ namespace HRMS_UI
 {
     public partial class LogowanieForm : Form
     {
-        // tutaj dodac zmienna o typie danych np. PracownicyModel / UzytkownicyModel i po zalogowaniu sie uzupelnialo by jej dane??
-
         public LogowanieForm()
         {
             InitializeComponent();
@@ -46,8 +44,9 @@ namespace HRMS_UI
                         string matchingDB = GlobalConfig.Connection.PobierzHaslo(login);                               // selectuje z bazy has³o, o loginie podanym w textboxie
                         if (givenPassword == matchingDB)
                         {
-                            // Przypisanie ID zalogowanego u¿ytkownika do zmiennej globalnej
-                            GlobalData.LoggedUserId = GlobalConfig.Connection.PobierzId(login);
+                            GlobalData.LoggedUserId = GlobalConfig.Connection.PobierzId(login);                                     // Przypisanie ID zalogowanego u¿ytkownika do zmiennej globalnej
+                            GlobalData.LoggedUserRole = GlobalConfig.Connection.PobierzIdRoli(GlobalData.LoggedUserId);             // przypisanie roli zalogowanego uzytkownika do zmiennej globalnej
+                                                                                                                                    // po jego id
 
                             // przejdz na nastepne okno, zamknij okno logowania i zapamietaj uzytkownika
                             MenuForm menuForm = new MenuForm();

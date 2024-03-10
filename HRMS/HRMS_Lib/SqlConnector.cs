@@ -224,5 +224,22 @@ namespace HRMS_Lib
                 return rolaIds;
             }
         }
+
+        public int PobierzIdRoli(int idPracownika)
+        {
+            int id = 0;
+
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("HRMS_DB")))
+            {
+                connection.Open();
+
+                string query = $"SELECT Rola.idRoli FROM Rola JOIN Pracownicy ON Rola.idRoli = Pracownicy.Rola JOIN Uzytkownicy ON Pracownicy.idPracownika = " +
+                               $"Uzytkownicy.idPracownika WHERE Uzytkownicy.idPracownika = {idPracownika};"; 
+
+                id = connection.QueryFirstOrDefault<int>(query);
+
+                return id;
+            }
+        }
     }
 }
