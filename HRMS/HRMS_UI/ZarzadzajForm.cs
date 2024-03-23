@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HRMS_Lib;
+using HRMS_Lib.Modele;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +17,8 @@ namespace HRMS_UI
         public ZarzadzajForm()
         {
             InitializeComponent();
+
+            ListBoxWireUp();
         }
 
         private void modyfikujButton_Click(object sender, EventArgs e)
@@ -60,6 +64,14 @@ namespace HRMS_UI
             {
                 zamknijButton.PerformClick();
             }
+        }
+
+        private void ListBoxWireUp()
+        {
+            List<int> idPracownikow = GlobalConfig.Connection.PobierzIdPracownikowZNizszaRola(GlobalData.LoggedUserRole.ToString());
+
+            listaPracownikowListBox.Items.Clear();
+            listaPracownikowListBox.Items.AddRange(idPracownikow.Select(id => id.ToString()).ToArray());
         }
     }
 }

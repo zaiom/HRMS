@@ -234,11 +234,27 @@ namespace HRMS_Lib
                 connection.Open();
 
                 string query = $"SELECT Rola.idRoli FROM Rola JOIN Pracownicy ON Rola.idRoli = Pracownicy.Rola JOIN Uzytkownicy ON Pracownicy.idPracownika = " +
-                               $"Uzytkownicy.idPracownika WHERE Uzytkownicy.idPracownika = {idPracownika};"; 
+                               $"Uzytkownicy.idPracownika WHERE Uzytkownicy.idPracownika = {idPracownika};";
 
                 id = connection.QueryFirstOrDefault<int>(query);
 
                 return id;
+            }
+        }
+
+        public List<int> PobierzIdPracownikowZNizszaRola(string idRoli)
+        {
+            List<int> ids = new List<int>();
+
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("HRMS_DB")))
+            {
+                connection.Open();
+
+                string query = $"SELECT idPracownika FROM Pracownicy where Rola > {idRoli}";
+
+                ids = connection.Query<int>(query).AsList();
+
+                return ids;
             }
         }
     }

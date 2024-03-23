@@ -22,5 +22,6 @@ namespace HRMS_Lib
         string PobierzHaslo(string login);
         string HashPassword(string password);
         int PobierzIdRoli(int idPracownika);
+        List<int> PobierzIdPracownikowZNizszaRola(string idRoli);
     }
 }

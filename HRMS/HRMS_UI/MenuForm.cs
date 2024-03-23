@@ -17,7 +17,7 @@ namespace HRMS_UI
         public MenuForm()
         {
             InitializeComponent();
-            idPracownikaToolStripMenuItem.Text = GlobalData.LoggedUserId.ToString();                            // powoduje, ze w menuform w lewym gornym rogu wyswietla sie id aktualnie zalogowanego
+            idPracownikaToolStripMenuItem.Text = $"Identyfikator pracownika: {GlobalData.LoggedUserId.ToString()}";             // powoduje, ze w menuform w lewym gornym rogu wyswietla sie id aktualnie zalogowanego
                                                                                                                 // pracownika
         }
 
