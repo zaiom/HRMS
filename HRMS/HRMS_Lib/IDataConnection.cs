@@ -27,6 +27,6 @@ namespace HRMS_Lib
         List<int> PobierzIdPracownikowZNizszaRola(string idRoli);
         List<string> PobierzDanePracownika(string idPracownika);
         //ZarzadzajForm -> Buttony
-        void UsunPracownika(string idPracownika);
+        void UsunPracownika(string idPracownika, string idUmowy);
     }
 }

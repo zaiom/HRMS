@@ -153,5 +153,25 @@ namespace HRMS_UI
                 }
             }
         }
+
+        private void usunButton_Click(object sender, EventArgs e)
+        {
+            if (listaPracownikowListBox.SelectedIndex != -1)
+            {
+                DialogResult dialogResult = MessageBox.Show("Jeśli to zrobisz, usuniesz pracownika z bazy danych. Na pewnno chcesz to zrobić?", "Usuwanie pracownika", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    string selectedId = listaPracownikowListBox.SelectedItem.ToString();
+                    List<string> danePracownika = GlobalConfig.Connection.PobierzDanePracownika(selectedId);
+
+                    GlobalConfig.Connection.UsunPracownika(selectedId, danePracownika[7]);                                                   //usuwanie pracownika
+                    ListBoxWireUp();                                                                                                         //aktualizacja zawartosci ListBoxa
+                                                                                                                                                            
+                    MessageBox.Show("Pracownik został pomyślnie usunięty.", "Usuwanie pracownika", MessageBoxButtons.OK, MessageBoxIcon.Information);       
+                }
+
+            }
+        }
     }
 }

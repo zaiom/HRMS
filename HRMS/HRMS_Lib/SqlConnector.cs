@@ -289,19 +289,35 @@ namespace HRMS_Lib
             }
         }
 
-        public void UsunPracownika(string idPracownika)
+        public void UsunPracownika(string idPracownika, string idUmowy)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("HRMS_DB")))
             {
                 connection.Open();
 
-                string query = $"SELECT Rola.idRoli FROM Rola JOIN Pracownicy ON Rola.idRoli = Pracownicy.Rola JOIN Uzytkownicy ON Pracownicy.idPracownika = " +
-                               $"Uzytkownicy.idPracownika WHERE Uzytkownicy.idPracownika = {idPracownika};";
+                var p = new DynamicParameters();
+                p.Add("@idPracownika", idPracownika);
+                p.Add("@idUmowy", idUmowy);
 
-                id = connection.QueryFirstOrDefault<int>(query);
-
-                return id;
+                connection.Execute("dbo.spUsunPracownika", p, commandType: CommandType.StoredProcedure);
             }
         }
+
+        //public void UsunPracownika(string idPracownika, string idUmowy)
+        //{
+        //    using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("HRMS_DB")))
+        //    {
+        //        connection.Open();
+
+        //        string query1 = $"DELETE FROM Umowy WHERE idUmowy = {idUmowy};";
+        //        string query2 = $"DELETE FROM Uzytkownicy WHERE idPracownika = {idPracownika};";
+        //        string query3 = $"DELETE FROM Pracownicy WHERE idPracownika = {idPracownika};";
+
+        //        // Wykonanie zapytań SQL
+        //        connection.Execute(query1);
+        //        connection.Execute(query2);
+        //        connection.Execute(query3);
+        //    }
+        //}
     }
 }

@@ -111,6 +111,7 @@
             usunButton.TabIndex = 6;
             usunButton.Text = "Usuń";
             usunButton.UseVisualStyleBackColor = true;
+            usunButton.Click += usunButton_Click;
             // 
             // ZarzadzajForm
             // 
