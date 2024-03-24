@@ -257,5 +257,51 @@ namespace HRMS_Lib
                 return ids;
             }
         }
+
+        public List<string> PobierzDanePracownika(string idPracownika)
+        {
+            List<string> danePracownika = new List<string>();
+
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("HRMS_DB")))
+            {
+                connection.Open();
+
+                //string query = $"SELECT Imie, Nazwisko, dataUrodzenia, Wydzial, Stanowisko, Przelozony, Rola, umowaPracownika, numerKontaktowy, email FROM Pracownicy WHERE idPracownika = {idPracownika};";
+                string query = $"SELECT Imie, Nazwisko, CONVERT(varchar, dataUrodzenia, 104) as dataUrodzenia, Wydzial, Stanowisko, Przelozony, Rola, umowaPracownika, numerKontaktowy, email FROM Pracownicy WHERE idPracownika = {idPracownika};";
+
+                var result = connection.QueryFirstOrDefault<dynamic>(query);
+
+                if (result != null)
+                {
+                    danePracownika.Add(result.Imie);
+                    danePracownika.Add(result.Nazwisko);
+                    danePracownika.Add(result.dataUrodzenia);
+                    danePracownika.Add(result.Wydzial.ToString());
+                    danePracownika.Add(result.Stanowisko.ToString());
+                    danePracownika.Add(result.Przelozony.ToString());
+                    danePracownika.Add(result.Rola.ToString());
+                    danePracownika.Add(result.umowaPracownika.ToString());
+                    danePracownika.Add(result.numerKontaktowy);
+                    danePracownika.Add(result.email);
+                }
+
+                return danePracownika;
+            }
+        }
+
+        public void UsunPracownika(string idPracownika)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("HRMS_DB")))
+            {
+                connection.Open();
+
+                string query = $"SELECT Rola.idRoli FROM Rola JOIN Pracownicy ON Rola.idRoli = Pracownicy.Rola JOIN Uzytkownicy ON Pracownicy.idPracownika = " +
+                               $"Uzytkownicy.idPracownika WHERE Uzytkownicy.idPracownika = {idPracownika};";
+
+                id = connection.QueryFirstOrDefault<int>(query);
+
+                return id;
+            }
+        }
     }
 }

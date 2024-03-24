@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,7 +19,9 @@ namespace HRMS_UI
         {
             InitializeComponent();
 
-            ListBoxWireUp();
+            ListBoxWireUp();                                                                                        //"oczyszcza" zawartość listBoxa a następnie dodaje
+                                                                                                                    //idPracownikow o nizszej roli od zalogowanego uzytkownika
+            listaPracownikowListBox.SelectedIndexChanged += listaPracownikowListBox_SelectedIndexChanged;
         }
 
         private void modyfikujButton_Click(object sender, EventArgs e)
@@ -72,6 +75,83 @@ namespace HRMS_UI
 
             listaPracownikowListBox.Items.Clear();
             listaPracownikowListBox.Items.AddRange(idPracownikow.Select(id => id.ToString()).ToArray());
+        }
+
+        private void listaPracownikowListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listaPracownikowListBox.SelectedIndex != -1)
+            {
+                string selectedId = listaPracownikowListBox.SelectedItem.ToString();
+                List<string> danePracownika = GlobalConfig.Connection.PobierzDanePracownika(selectedId);
+
+                switch (danePracownika[3])
+                {
+                    case "1":
+                        danePracownika[3] = "Wydzial Rozwoju Oprogramowania";
+                        break;
+                    case "2":
+                        danePracownika[3] = "Wydzial Marketingu Cyfrowego";
+                        break;
+                    case "3":
+                        danePracownika[3] = "Dzial Finansowo-Ksiegowy";
+                        break;
+                    default:
+                        danePracownika[3] = "Brak danych";
+                        break;
+                }
+
+                switch (danePracownika[4])
+                {
+                    case "1":
+                        danePracownika[4] = "Prezes";
+                        break;
+                    case "2":
+                        danePracownika[4] = "Programista";
+                        break;
+                    case "3":
+                        danePracownika[4] = "Manager";
+                        break;
+                    default:
+                        danePracownika[4] = "Brak danych";
+                        break;
+                }
+
+                switch (danePracownika[6])
+                {
+                    case "1":
+                        danePracownika[6] = "Administrator";
+                        break;
+                    case "2":
+                        danePracownika[6] = "Moderator";
+                        break;
+                    case "3":
+                        danePracownika[6] = "Użytkownik";
+                        break;
+                    default:
+                        danePracownika[6] = "Brak danych";
+                        break;
+                }
+
+                // Ustawienie informacji o pracowniku w labelu
+                if (danePracownika.Count == 10)
+                {
+                    string info = $"Imię: {danePracownika[0]}\n" +
+                                  $"Nazwisko: {danePracownika[1]}\n" +
+                                  $"Data urodzenia: {danePracownika[2]}\n" +
+                                  $"Wydział: {danePracownika[3]}\n" +
+                                  $"Stanowisko: {danePracownika[4]}\n" +
+                                  $"Przełożony: {danePracownika[5]}\n" +
+                                  $"Rola: {danePracownika[6]}\n" +
+                                  $"Umowa pracownika: {danePracownika[7]}\n" +
+                                  $"Numer kontaktowy: {danePracownika[8]}\n" +
+                                  $"Email: {danePracownika[9]}";
+                    pracownikInfoLabel.Text = info;
+                }
+                else
+                {
+                    pracownikInfoLabel.Text = "Błąd pobierania danych pracownika.";
+                }
+            }
         }
     }
 }

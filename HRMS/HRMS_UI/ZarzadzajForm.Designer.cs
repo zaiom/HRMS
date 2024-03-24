@@ -65,7 +65,7 @@
             // 
             pracownikInfoLabel.AutoSize = true;
             pracownikInfoLabel.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            pracownikInfoLabel.Location = new Point(26, 248);
+            pracownikInfoLabel.Location = new Point(26, 229);
             pracownikInfoLabel.Name = "pracownikInfoLabel";
             pracownikInfoLabel.Size = new Size(62, 20);
             pracownikInfoLabel.TabIndex = 3;

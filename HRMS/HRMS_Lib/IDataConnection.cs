@@ -17,11 +17,16 @@ namespace HRMS_Lib
         UmowyModel DodajUmowe(UmowyModel model);
         PracownicyModel DodajPracownika(PracownicyModel model);
         UzytkownicyModel DodajDaneLogowania(UzytkownicyModel model);
+        //Logowanie
         List<string> PobierzLoginy();
         int PobierzId(string login);
         string PobierzHaslo(string login);
         string HashPassword(string password);
         int PobierzIdRoli(int idPracownika);
+        //ZarzadzajForm -> ListBox
         List<int> PobierzIdPracownikowZNizszaRola(string idRoli);
+        List<string> PobierzDanePracownika(string idPracownika);
+        //ZarzadzajForm -> Buttony
+        void UsunPracownika(string idPracownika);
     }
 }
