@@ -30,5 +30,21 @@ namespace HRMS_Lib.Modele
             DataZatrudnienia = dataZatrudnienia;
             DataKoncaUmowy = dataKoncaUmowy;
         }
+
+        public UmowyModel(string id_Umowy, string rodzaj, string pensja, DateTime dataZatrudnienia, DateTime dataKoncaUmowy)
+        {
+            int idUmowyValue = 0;
+            int.TryParse(id_Umowy, out idUmowyValue);
+            idUmowy = idUmowyValue;
+
+            Rodzaj = rodzaj;
+
+            decimal pensjaValue = 0;
+            decimal.TryParse(pensja, out pensjaValue);
+            Pensja = pensjaValue;
+
+            DataZatrudnienia = dataZatrudnienia;
+            DataKoncaUmowy = dataKoncaUmowy;
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using HRMS_Lib;
 using HRMS_Lib.Modele;
+using Microsoft.VisualBasic.Logging;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,14 +20,42 @@ namespace HRMS_UI
         {
             InitializeComponent();
 
-            ListBoxWireUp();                                                                                        //"oczyszcza" zawartość listBoxa a następnie dodaje
-                                                                                                                    //idPracownikow o nizszej roli od zalogowanego uzytkownika
+            ListBoxWireUp();                                                                                                //"oczyszcza" zawartość listBoxa a następnie dodaje
+                                                                                                                            //idPracownikow o nizszej roli od zalogowanego uzytkownika
             listaPracownikowListBox.SelectedIndexChanged += listaPracownikowListBox_SelectedIndexChanged;
         }
 
         private void modyfikujButton_Click(object sender, EventArgs e)
         {
+            GlobalData.idUzytkownika = listaPracownikowListBox.SelectedItem.ToString();
+            GlobalData.daneUzytkownikow = GlobalConfig.Connection.PobierzDanePracownika(GlobalData.idUzytkownika);
 
+            ModyfikujDanePracownikaForm existingModyfikujDanePracownikaForm = Application.OpenForms.OfType<ModyfikujDanePracownikaForm>().FirstOrDefault();
+            //DodajPracownikaForm existingDodajPracownikaForm = Application.OpenForms.OfType<DodajPracownikaForm>().FirstOrDefault();
+
+            //if (existingDodajPracownikaForm != null)
+            //{
+            //    MessageBox.Show("Zamknij okno Dodaj Pracownika, żeby przejść do Zarządzaj.", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            //    return;
+            //}
+
+            if (GlobalData.LoggedUserRole == 1)
+            {
+                if (existingModyfikujDanePracownikaForm != null)
+                {
+                    existingModyfikujDanePracownikaForm.Activate();
+                }
+                else
+                {
+                    ModyfikujDanePracownikaForm modyfikujDaneForm = new ModyfikujDanePracownikaForm();
+                    modyfikujDaneForm.Show();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Nie posiadasz odpowiednich uprawnień, żeby skorzystać z tej usługi. Skontaktuj się z Administratorem, żeby nadał Ci wyższą rolę w systemie.",
+                                "Błąd uprawnień", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
         }
 
         private void dodajButton_Click(object sender, EventArgs e)
@@ -165,10 +194,11 @@ namespace HRMS_UI
                     string selectedId = listaPracownikowListBox.SelectedItem.ToString();
                     List<string> danePracownika = GlobalConfig.Connection.PobierzDanePracownika(selectedId);
 
+
                     GlobalConfig.Connection.UsunPracownika(selectedId, danePracownika[7]);                                                   //usuwanie pracownika
                     ListBoxWireUp();                                                                                                         //aktualizacja zawartosci ListBoxa
-                                                                                                                                                            
-                    MessageBox.Show("Pracownik został pomyślnie usunięty.", "Usuwanie pracownika", MessageBoxButtons.OK, MessageBoxIcon.Information);       
+
+                    MessageBox.Show("Pracownik został pomyślnie usunięty.", "Usuwanie pracownika", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
             }

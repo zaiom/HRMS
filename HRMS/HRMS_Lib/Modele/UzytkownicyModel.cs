@@ -22,5 +22,15 @@ namespace HRMS_Lib.Modele
             Login = login;
             Haslo = haslo;
         }
+
+        public UzytkownicyModel(string id_Pracownika, string login, string haslo)
+        {
+            int idPracownikaValue = 0;
+            int.TryParse(id_Pracownika, out idPracownikaValue);
+            idPracownika = idPracownikaValue;
+
+            Login = login;
+            Haslo = haslo;
+        }
     }
 }

@@ -28,5 +28,9 @@ namespace HRMS_Lib
         List<string> PobierzDanePracownika(string idPracownika);
         //ZarzadzajForm -> Buttony
         void UsunPracownika(string idPracownika, string idUmowy);
+        //ModyfikujDanePracownika
+        UmowyModel ModyfikujUmowe(UmowyModel model);
+        PracownicyModel ModyfikujDanePracownika(PracownicyModel model);
+        UzytkownicyModel ModyfikujDaneLogowania(UzytkownicyModel model);
     }
 }

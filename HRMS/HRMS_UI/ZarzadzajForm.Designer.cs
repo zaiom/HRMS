@@ -44,7 +44,7 @@
             listaPracownikowListBox.ItemHeight = 20;
             listaPracownikowListBox.Location = new Point(26, 22);
             listaPracownikowListBox.Name = "listaPracownikowListBox";
-            listaPracownikowListBox.Size = new Size(344, 204);
+            listaPracownikowListBox.Size = new Size(344, 104);
             listaPracownikowListBox.TabIndex = 1;
             // 
             // zamknijButton
@@ -53,7 +53,7 @@
             zamknijButton.FlatAppearance.MouseDownBackColor = Color.Gray;
             zamknijButton.FlatAppearance.MouseOverBackColor = Color.WhiteSmoke;
             zamknijButton.FlatStyle = FlatStyle.Flat;
-            zamknijButton.Location = new Point(216, 459);
+            zamknijButton.Location = new Point(216, 359);
             zamknijButton.Name = "zamknijButton";
             zamknijButton.Size = new Size(92, 37);
             zamknijButton.TabIndex = 2;
@@ -65,7 +65,7 @@
             // 
             pracownikInfoLabel.AutoSize = true;
             pracownikInfoLabel.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            pracownikInfoLabel.Location = new Point(26, 229);
+            pracownikInfoLabel.Location = new Point(26, 147);
             pracownikInfoLabel.Name = "pracownikInfoLabel";
             pracownikInfoLabel.Size = new Size(62, 20);
             pracownikInfoLabel.TabIndex = 3;
@@ -118,7 +118,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(532, 508);
+            ClientSize = new Size(532, 413);
             Controls.Add(usunButton);
             Controls.Add(modyfikujButton);
             Controls.Add(dodajButton);

@@ -35,3 +35,4 @@ C:\Gry\Inżynierka\HRMS\HRMS_UI\bin\Debug\net6.0-windows\runtimes\unix\lib\netco
 C:\Gry\Inżynierka\HRMS\HRMS_UI\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Gry\Inżynierka\HRMS\HRMS_UI\obj\Debug\net6.0-windows\HRMS_UI.Properties.Resources.resources
 C:\Gry\Inżynierka\HRMS\HRMS_UI\obj\Debug\net6.0-windows\HRMS_UI.StartingForm.resources
+C:\Gry\Inżynierka\HRMS\HRMS_UI\obj\Debug\net6.0-windows\HRMS_UI.ModyfikujDanePracownikaForm.resources

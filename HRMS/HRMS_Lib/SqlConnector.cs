@@ -303,21 +303,59 @@ namespace HRMS_Lib
             }
         }
 
-        //public void UsunPracownika(string idPracownika, string idUmowy)
-        //{
-        //    using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("HRMS_DB")))
-        //    {
-        //        connection.Open();
+        public UmowyModel ModyfikujUmowe(UmowyModel model)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("HRMS_DB")))
+            {
+                var p = new DynamicParameters();
+                p.Add("@idUmowy", model.idUmowy);
+                p.Add("@Rodzaj", model.Rodzaj);
+                p.Add("@Pensja", model.Pensja);
+                p.Add("@DataZatrudnienia", model.DataZatrudnienia);
+                p.Add("@DataKoncaUmowy", model.DataKoncaUmowy);
 
-        //        string query1 = $"DELETE FROM Umowy WHERE idUmowy = {idUmowy};";
-        //        string query2 = $"DELETE FROM Uzytkownicy WHERE idPracownika = {idPracownika};";
-        //        string query3 = $"DELETE FROM Pracownicy WHERE idPracownika = {idPracownika};";
+                connection.Execute("dbo.spModyfikujUmowe", p, commandType: CommandType.StoredProcedure);
 
-        //        // Wykonanie zapytań SQL
-        //        connection.Execute(query1);
-        //        connection.Execute(query2);
-        //        connection.Execute(query3);
-        //    }
-        //}
+                return model;
+            }
+        }
+
+        public PracownicyModel ModyfikujDanePracownika(PracownicyModel model)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("HRMS_DB")))
+            {
+                var p = new DynamicParameters();
+                p.Add("@idPracownika", model.idPracownika);
+                p.Add("@Imie", model.Imie);
+                p.Add("@Nazwisko", model.Nazwisko);
+                p.Add("@dataUrodzenia", model.dataUrodzenia);
+                p.Add("@Wydzial", model.Wydzial);
+                p.Add("@Stanowisko", model.Stanowisko);
+                p.Add("@Przelozony", model.Przelozony);
+                p.Add("@umowaPracownika", model.umowaPracownika);
+                p.Add("@numerKontaktowy", model.numerKontaktowy);
+                p.Add("@email", model.email);
+                p.Add("@Rola", model.Rola);
+
+                connection.Execute("dbo.spModyfikujDanePracownika", p, commandType: CommandType.StoredProcedure);
+
+                return model;
+            }
+        }
+
+        public UzytkownicyModel ModyfikujDaneLogowania(UzytkownicyModel model)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("HRMS_DB")))
+            {
+                var p = new DynamicParameters();
+                p.Add("@idPracownika", model.idPracownika);
+                p.Add("@Login", model.Login);
+                p.Add("@Haslo", HashPassword(model.Haslo));
+
+                connection.Execute("dbo.spModyfikujDaneLogowania", p, commandType: CommandType.StoredProcedure);
+
+                return model;
+            }
+        }
     }
 }
