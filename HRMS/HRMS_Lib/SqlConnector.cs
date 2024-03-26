@@ -289,6 +289,52 @@ namespace HRMS_Lib
             }
         }
 
+        public List<string> PobierzDaneUmowy(string idUmowy)
+        {
+            List<string> daneUmowy = new List<string>();
+
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("HRMS_DB")))
+            {
+                connection.Open();
+
+                string query = $"SELECT Rodzaj, Pensja, CONVERT(varchar, DataZatrudnienia, 104) as DataZatrudnienia, CONVERT(varchar, DataKoncaUmowy, 104) as DataKoncaUmowy FROM Umowy WHERE idUmowy = {idUmowy};";
+
+                var result = connection.QueryFirstOrDefault<dynamic>(query);
+
+                if (result != null)
+                {
+                    daneUmowy.Add(result.Rodzaj);
+                    daneUmowy.Add(result.Pensja.ToString());
+                    daneUmowy.Add(result.DataZatrudnienia);
+                    daneUmowy.Add(result.DataKoncaUmowy);
+                }
+
+                return daneUmowy;
+            }
+        }
+
+        public List<string> PobierzDaneLogowania(string idPracownika)
+        {
+            List<string> daneLogowania = new List<string>();
+
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("HRMS_DB")))
+            {
+                connection.Open();
+
+                string query = $"SELECT Login, Haslo from Uzytkownicy where idPracownika = {idPracownika};";
+
+                var result = connection.QueryFirstOrDefault<dynamic>(query);
+
+                if (result != null)
+                {
+                    daneLogowania.Add(result.Login);
+                    daneLogowania.Add(result.Haslo);
+                }
+
+                return daneLogowania;
+            }
+        }
+
         public void UsunPracownika(string idPracownika, string idUmowy)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("HRMS_DB")))

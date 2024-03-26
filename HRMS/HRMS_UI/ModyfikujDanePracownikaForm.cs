@@ -45,6 +45,75 @@ namespace HRMS_UI
 
             // Domyślnie zaznacz pierwszą umowę
             rodzajUmowyComboBox.SelectedIndex = -1;
+
+            //Zapełnienie formularza aktualnymi danymi
+            //DanePracownika
+
+            imieValue.Text = GlobalData.daneUzytkownikow[0];
+            nazwiskoValue.Text = GlobalData.daneUzytkownikow[1];
+            dataUrodzeniaDateTimePicker.Value = DateTime.Parse(GlobalData.daneUzytkownikow[2]);
+
+            switch (GlobalData.daneUzytkownikow[3])
+            {
+                case "1":
+                    wydzialComboBox.Text = "Wydzial Rozwoju Oprogramowania";
+                    break;
+                case "2":
+                    wydzialComboBox.Text = "Wydzial Marketingu Cyfrowego";
+                    break;
+                case "3":
+                    wydzialComboBox.Text = "Dzial Finansowo-Ksiegowy";
+                    break;
+                default:
+                    wydzialComboBox.Text = "Brak danych";
+                    break;
+            }
+
+            switch (GlobalData.daneUzytkownikow[4])
+            {
+                case "1":
+                    stanowiskoComboBox.Text = "Prezes";
+                    break;
+                case "2":
+                    stanowiskoComboBox.Text = "Programista";
+                    break;
+                case "3":
+                    stanowiskoComboBox.Text = "Manager";
+                    break;
+                default:
+                    stanowiskoComboBox.Text = "Brak danych";
+                    break;
+            }
+
+            przelozonyComboBox.Text = GlobalData.daneUzytkownikow[5];
+
+            switch (GlobalData.daneUzytkownikow[6])
+            {
+                case "1":
+                    rolaComboBox.Text = "Administrator";
+                    break;
+                case "2":
+                    rolaComboBox.Text = "Moderator";
+                    break;
+                case "3":
+                    rolaComboBox.Text = "Użytkownik";
+                    break;
+                default:
+                    rolaComboBox.Text = "Brak danych";
+                    break;
+            }
+
+            numerKontaktowyValue.Text = GlobalData.daneUzytkownikow[8];
+            emailValue.Text = GlobalData.daneUzytkownikow[9];
+
+            //Dane umowy
+            rodzajUmowyComboBox.Text = GlobalData.daneUmowy[0];
+            pensjaValue.Text = GlobalData.daneUmowy[1];
+            dataZatrudnieniaDateTimePicker.Value = DateTime.Parse(GlobalData.daneUmowy[2]);
+            dataKoncaUmowyDateTimePicker.Value = DateTime.Parse(GlobalData.daneUmowy[3]);
+
+            //Dane logowania
+            loginValue.Text = GlobalData.daneLogowania[0];
         }
 
         private bool ValidateForm()
@@ -405,22 +474,6 @@ namespace HRMS_UI
             {
                 MessageBox.Show("Formularz posiada niepoprawne dane. Proszę poprawić je i spróbować ponownie.", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-        }
-
-        private void zamknijButton_Click_1(object sender, EventArgs e)
-        {
-            ZarzadzajForm existingZarzadzajForm = Application.OpenForms.OfType<ZarzadzajForm>().FirstOrDefault();
-
-            if (existingZarzadzajForm != null)
-            {
-                existingZarzadzajForm.Activate();
-            }
-            else
-            {
-                ZarzadzajForm zarzadzajForm = new ZarzadzajForm();
-                zarzadzajForm.Show();
-            }
-            this.Close();
         }
     }
 }

@@ -29,6 +29,8 @@ namespace HRMS_UI
         {
             GlobalData.idUzytkownika = listaPracownikowListBox.SelectedItem.ToString();
             GlobalData.daneUzytkownikow = GlobalConfig.Connection.PobierzDanePracownika(GlobalData.idUzytkownika);
+            GlobalData.daneUmowy = GlobalConfig.Connection.PobierzDaneUmowy(GlobalData.daneUzytkownikow[7]);
+            GlobalData.daneLogowania = GlobalConfig.Connection.PobierzDaneLogowania(GlobalData.idUzytkownika);
 
             ModyfikujDanePracownikaForm existingModyfikujDanePracownikaForm = Application.OpenForms.OfType<ModyfikujDanePracownikaForm>().FirstOrDefault();
             //DodajPracownikaForm existingDodajPracownikaForm = Application.OpenForms.OfType<DodajPracownikaForm>().FirstOrDefault();
