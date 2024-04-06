@@ -392,6 +392,7 @@
             zamknijButton.TabIndex = 47;
             zamknijButton.Text = "Zamknij";
             zamknijButton.UseVisualStyleBackColor = true;
+            zamknijButton.Click += zamknijButton_Click;
             // 
             // modyfikujButton
             // 

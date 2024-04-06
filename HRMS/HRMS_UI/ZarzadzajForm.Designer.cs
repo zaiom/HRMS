@@ -70,6 +70,7 @@
             pracownikInfoLabel.Size = new Size(62, 20);
             pracownikInfoLabel.TabIndex = 3;
             pracownikInfoLabel.Text = "<none>";
+            pracownikInfoLabel.Visible = false;
             // 
             // dodajButton
             // 

@@ -114,6 +114,7 @@ namespace HRMS_UI
             {
                 string selectedId = listaPracownikowListBox.SelectedItem.ToString();
                 List<string> danePracownika = GlobalConfig.Connection.PobierzDanePracownika(selectedId);
+                pracownikInfoLabel.Visible = true;
 
                 switch (danePracownika[3])
                 {

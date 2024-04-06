@@ -403,5 +403,53 @@ namespace HRMS_Lib
                 return model;
             }
         }
+
+        public List<int> PobierzIdZagadnien(string idPracownika)
+        {
+            List<int> ids = new List<int>();
+
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("HRMS_DB")))
+            {
+                connection.Open();
+
+                string query = $"SELECT DISTINCT Zagadnienia.idZagadnienia FROM Zadania JOIN Zagadnienia ON Zadania.idZagadnienia = Zagadnienia.idZagadnienia WHERE Zadania.idPracownika = {idPracownika};";
+
+                ids = connection.Query<int>(query).AsList();
+
+                return ids;
+            }
+        }
+
+        public string PobierzNazweZagadnienia(string idZagadnienia)
+        {
+            string nazwaZagadnienia = "";
+
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("HRMS_DB")))
+            {
+                connection.Open();
+
+                string query = $"SELECT Nazwa FROM Zagadnienia where idZagadnienia = {idZagadnienia}";
+
+                nazwaZagadnienia = connection.QueryFirstOrDefault<string>(query);
+
+                return nazwaZagadnienia;
+            }
+        }
+
+        public string PobierzOpisZagadnienia(string idZagadnienia)
+        {
+            string opisZagadnienia = "";
+
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("HRMS_DB")))
+            {
+                connection.Open();
+
+                string query = $"SELECT Opis FROM Zagadnienia where idZagadnienia = {idZagadnienia}";
+
+                opisZagadnienia = connection.QueryFirstOrDefault<string>(query);
+
+                return opisZagadnienia;
+            }
+        }
     }
 }

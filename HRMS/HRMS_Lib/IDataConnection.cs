@@ -34,5 +34,9 @@ namespace HRMS_Lib
         UmowyModel ModyfikujUmowe(UmowyModel model);
         PracownicyModel ModyfikujDanePracownika(PracownicyModel model);
         UzytkownicyModel ModyfikujDaneLogowania(UzytkownicyModel model);
+        //ZadaniaForm -> ListBox
+        List<int> PobierzIdZagadnien(string idPracownika);
+        string PobierzNazweZagadnienia(string idZagadnienia);
+        string PobierzOpisZagadnienia(string idZagadnienia);
     }
 }

@@ -325,21 +325,6 @@ namespace HRMS_UI
             return output;
         }
 
-        private void zamknijButton_Click(object sender, EventArgs e)
-        {
-            ZarzadzajForm existingZarzadzajForm = Application.OpenForms.OfType<ZarzadzajForm>().FirstOrDefault();
-
-            if (existingZarzadzajForm != null)
-            {
-                existingZarzadzajForm.Activate();
-            }
-            else
-            {
-                ZarzadzajForm zarzadzajForm = new ZarzadzajForm();
-                zarzadzajForm.Show();
-            }
-            this.Close();
-        }
 
         // keybindowanie przyciskow
         private void ModyfikujDanePracownika_KeyDown(object sender, KeyEventArgs e)
@@ -474,6 +459,22 @@ namespace HRMS_UI
             {
                 MessageBox.Show("Formularz posiada niepoprawne dane. Proszę poprawić je i spróbować ponownie.", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void zamknijButton_Click(object sender, EventArgs e)
+        {
+            ZarzadzajForm existingZarzadzajForm = Application.OpenForms.OfType<ZarzadzajForm>().FirstOrDefault();
+
+            if (existingZarzadzajForm != null)
+            {
+                existingZarzadzajForm.Activate();
+            }
+            else
+            {
+                ZarzadzajForm zarzadzajForm = new ZarzadzajForm();
+                zarzadzajForm.Show();
+            }
+            this.Close();
         }
     }
 }
