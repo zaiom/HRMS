@@ -469,5 +469,57 @@ namespace HRMS_Lib
                 return model;
             }
         }
+
+        public List<string> PobierzWszystkieZagadnienia()
+        {
+            List<string> zagadnieniaIds = new List<string>();
+
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("HRMS_DB")))
+            {
+                connection.Open();
+
+                string query = "SELECT idZagadnienia FROM Zagadnienia;";
+
+                zagadnieniaIds = connection.Query<string>(query).AsList();
+
+                return zagadnieniaIds;
+            }
+        }
+
+        public List<string> PobierzIdWszystkichPracownikow()
+        {
+            List<string> pracownicyIds = new List<string>();
+
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("HRMS_DB")))
+            {
+                connection.Open();
+
+                string query = "SELECT idPracownika FROM Pracownicy;";
+
+                pracownicyIds = connection.Query<string>(query).AsList();
+
+                return pracownicyIds;
+            }
+        }
+
+        public ZadaniaModel DodajZadanie(ZadaniaModel model)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("HRMS_DB")))
+            {
+                var p = new DynamicParameters();
+                p.Add("@Opis", model.Opis);
+                p.Add("@idZagadnienia", model.idZagadnienia);
+                p.Add("@idPracownika", model.idPracownika);
+                p.Add("@Dzien", model.Dzien);
+                p.Add("@Czas", model.Czas);
+                p.Add("@idZadania", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
+
+                connection.Execute("dbo.spZadanie_Dodaj", p, commandType: CommandType.StoredProcedure);
+
+                model.idZagadnienia = p.Get<int>("@idZadania");
+
+                return model;
+            }
+        }
     }
 }

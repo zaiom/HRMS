@@ -28,44 +28,45 @@
         /// </summary>
         private void InitializeComponent()
         {
-            rodzajUmowyComboBox = new ComboBox();
-            comboBox1 = new ComboBox();
-            przyjmijButton = new Button();
+            numerZagadnieniaComboBox = new ComboBox();
+            idPracownikaComboBox = new ComboBox();
+            przydzielButton = new Button();
             numerZagadnieniaLabel = new Label();
             nazwaZagadnieniaTextBox = new TextBox();
             zamknijButton = new Button();
             SuspendLayout();
             // 
-            // rodzajUmowyComboBox
+            // numerZagadnieniaComboBox
             // 
-            rodzajUmowyComboBox.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            rodzajUmowyComboBox.FormattingEnabled = true;
-            rodzajUmowyComboBox.Location = new Point(49, 77);
-            rodzajUmowyComboBox.Name = "rodzajUmowyComboBox";
-            rodzajUmowyComboBox.Size = new Size(201, 28);
-            rodzajUmowyComboBox.TabIndex = 78;
+            numerZagadnieniaComboBox.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            numerZagadnieniaComboBox.FormattingEnabled = true;
+            numerZagadnieniaComboBox.Location = new Point(49, 77);
+            numerZagadnieniaComboBox.Name = "numerZagadnieniaComboBox";
+            numerZagadnieniaComboBox.Size = new Size(201, 28);
+            numerZagadnieniaComboBox.TabIndex = 78;
             // 
-            // comboBox1
+            // idPracownikaComboBox
             // 
-            comboBox1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(49, 200);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(201, 28);
-            comboBox1.TabIndex = 79;
+            idPracownikaComboBox.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            idPracownikaComboBox.FormattingEnabled = true;
+            idPracownikaComboBox.Location = new Point(49, 200);
+            idPracownikaComboBox.Name = "idPracownikaComboBox";
+            idPracownikaComboBox.Size = new Size(201, 28);
+            idPracownikaComboBox.TabIndex = 79;
             // 
-            // przyjmijButton
+            // przydzielButton
             // 
-            przyjmijButton.FlatAppearance.BorderColor = Color.Silver;
-            przyjmijButton.FlatAppearance.MouseDownBackColor = Color.Gray;
-            przyjmijButton.FlatAppearance.MouseOverBackColor = Color.WhiteSmoke;
-            przyjmijButton.FlatStyle = FlatStyle.Flat;
-            przyjmijButton.Location = new Point(28, 248);
-            przyjmijButton.Name = "przyjmijButton";
-            przyjmijButton.Size = new Size(80, 38);
-            przyjmijButton.TabIndex = 80;
-            przyjmijButton.Text = "Przydziel";
-            przyjmijButton.UseVisualStyleBackColor = true;
+            przydzielButton.FlatAppearance.BorderColor = Color.Silver;
+            przydzielButton.FlatAppearance.MouseDownBackColor = Color.Gray;
+            przydzielButton.FlatAppearance.MouseOverBackColor = Color.WhiteSmoke;
+            przydzielButton.FlatStyle = FlatStyle.Flat;
+            przydzielButton.Location = new Point(28, 248);
+            przydzielButton.Name = "przydzielButton";
+            przydzielButton.Size = new Size(80, 38);
+            przydzielButton.TabIndex = 80;
+            przydzielButton.Text = "Przydziel";
+            przydzielButton.UseVisualStyleBackColor = true;
+            przydzielButton.Click += przydzielButton_Click;
             // 
             // numerZagadnieniaLabel
             // 
@@ -88,7 +89,6 @@
             nazwaZagadnieniaTextBox.Size = new Size(272, 41);
             nazwaZagadnieniaTextBox.TabIndex = 82;
             nazwaZagadnieniaTextBox.Text = "Identyfikator pracownika, któremu chcesz przydzielić zagadnienie:";
-            nazwaZagadnieniaTextBox.Visible = false;
             // 
             // zamknijButton
             // 
@@ -103,6 +103,7 @@
             zamknijButton.TabIndex = 83;
             zamknijButton.Text = "Zamknij";
             zamknijButton.UseVisualStyleBackColor = true;
+            zamknijButton.Click += zamknijButton_Click;
             // 
             // PrzydzielZagadnienieForm
             // 
@@ -113,9 +114,9 @@
             Controls.Add(zamknijButton);
             Controls.Add(nazwaZagadnieniaTextBox);
             Controls.Add(numerZagadnieniaLabel);
-            Controls.Add(przyjmijButton);
-            Controls.Add(comboBox1);
-            Controls.Add(rodzajUmowyComboBox);
+            Controls.Add(przydzielButton);
+            Controls.Add(idPracownikaComboBox);
+            Controls.Add(numerZagadnieniaComboBox);
             Name = "PrzydzielZagadnienieForm";
             Text = "Przydziel zagadnienie";
             KeyDown += PrzydzielZagadnienieForm_KeyDown;
@@ -125,9 +126,9 @@
 
         #endregion
 
-        private ComboBox rodzajUmowyComboBox;
-        private ComboBox comboBox1;
-        private Button przyjmijButton;
+        private ComboBox numerZagadnieniaComboBox;
+        private ComboBox idPracownikaComboBox;
+        private Button przydzielButton;
         private Label numerZagadnieniaLabel;
         private TextBox nazwaZagadnieniaTextBox;
         private Button zamknijButton;

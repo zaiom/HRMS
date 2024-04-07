@@ -40,5 +40,10 @@ namespace HRMS_Lib
         string PobierzOpisZagadnienia(string idZagadnienia);
         //Dodaj Zagadnienie
         ZagadnieniaModel DodajZagadnienie(ZagadnieniaModel model);
+        //Przydziel zagadnienie
+        List<string> PobierzWszystkieZagadnienia();
+        List<string> PobierzIdWszystkichPracownikow();
+        //Dodaj zadanie
+        ZadaniaModel DodajZadanie(ZadaniaModel model);
     }
 }

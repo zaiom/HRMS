@@ -18,7 +18,6 @@ namespace HRMS_Lib.Modele
 
         }
 
-        // do dodawania umowy do bazy
         public ZagadnieniaModel(string nazwa, string opis, DateTime deadline)
         {
             Nazwa = nazwa;
