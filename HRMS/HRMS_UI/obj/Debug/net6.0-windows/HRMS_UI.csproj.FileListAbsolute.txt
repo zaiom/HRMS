@@ -36,3 +36,5 @@ C:\Gry\Inżynierka\HRMS\HRMS_UI\bin\Debug\net6.0-windows\runtimes\win\lib\netcor
 C:\Gry\Inżynierka\HRMS\HRMS_UI\obj\Debug\net6.0-windows\HRMS_UI.Properties.Resources.resources
 C:\Gry\Inżynierka\HRMS\HRMS_UI\obj\Debug\net6.0-windows\HRMS_UI.StartingForm.resources
 C:\Gry\Inżynierka\HRMS\HRMS_UI\obj\Debug\net6.0-windows\HRMS_UI.ModyfikujDanePracownikaForm.resources
+C:\Gry\Inżynierka\HRMS\HRMS_UI\obj\Debug\net6.0-windows\HRMS_UI.DodajZagadnienieForm.resources
+C:\Gry\Inżynierka\HRMS\HRMS_UI\obj\Debug\net6.0-windows\HRMS_UI.PrzydzielZagadnienieForm.resources

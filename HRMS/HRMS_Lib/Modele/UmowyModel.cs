@@ -19,6 +19,7 @@ namespace HRMS_Lib.Modele
 
         }
 
+        // do dodawania umowy do bazy
         public UmowyModel(string rodzaj, string pensja, DateTime dataZatrudnienia, DateTime dataKoncaUmowy)
         {
             Rodzaj = rodzaj;
@@ -31,6 +32,7 @@ namespace HRMS_Lib.Modele
             DataKoncaUmowy = dataKoncaUmowy;
         }
 
+        //do modyfikacji umowy w bazie
         public UmowyModel(string id_Umowy, string rodzaj, string pensja, DateTime dataZatrudnienia, DateTime dataKoncaUmowy)
         {
             int idUmowyValue = 0;

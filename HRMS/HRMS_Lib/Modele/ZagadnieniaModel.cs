@@ -12,5 +12,18 @@ namespace HRMS_Lib.Modele
         public string Nazwa { get; set; }
         public string Opis { get; set; }
         public DateTime Deadline { get; set; }
+
+        public ZagadnieniaModel()
+        {
+
+        }
+
+        // do dodawania umowy do bazy
+        public ZagadnieniaModel(string nazwa, string opis, DateTime deadline)
+        {
+            Nazwa = nazwa;
+            Opis = opis;
+            Deadline = deadline;
+        }
     }
 }

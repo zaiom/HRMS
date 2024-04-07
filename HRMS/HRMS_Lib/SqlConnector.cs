@@ -451,5 +451,23 @@ namespace HRMS_Lib
                 return opisZagadnienia;
             }
         }
+
+        public ZagadnieniaModel DodajZagadnienie(ZagadnieniaModel model)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("HRMS_DB")))
+            {
+                var p = new DynamicParameters();
+                p.Add("@Nazwa", model.Nazwa);
+                p.Add("@Opis", model.Opis);
+                p.Add("@Deadline", model.Deadline);
+                p.Add("@idZagadnienia", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
+
+                connection.Execute("dbo.spZagadnienie_Dodaj", p, commandType: CommandType.StoredProcedure);
+
+                model.idZagadnienia = p.Get<int>("@idZagadnienia");
+
+                return model;
+            }
+        }
     }
 }

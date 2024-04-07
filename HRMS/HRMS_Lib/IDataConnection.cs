@@ -38,5 +38,7 @@ namespace HRMS_Lib
         List<int> PobierzIdZagadnien(string idPracownika);
         string PobierzNazweZagadnienia(string idZagadnienia);
         string PobierzOpisZagadnienia(string idZagadnienia);
+        //Dodaj Zagadnienie
+        ZagadnieniaModel DodajZagadnienie(ZagadnieniaModel model);
     }
 }

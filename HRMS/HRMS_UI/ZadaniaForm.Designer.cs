@@ -35,9 +35,11 @@
             czasLabel = new Label();
             ostatnieZadaniaListBox = new ListBox();
             przyjmijButton = new Button();
-            dodajButton = new Button();
             nazwaZagadnieniaTextBox = new TextBox();
             opisZagadnieniaTextBox = new TextBox();
+            dodajLinkLabel = new LinkLabel();
+            przydzielLinkLabel = new LinkLabel();
+            zamknijButton = new Button();
             SuspendLayout();
             // 
             // zagadnieniaListBox
@@ -113,20 +115,6 @@
             przyjmijButton.Text = "Przyjmij";
             przyjmijButton.UseVisualStyleBackColor = true;
             // 
-            // dodajButton
-            // 
-            dodajButton.FlatAppearance.BorderColor = Color.Silver;
-            dodajButton.FlatAppearance.MouseDownBackColor = Color.Gray;
-            dodajButton.FlatAppearance.MouseOverBackColor = Color.WhiteSmoke;
-            dodajButton.FlatStyle = FlatStyle.Flat;
-            dodajButton.Location = new Point(338, 285);
-            dodajButton.Name = "dodajButton";
-            dodajButton.Size = new Size(74, 38);
-            dodajButton.TabIndex = 7;
-            dodajButton.Text = "Dodaj";
-            dodajButton.UseVisualStyleBackColor = true;
-            dodajButton.Visible = false;
-            // 
             // nazwaZagadnieniaTextBox
             // 
             nazwaZagadnieniaTextBox.BackColor = Color.White;
@@ -153,15 +141,55 @@
             opisZagadnieniaTextBox.Text = "<none>";
             opisZagadnieniaTextBox.Visible = false;
             // 
+            // dodajLinkLabel
+            // 
+            dodajLinkLabel.AutoSize = true;
+            dodajLinkLabel.Location = new Point(338, 285);
+            dodajLinkLabel.Name = "dodajLinkLabel";
+            dodajLinkLabel.Size = new Size(38, 15);
+            dodajLinkLabel.TabIndex = 12;
+            dodajLinkLabel.TabStop = true;
+            dodajLinkLabel.Text = "Dodaj";
+            dodajLinkLabel.LinkClicked += dodajLinkLabel_LinkClicked;
+            // 
+            // przydzielLinkLabel
+            // 
+            przydzielLinkLabel.AutoSize = true;
+            przydzielLinkLabel.Location = new Point(338, 319);
+            przydzielLinkLabel.Name = "przydzielLinkLabel";
+            przydzielLinkLabel.Size = new Size(53, 15);
+            przydzielLinkLabel.TabIndex = 13;
+            przydzielLinkLabel.TabStop = true;
+            przydzielLinkLabel.Text = "Przydziel";
+            przydzielLinkLabel.Visible = false;
+            przydzielLinkLabel.LinkClicked += przydzielLinkLabel_LinkClicked;
+            // 
+            // zamknijButton
+            // 
+            zamknijButton.FlatAppearance.BorderColor = Color.Silver;
+            zamknijButton.FlatAppearance.MouseDownBackColor = Color.Gray;
+            zamknijButton.FlatAppearance.MouseOverBackColor = Color.WhiteSmoke;
+            zamknijButton.FlatStyle = FlatStyle.Flat;
+            zamknijButton.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            zamknijButton.Location = new Point(338, 475);
+            zamknijButton.Name = "zamknijButton";
+            zamknijButton.Size = new Size(88, 43);
+            zamknijButton.TabIndex = 44;
+            zamknijButton.Text = "Zamknij";
+            zamknijButton.UseVisualStyleBackColor = true;
+            zamknijButton.Click += zamknijButton_Click;
+            // 
             // ZadaniaForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(786, 493);
+            ClientSize = new Size(786, 529);
+            Controls.Add(zamknijButton);
+            Controls.Add(przydzielLinkLabel);
+            Controls.Add(dodajLinkLabel);
             Controls.Add(opisZagadnieniaTextBox);
             Controls.Add(nazwaZagadnieniaTextBox);
-            Controls.Add(dodajButton);
             Controls.Add(przyjmijButton);
             Controls.Add(ostatnieZadaniaListBox);
             Controls.Add(czasLabel);
@@ -171,6 +199,7 @@
             Controls.Add(zagadnieniaListBox);
             Name = "ZadaniaForm";
             Text = "Zadania";
+            KeyDown += ZadaniaForm_KeyDown;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -184,10 +213,12 @@
         private Label czasLabel;
         private ListBox ostatnieZadaniaListBox;
         private Button przyjmijButton;
-        private Button dodajButton;
         private Label nazwaZagadnieniaLabel;
         private Label opisZagadnieniaLabel;
         private TextBox nazwaZagadnieniaTextBox;
         private TextBox opisZagadnieniaTextBox;
+        private LinkLabel dodajLinkLabel;
+        private LinkLabel przydzielLinkLabel;
+        private Button zamknijButton;
     }
 }
