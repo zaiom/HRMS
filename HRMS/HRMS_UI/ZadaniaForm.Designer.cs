@@ -33,15 +33,14 @@
             czasValue = new TextBox();
             opisLabel = new Label();
             czasLabel = new Label();
-            ostatnieZadaniaListBox = new ListBox();
             przyjmijButton = new Button();
             nazwaZagadnieniaTextBox = new TextBox();
             opisZagadnieniaTextBox = new TextBox();
             dodajLinkLabel = new LinkLabel();
             przydzielLinkLabel = new LinkLabel();
             zamknijButton = new Button();
-            idZadania = new Label();
-            label1 = new Label();
+            ostatnieZadaniaDataGridView = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)ostatnieZadaniaDataGridView).BeginInit();
             SuspendLayout();
             // 
             // zagadnieniaListBox
@@ -92,16 +91,6 @@
             czasLabel.Size = new Size(55, 25);
             czasLabel.TabIndex = 4;
             czasLabel.Text = "Czas:";
-            // 
-            // ostatnieZadaniaListBox
-            // 
-            ostatnieZadaniaListBox.BackColor = Color.LightCyan;
-            ostatnieZadaniaListBox.FormattingEnabled = true;
-            ostatnieZadaniaListBox.ItemHeight = 15;
-            ostatnieZadaniaListBox.Location = new Point(40, 384);
-            ostatnieZadaniaListBox.Name = "ostatnieZadaniaListBox";
-            ostatnieZadaniaListBox.Size = new Size(710, 124);
-            ostatnieZadaniaListBox.TabIndex = 5;
             // 
             // przyjmijButton
             // 
@@ -181,23 +170,14 @@
             zamknijButton.UseVisualStyleBackColor = true;
             zamknijButton.Click += zamknijButton_Click;
             // 
-            // idZadania
+            // ostatnieZadaniaDataGridView
             // 
-            idZadania.AutoSize = true;
-            idZadania.Location = new Point(51, 366);
-            idZadania.Name = "idZadania";
-            idZadania.Size = new Size(18, 15);
-            idZadania.TabIndex = 45;
-            idZadania.Text = "ID";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(88, 366);
-            label1.Name = "label1";
-            label1.Size = new Size(31, 15);
-            label1.TabIndex = 46;
-            label1.Text = "Opis";
+            ostatnieZadaniaDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            ostatnieZadaniaDataGridView.Location = new Point(24, 349);
+            ostatnieZadaniaDataGridView.Name = "ostatnieZadaniaDataGridView";
+            ostatnieZadaniaDataGridView.RowTemplate.Height = 25;
+            ostatnieZadaniaDataGridView.Size = new Size(750, 150);
+            ostatnieZadaniaDataGridView.TabIndex = 47;
             // 
             // ZadaniaForm
             // 
@@ -205,15 +185,13 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(786, 578);
-            Controls.Add(label1);
-            Controls.Add(idZadania);
+            Controls.Add(ostatnieZadaniaDataGridView);
             Controls.Add(zamknijButton);
             Controls.Add(przydzielLinkLabel);
             Controls.Add(dodajLinkLabel);
             Controls.Add(opisZagadnieniaTextBox);
             Controls.Add(nazwaZagadnieniaTextBox);
             Controls.Add(przyjmijButton);
-            Controls.Add(ostatnieZadaniaListBox);
             Controls.Add(czasLabel);
             Controls.Add(opisLabel);
             Controls.Add(czasValue);
@@ -222,6 +200,7 @@
             Name = "ZadaniaForm";
             Text = "Zadania";
             KeyDown += ZadaniaForm_KeyDown;
+            ((System.ComponentModel.ISupportInitialize)ostatnieZadaniaDataGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -233,7 +212,6 @@
         private TextBox czasValue;
         private Label opisLabel;
         private Label czasLabel;
-        private ListBox ostatnieZadaniaListBox;
         private Button przyjmijButton;
         private Label nazwaZagadnieniaLabel;
         private Label opisZagadnieniaLabel;
@@ -242,7 +220,6 @@
         private LinkLabel dodajLinkLabel;
         private LinkLabel przydzielLinkLabel;
         private Button zamknijButton;
-        private Label idZadania;
-        private Label label1;
+        private DataGridView ostatnieZadaniaDataGridView;
     }
 }

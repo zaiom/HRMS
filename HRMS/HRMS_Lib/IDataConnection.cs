@@ -1,6 +1,7 @@
 ﻿using HRMS_Lib.Modele;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,12 +39,15 @@ namespace HRMS_Lib
         List<int> PobierzIdZagadnien(string idPracownika);
         string PobierzNazweZagadnienia(string idZagadnienia);
         string PobierzOpisZagadnienia(string idZagadnienia);
-        //Dodaj Zagadnienie
+        //ZadaniaForm -> Dodaj Zagadnienie
         ZagadnieniaModel DodajZagadnienie(ZagadnieniaModel model);
-        //Przydziel zagadnienie
+        //ZadaniaForm -> Przydziel zagadnienie
         List<string> PobierzWszystkieZagadnienia();
         List<string> PobierzIdWszystkichPracownikow();
-        //Dodaj zadanie
+        //ZadaniaForm -> Dodaj zadanie
         ZadaniaModel DodajZadanie(ZadaniaModel model);
+        //ZadaniaForm -> Wyświetl zadania zalogowanego pracownika wybranego zagadnienia
+        //List<string> PobierzDaneZagadnienia(string idPracownika, string idZagadnienia);
+        List<ZadaniaModel> PobierzDaneZagadnienia(string idPracownika, string idZagadnienia);
     }
 }

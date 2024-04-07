@@ -24,6 +24,8 @@ namespace HRMS_UI
                                                                                                                             //idPracownikow o nizszej roli od zalogowanego uzytkownika
             zagadnieniaListBox.SelectedIndexChanged += zagadnieniaListBox_SelectedIndexChanged;
 
+            WyswietlOstatnieZadania();
+
             KeyPreview = true;
         }
 
@@ -41,6 +43,11 @@ namespace HRMS_UI
             }
         }
 
+        private void WyswietlOstatnieZadania()
+        {
+            ostatnieZadaniaDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+
         private void zagadnieniaListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (zagadnieniaListBox.SelectedIndex != -1)
@@ -49,11 +56,21 @@ namespace HRMS_UI
                 string nazwaZagadnienia = GlobalConfig.Connection.PobierzNazweZagadnienia(selectedTask);
                 string opisZagadnienia = GlobalConfig.Connection.PobierzOpisZagadnienia(selectedTask);
 
+                //włączenie widoczności napisów
                 nazwaZagadnieniaTextBox.Visible = true;
                 opisZagadnieniaTextBox.Visible = true;
 
+                // zmiana tekstów napisów
                 nazwaZagadnieniaTextBox.Text = nazwaZagadnienia;
                 opisZagadnieniaTextBox.Text = opisZagadnienia;
+
+                //pobranie z bazy danych odnośnie zadań wpisanych do zaznaczonego zagadnienia
+                //List<string> daneZagadnienia = GlobalConfig.Connection.PobierzDaneZagadnienia(GlobalData.LoggedUserId.ToString(), selectedTask);
+                //ostatnieZadaniaDataGridView.DataSource = daneZagadnienia;
+                List<ZadaniaModel> daneZagadnienia = GlobalConfig.Connection.PobierzDaneZagadnienia(GlobalData.LoggedUserId.ToString(), selectedTask);
+                ostatnieZadaniaDataGridView.DataSource = daneZagadnienia;
+                ostatnieZadaniaDataGridView.Columns["idZadania"].Visible = false;
+                ostatnieZadaniaDataGridView.Columns["idPracownika"].Visible = false;
             }
         }
 

@@ -521,5 +521,46 @@ namespace HRMS_Lib
                 return model;
             }
         }
+
+        //public List<string> PobierzDaneZagadnienia(string idPracownika, string idZagadnienia)
+        //{
+        //    List<string> daneZagadnienia = new List<string>();
+
+        //    using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("HRMS_DB")))
+        //    {
+        //        connection.Open();
+
+        //        string query = $"SELECT idZagadnienia, Opis, CONVERT(varchar, Dzien, 104) as Dzien, Czas FROM Zadania WHERE idPracownika = {idPracownika} AND idZagadnienia = {idZagadnienia};";
+
+        //        var result = connection.QueryFirstOrDefault<dynamic>(query);
+
+        //        if (result != null)
+        //        {
+        //            daneZagadnienia.Add(result.idZagadnienia.ToString());
+        //            daneZagadnienia.Add(result.Opis);
+        //            daneZagadnienia.Add(result.Dzien);
+        //            daneZagadnienia.Add(result.Czas.ToString());
+        //        }
+
+        //        return daneZagadnienia;
+        //    }
+        //}
+
+        public List<ZadaniaModel> PobierzDaneZagadnienia(string idPracownika, string idZagadnienia)
+        {
+            List<ZadaniaModel> daneZagadnienia = new List<ZadaniaModel>();
+
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("HRMS_DB")))
+            {
+                connection.Open();
+
+                string query = $"SELECT idZagadnienia, Opis, CONVERT(varchar, Dzien, 104) as Dzien, Czas FROM Zadania WHERE idPracownika = {idPracownika} AND idZagadnienia = {idZagadnienia};";
+
+                var results = connection.Query<ZadaniaModel>(query).ToList();
+
+                return results;
+            }
+        }
+
     }
 }

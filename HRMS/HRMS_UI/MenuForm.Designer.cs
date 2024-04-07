@@ -117,7 +117,7 @@
             // wylogujToolStripMenuItem
             // 
             wylogujToolStripMenuItem.Name = "wylogujToolStripMenuItem";
-            wylogujToolStripMenuItem.Size = new Size(180, 24);
+            wylogujToolStripMenuItem.Size = new Size(135, 24);
             wylogujToolStripMenuItem.Text = "Wyloguj";
             wylogujToolStripMenuItem.Click += wylogujToolStripMenuItem_Click;
             // 
