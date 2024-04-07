@@ -40,6 +40,8 @@
             dodajLinkLabel = new LinkLabel();
             przydzielLinkLabel = new LinkLabel();
             zamknijButton = new Button();
+            idZadania = new Label();
+            label1 = new Label();
             SuspendLayout();
             // 
             // zagadnieniaListBox
@@ -62,7 +64,6 @@
             opisValue.Name = "opisValue";
             opisValue.Size = new Size(411, 202);
             opisValue.TabIndex = 1;
-            opisValue.Text = "Rozbudowa bazy danych";
             // 
             // czasValue
             // 
@@ -97,9 +98,9 @@
             ostatnieZadaniaListBox.BackColor = Color.LightCyan;
             ostatnieZadaniaListBox.FormattingEnabled = true;
             ostatnieZadaniaListBox.ItemHeight = 15;
-            ostatnieZadaniaListBox.Location = new Point(40, 360);
+            ostatnieZadaniaListBox.Location = new Point(40, 384);
             ostatnieZadaniaListBox.Name = "ostatnieZadaniaListBox";
-            ostatnieZadaniaListBox.Size = new Size(710, 109);
+            ostatnieZadaniaListBox.Size = new Size(710, 124);
             ostatnieZadaniaListBox.TabIndex = 5;
             // 
             // przyjmijButton
@@ -114,12 +115,13 @@
             przyjmijButton.TabIndex = 6;
             przyjmijButton.Text = "Przyjmij";
             przyjmijButton.UseVisualStyleBackColor = true;
+            przyjmijButton.Click += przyjmijButton_Click;
             // 
             // nazwaZagadnieniaTextBox
             // 
             nazwaZagadnieniaTextBox.BackColor = Color.White;
             nazwaZagadnieniaTextBox.BorderStyle = BorderStyle.None;
-            nazwaZagadnieniaTextBox.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            nazwaZagadnieniaTextBox.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             nazwaZagadnieniaTextBox.Location = new Point(40, 172);
             nazwaZagadnieniaTextBox.Multiline = true;
             nazwaZagadnieniaTextBox.Name = "nazwaZagadnieniaTextBox";
@@ -171,7 +173,7 @@
             zamknijButton.FlatAppearance.MouseOverBackColor = Color.WhiteSmoke;
             zamknijButton.FlatStyle = FlatStyle.Flat;
             zamknijButton.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            zamknijButton.Location = new Point(338, 475);
+            zamknijButton.Location = new Point(338, 523);
             zamknijButton.Name = "zamknijButton";
             zamknijButton.Size = new Size(88, 43);
             zamknijButton.TabIndex = 44;
@@ -179,12 +181,32 @@
             zamknijButton.UseVisualStyleBackColor = true;
             zamknijButton.Click += zamknijButton_Click;
             // 
+            // idZadania
+            // 
+            idZadania.AutoSize = true;
+            idZadania.Location = new Point(51, 366);
+            idZadania.Name = "idZadania";
+            idZadania.Size = new Size(18, 15);
+            idZadania.TabIndex = 45;
+            idZadania.Text = "ID";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(88, 366);
+            label1.Name = "label1";
+            label1.Size = new Size(31, 15);
+            label1.TabIndex = 46;
+            label1.Text = "Opis";
+            // 
             // ZadaniaForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(786, 529);
+            ClientSize = new Size(786, 578);
+            Controls.Add(label1);
+            Controls.Add(idZadania);
             Controls.Add(zamknijButton);
             Controls.Add(przydzielLinkLabel);
             Controls.Add(dodajLinkLabel);
@@ -220,5 +242,7 @@
         private LinkLabel dodajLinkLabel;
         private LinkLabel przydzielLinkLabel;
         private Button zamknijButton;
+        private Label idZadania;
+        private Label label1;
     }
 }

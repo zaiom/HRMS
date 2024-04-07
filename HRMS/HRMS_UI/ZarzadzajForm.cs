@@ -27,36 +27,43 @@ namespace HRMS_UI
 
         private void modyfikujButton_Click(object sender, EventArgs e)
         {
-            GlobalData.idUzytkownika = listaPracownikowListBox.SelectedItem.ToString();
-            GlobalData.daneUzytkownikow = GlobalConfig.Connection.PobierzDanePracownika(GlobalData.idUzytkownika);
-            GlobalData.daneUmowy = GlobalConfig.Connection.PobierzDaneUmowy(GlobalData.daneUzytkownikow[7]);
-            GlobalData.daneLogowania = GlobalConfig.Connection.PobierzDaneLogowania(GlobalData.idUzytkownika);
-
-            ModyfikujDanePracownikaForm existingModyfikujDanePracownikaForm = Application.OpenForms.OfType<ModyfikujDanePracownikaForm>().FirstOrDefault();
-            //DodajPracownikaForm existingDodajPracownikaForm = Application.OpenForms.OfType<DodajPracownikaForm>().FirstOrDefault();
-
-            //if (existingDodajPracownikaForm != null)
-            //{
-            //    MessageBox.Show("Zamknij okno Dodaj Pracownika, żeby przejść do Zarządzaj.", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-            //    return;
-            //}
-
-            if (GlobalData.LoggedUserRole == 1)
+            if (listaPracownikowListBox.SelectedIndex != -1)
             {
-                if (existingModyfikujDanePracownikaForm != null)
+                GlobalData.idUzytkownika = listaPracownikowListBox.SelectedItem.ToString();
+                GlobalData.daneUzytkownikow = GlobalConfig.Connection.PobierzDanePracownika(GlobalData.idUzytkownika);
+                GlobalData.daneUmowy = GlobalConfig.Connection.PobierzDaneUmowy(GlobalData.daneUzytkownikow[7]);
+                GlobalData.daneLogowania = GlobalConfig.Connection.PobierzDaneLogowania(GlobalData.idUzytkownika);
+
+                ModyfikujDanePracownikaForm existingModyfikujDanePracownikaForm = Application.OpenForms.OfType<ModyfikujDanePracownikaForm>().FirstOrDefault();
+                //DodajPracownikaForm existingDodajPracownikaForm = Application.OpenForms.OfType<DodajPracownikaForm>().FirstOrDefault();
+
+                //if (existingDodajPracownikaForm != null)
+                //{
+                //    MessageBox.Show("Zamknij okno Dodaj Pracownika, żeby przejść do Zarządzaj.", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                //    return;
+                //}
+
+                if (GlobalData.LoggedUserRole == 1)
                 {
-                    existingModyfikujDanePracownikaForm.Activate();
+                    if (existingModyfikujDanePracownikaForm != null)
+                    {
+                        existingModyfikujDanePracownikaForm.Activate();
+                    }
+                    else
+                    {
+                        ModyfikujDanePracownikaForm modyfikujDaneForm = new ModyfikujDanePracownikaForm();
+                        modyfikujDaneForm.Show();
+                    }
                 }
                 else
                 {
-                    ModyfikujDanePracownikaForm modyfikujDaneForm = new ModyfikujDanePracownikaForm();
-                    modyfikujDaneForm.Show();
+                    MessageBox.Show("Nie posiadasz odpowiednich uprawnień, żeby skorzystać z tej usługi. Skontaktuj się z Administratorem, żeby nadał Ci wyższą rolę w systemie.",
+                                    "Błąd uprawnień", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 }
             }
             else
             {
-                MessageBox.Show("Nie posiadasz odpowiednich uprawnień, żeby skorzystać z tej usługi. Skontaktuj się z Administratorem, żeby nadał Ci wyższą rolę w systemie.",
-                                "Błąd uprawnień", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show("Nie wybrano żadnego pracownika.", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -203,7 +210,10 @@ namespace HRMS_UI
 
                     MessageBox.Show("Pracownik został pomyślnie usunięty.", "Usuwanie pracownika", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-
+            }
+            else
+            {
+                MessageBox.Show("Nie wybrano żadnego pracownika.", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

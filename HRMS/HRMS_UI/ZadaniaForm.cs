@@ -65,6 +65,36 @@ namespace HRMS_UI
             zagadnieniaListBox.Items.AddRange(idZagadnien.Select(id => id.ToString()).ToArray());
         }
 
+        private bool ValidateForm()
+        {
+            bool output = true;
+
+            if (opisValue.Text.Length < 4)
+            {
+                output = false;
+            }
+
+            if (czasValue.Text.Length == 0)
+            {
+                output = false;
+            }
+
+            float czas = 0;
+            bool czasValid = float.TryParse(czasValue.Text, out czas);
+
+            if (czasValid == false)
+            {
+                output = false;
+            }
+
+            if (czas <= 0 || czas >= 16)
+            {
+                output = false;
+            }
+
+            return output;
+        }
+
         private void dodajLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             DodajZagadnienieForm existingDodajZagadnienieForm = Application.OpenForms.OfType<DodajZagadnienieForm>().FirstOrDefault();
@@ -105,6 +135,52 @@ namespace HRMS_UI
             if (e.KeyCode == Keys.Escape)
             {
                 zamknijButton.PerformClick();
+            }
+        }
+
+        private void przyjmijButton_Click(object sender, EventArgs e)
+        {
+            if (zagadnieniaListBox.SelectedIndex != -1)
+            {
+                string selectedId = zagadnieniaListBox.SelectedItem.ToString();
+                DateTime todayDate = DateTime.Now;
+
+                if (ValidateForm())
+                {
+                    DialogResult dialogResult = MessageBox.Show("Czy na pewno chcesz dodać zadanie?", "Dodawanie zadania", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        float czas;
+                        if (!float.TryParse(czasValue.Text, out czas))                                              // Sprawdzenie poprawności konwersji czasu na float
+                        {
+                            MessageBox.Show("Niepoprawny format czasu.", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;                                                                                 // Wychodzimy z metody, jeśli konwersja nie powiodła się
+                        }
+
+                        ZadaniaModel model = new ZadaniaModel(
+                            opisValue.Text,
+                            selectedId,
+                            GlobalData.LoggedUserId.ToString(),
+                            todayDate,
+                            czas);
+
+                        GlobalConfig.Connection.DodajZadanie(model);
+
+                        opisValue.Text = "";
+                        czasValue.Text = "";
+
+                        MessageBox.Show("Poprawnie wpisano zadanie.", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Formularz posiada niepoprawne dane. Proszę poprawić je i spróbować ponownie.", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Nie wybrano żadnego zadania.", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

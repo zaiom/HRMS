@@ -68,7 +68,6 @@ namespace HRMS_UI
         private void przydzielButton_Click(object sender, EventArgs e)
         {
             DateTime todayDate = DateTime.Now;
-            //string data = todayDate.ToString("yyyy-MM-dd");
 
             if (ValidateForm())
             {
@@ -89,6 +88,18 @@ namespace HRMS_UI
             else
             {
                 MessageBox.Show("Formularz posiada niepoprawne dane. Proszę poprawić je i spróbować ponownie.", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void numerZagadnieniaComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (numerZagadnieniaComboBox.SelectedIndex != -1)
+            {
+                string selectedTask = numerZagadnieniaComboBox.SelectedItem.ToString();
+                string nazwaZagadnienia = GlobalConfig.Connection.PobierzNazweZagadnienia(selectedTask);
+
+                nazwaZagadnieniaTextBox.Visible = true;
+                nazwaZagadnieniaTextBox.Text = nazwaZagadnienia;
             }
         }
     }

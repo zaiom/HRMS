@@ -32,24 +32,26 @@
             idPracownikaComboBox = new ComboBox();
             przydzielButton = new Button();
             numerZagadnieniaLabel = new Label();
-            nazwaZagadnieniaTextBox = new TextBox();
+            idPracownikaTextBox = new TextBox();
             zamknijButton = new Button();
+            nazwaZagadnieniaTextBox = new TextBox();
             SuspendLayout();
             // 
             // numerZagadnieniaComboBox
             // 
             numerZagadnieniaComboBox.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             numerZagadnieniaComboBox.FormattingEnabled = true;
-            numerZagadnieniaComboBox.Location = new Point(49, 77);
+            numerZagadnieniaComboBox.Location = new Point(67, 58);
             numerZagadnieniaComboBox.Name = "numerZagadnieniaComboBox";
             numerZagadnieniaComboBox.Size = new Size(201, 28);
             numerZagadnieniaComboBox.TabIndex = 78;
+            numerZagadnieniaComboBox.SelectedIndexChanged += numerZagadnieniaComboBox_SelectedIndexChanged;
             // 
             // idPracownikaComboBox
             // 
             idPracownikaComboBox.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             idPracownikaComboBox.FormattingEnabled = true;
-            idPracownikaComboBox.Location = new Point(49, 200);
+            idPracownikaComboBox.Location = new Point(67, 242);
             idPracownikaComboBox.Name = "idPracownikaComboBox";
             idPracownikaComboBox.Size = new Size(201, 28);
             idPracownikaComboBox.TabIndex = 79;
@@ -60,7 +62,7 @@
             przydzielButton.FlatAppearance.MouseDownBackColor = Color.Gray;
             przydzielButton.FlatAppearance.MouseOverBackColor = Color.WhiteSmoke;
             przydzielButton.FlatStyle = FlatStyle.Flat;
-            przydzielButton.Location = new Point(28, 248);
+            przydzielButton.Location = new Point(46, 290);
             przydzielButton.Name = "przydzielButton";
             przydzielButton.Size = new Size(80, 38);
             przydzielButton.TabIndex = 80;
@@ -72,23 +74,23 @@
             // 
             numerZagadnieniaLabel.AutoSize = true;
             numerZagadnieniaLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            numerZagadnieniaLabel.Location = new Point(12, 36);
+            numerZagadnieniaLabel.Location = new Point(30, 26);
             numerZagadnieniaLabel.Name = "numerZagadnieniaLabel";
             numerZagadnieniaLabel.Size = new Size(125, 17);
             numerZagadnieniaLabel.TabIndex = 81;
             numerZagadnieniaLabel.Text = "Numer zagadnienia:";
             // 
-            // nazwaZagadnieniaTextBox
+            // idPracownikaTextBox
             // 
-            nazwaZagadnieniaTextBox.BackColor = Color.White;
-            nazwaZagadnieniaTextBox.BorderStyle = BorderStyle.None;
-            nazwaZagadnieniaTextBox.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            nazwaZagadnieniaTextBox.Location = new Point(12, 143);
-            nazwaZagadnieniaTextBox.Multiline = true;
-            nazwaZagadnieniaTextBox.Name = "nazwaZagadnieniaTextBox";
-            nazwaZagadnieniaTextBox.Size = new Size(272, 41);
-            nazwaZagadnieniaTextBox.TabIndex = 82;
-            nazwaZagadnieniaTextBox.Text = "Identyfikator pracownika, któremu chcesz przydzielić zagadnienie:";
+            idPracownikaTextBox.BackColor = Color.White;
+            idPracownikaTextBox.BorderStyle = BorderStyle.None;
+            idPracownikaTextBox.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            idPracownikaTextBox.Location = new Point(30, 185);
+            idPracownikaTextBox.Multiline = true;
+            idPracownikaTextBox.Name = "idPracownikaTextBox";
+            idPracownikaTextBox.Size = new Size(272, 41);
+            idPracownikaTextBox.TabIndex = 82;
+            idPracownikaTextBox.Text = "Identyfikator pracownika, któremu chcesz przydzielić zagadnienie:";
             // 
             // zamknijButton
             // 
@@ -97,7 +99,7 @@
             zamknijButton.FlatAppearance.MouseOverBackColor = Color.WhiteSmoke;
             zamknijButton.FlatStyle = FlatStyle.Flat;
             zamknijButton.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            zamknijButton.Location = new Point(177, 248);
+            zamknijButton.Location = new Point(195, 290);
             zamknijButton.Name = "zamknijButton";
             zamknijButton.Size = new Size(73, 38);
             zamknijButton.TabIndex = 83;
@@ -105,14 +107,28 @@
             zamknijButton.UseVisualStyleBackColor = true;
             zamknijButton.Click += zamknijButton_Click;
             // 
+            // nazwaZagadnieniaTextBox
+            // 
+            nazwaZagadnieniaTextBox.BackColor = Color.White;
+            nazwaZagadnieniaTextBox.BorderStyle = BorderStyle.None;
+            nazwaZagadnieniaTextBox.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            nazwaZagadnieniaTextBox.Location = new Point(30, 106);
+            nazwaZagadnieniaTextBox.Multiline = true;
+            nazwaZagadnieniaTextBox.Name = "nazwaZagadnieniaTextBox";
+            nazwaZagadnieniaTextBox.Size = new Size(272, 41);
+            nazwaZagadnieniaTextBox.TabIndex = 84;
+            nazwaZagadnieniaTextBox.Text = "<none>";
+            nazwaZagadnieniaTextBox.Visible = false;
+            // 
             // PrzydzielZagadnienieForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(289, 307);
-            Controls.Add(zamknijButton);
+            ClientSize = new Size(323, 362);
             Controls.Add(nazwaZagadnieniaTextBox);
+            Controls.Add(zamknijButton);
+            Controls.Add(idPracownikaTextBox);
             Controls.Add(numerZagadnieniaLabel);
             Controls.Add(przydzielButton);
             Controls.Add(idPracownikaComboBox);
@@ -130,7 +146,8 @@
         private ComboBox idPracownikaComboBox;
         private Button przydzielButton;
         private Label numerZagadnieniaLabel;
-        private TextBox nazwaZagadnieniaTextBox;
+        private TextBox idPracownikaTextBox;
         private Button zamknijButton;
+        private TextBox nazwaZagadnieniaTextBox;
     }
 }
