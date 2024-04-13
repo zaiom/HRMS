@@ -562,5 +562,106 @@ namespace HRMS_Lib
             }
         }
 
+        public string PobierzZagadnieniaThisMonth(string idPracownika)
+        {
+            string zagadnienia = "";
+
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("HRMS_DB")))
+            {
+                connection.Open();
+
+                string query = $"SELECT COUNT(DISTINCT idZagadnienia) FROM Zadania WHERE idpracownika = {idPracownika} AND MONTH(Dzien) = MONTH(GETDATE()) AND YEAR(Dzien) = YEAR(GETDATE());";
+
+
+                zagadnienia = connection.QueryFirstOrDefault<string>(query);
+
+                return zagadnienia;
+            }
+        }
+
+        public string PobierzZagadnieniaOverall(string idPracownika)
+        {
+            string zagadnienia = "";
+
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("HRMS_DB")))
+            {
+                connection.Open();
+
+                string query = $"SELECT COUNT(DISTINCT idZagadnienia) FROM Zadania WHERE idpracownika = {idPracownika};";
+
+
+                zagadnienia = connection.QueryFirstOrDefault<string>(query);
+
+                return zagadnienia;
+            }
+        }
+
+        public string PobierzCzasThisMonth(string idPracownika)
+        {
+            string czas = "";
+
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("HRMS_DB")))
+            {
+                connection.Open();
+
+                string query = $"SELECT SUM(Czas) FROM Zadania WHERE idpracownika = {idPracownika} AND MONTH(Dzien) = MONTH(GETDATE()) AND YEAR(Dzien) = YEAR(GETDATE());";
+
+
+                czas = connection.QueryFirstOrDefault<string>(query);
+
+                return czas;
+            }
+        }
+
+        public string PobierzCzasOverall(string idPracownika)
+        {
+            string czas = "";
+
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("HRMS_DB")))
+            {
+                connection.Open();
+
+                string query = $"SELECT SUM(Czas) FROM Zadania WHERE idPracownika = {idPracownika};";
+
+
+                czas = connection.QueryFirstOrDefault<string>(query);
+
+                return czas;
+            }
+        }
+        
+        public string PobierzZadaniaThisMonth(string idPracownika)
+        {
+            string zadania = "";
+
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("HRMS_DB")))
+            {
+                connection.Open();
+
+                string query = $"SELECT COUNT(DISTINCT idZadania) FROM Zadania WHERE idPracownika = {idPracownika} AND Czas != 0 AND MONTH(Dzien) = MONTH(GETDATE()) AND YEAR(Dzien) = YEAR(GETDATE());";
+
+
+                zadania = connection.QueryFirstOrDefault<string>(query);
+
+                return zadania;
+            }
+        }
+
+        public string PobierzZadaniaOverall(string idPracownika)
+        {
+            string zadania = "";
+
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("HRMS_DB")))
+            {
+                connection.Open();
+
+                string query = $"SELECT COUNT(DISTINCT idZadania) FROM Zadania WHERE idPracownika = {idPracownika} AND Czas != 0;";
+
+
+                zadania = connection.QueryFirstOrDefault<string>(query);
+
+                return zadania;
+            }
+        }
     }
 }

@@ -25,18 +25,18 @@ namespace HRMS_UI
         private void uprawnieniaButton_Click(object sender, EventArgs e)
         {
             // Sprawdź, czy formularz UprawnieniaForm jest już otwarty
-            UprawnieniaForm existingUprawnieniaForm = Application.OpenForms.OfType<UprawnieniaForm>().FirstOrDefault();
+            RaportForm existingRaportForm = Application.OpenForms.OfType<RaportForm>().FirstOrDefault();
 
-            if (existingUprawnieniaForm != null)
+            if (existingRaportForm != null)
             {
                 // Jeśli formularz już istnieje, aktywuj go
-                existingUprawnieniaForm.Activate();
+                existingRaportForm.Activate();
             }
             else
             {
                 // Jeśli formularz nie istnieje, utwórz nowy
-                UprawnieniaForm uprawnieniaForm = new UprawnieniaForm();
-                uprawnieniaForm.Show();
+                RaportForm RaportForm = new RaportForm();
+                RaportForm.Show();
             }
         }
 

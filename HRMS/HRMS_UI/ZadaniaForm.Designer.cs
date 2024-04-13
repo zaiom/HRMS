@@ -172,12 +172,19 @@
             // 
             // ostatnieZadaniaDataGridView
             // 
+            ostatnieZadaniaDataGridView.AllowUserToResizeColumns = false;
+            ostatnieZadaniaDataGridView.AllowUserToResizeRows = false;
+            ostatnieZadaniaDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
+            ostatnieZadaniaDataGridView.BackgroundColor = Color.White;
+            ostatnieZadaniaDataGridView.BorderStyle = BorderStyle.None;
             ostatnieZadaniaDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            ostatnieZadaniaDataGridView.EditMode = DataGridViewEditMode.EditProgrammatically;
             ostatnieZadaniaDataGridView.Location = new Point(24, 349);
             ostatnieZadaniaDataGridView.Name = "ostatnieZadaniaDataGridView";
             ostatnieZadaniaDataGridView.RowTemplate.Height = 25;
             ostatnieZadaniaDataGridView.Size = new Size(750, 150);
             ostatnieZadaniaDataGridView.TabIndex = 47;
+            ostatnieZadaniaDataGridView.CellContentClick += ostatnieZadaniaDataGridView_CellContentClick;
             // 
             // ZadaniaForm
             // 

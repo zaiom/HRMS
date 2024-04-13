@@ -200,5 +200,10 @@ namespace HRMS_UI
                 MessageBox.Show("Nie wybrano żadnego zadania.", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void ostatnieZadaniaDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

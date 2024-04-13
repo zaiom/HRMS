@@ -49,5 +49,12 @@ namespace HRMS_Lib
         //ZadaniaForm -> Wyświetl zadania zalogowanego pracownika wybranego zagadnienia
         //List<string> PobierzDaneZagadnienia(string idPracownika, string idZagadnienia);
         List<ZadaniaModel> PobierzDaneZagadnienia(string idPracownika, string idZagadnienia);
+        //Raporty
+        string PobierzZagadnieniaThisMonth(string idPracownika);
+        string PobierzZagadnieniaOverall(string idPracownika);
+        string PobierzCzasThisMonth(string idPracownika);
+        string PobierzCzasOverall(string idPracownika);
+        string PobierzZadaniaThisMonth(string idPracownika);
+        string PobierzZadaniaOverall(string idPracownika);
     }
 }

@@ -17,7 +17,6 @@ C:\Gry\Inżynierka\HRMS\HRMS_UI\obj\Debug\net6.0-windows\HRMS_UI.pdb
 C:\Gry\Inżynierka\HRMS\HRMS_UI\obj\Debug\net6.0-windows\HRMS_UI.genruntimeconfig.cache
 C:\Gry\Inżynierka\HRMS\HRMS_UI\obj\Debug\net6.0-windows\ref\HRMS_UI.dll
 C:\Gry\Inżynierka\HRMS\HRMS_UI\obj\Debug\net6.0-windows\HRMS_UI.ZadaniaForm.resources
-C:\Gry\Inżynierka\HRMS\HRMS_UI\obj\Debug\net6.0-windows\HRMS_UI.UprawnieniaForm.resources
 C:\Gry\Inżynierka\HRMS\HRMS_UI\obj\Debug\net6.0-windows\HRMS_UI.DodajPracownikaForm.resources
 C:\Gry\Inżynierka\HRMS\HRMS_UI\obj\Debug\net6.0-windows\HRMS_UI.ZarzadzajFOrm.resources
 C:\Gry\Inżynierka\HRMS\HRMS_UI\bin\Debug\net6.0-windows\HRMS_Lib.dll
@@ -38,3 +37,4 @@ C:\Gry\Inżynierka\HRMS\HRMS_UI\obj\Debug\net6.0-windows\HRMS_UI.StartingForm.re
 C:\Gry\Inżynierka\HRMS\HRMS_UI\obj\Debug\net6.0-windows\HRMS_UI.ModyfikujDanePracownikaForm.resources
 C:\Gry\Inżynierka\HRMS\HRMS_UI\obj\Debug\net6.0-windows\HRMS_UI.DodajZagadnienieForm.resources
 C:\Gry\Inżynierka\HRMS\HRMS_UI\obj\Debug\net6.0-windows\HRMS_UI.PrzydzielZagadnienieForm.resources
+C:\Gry\Inżynierka\HRMS\HRMS_UI\obj\Debug\net6.0-windows\HRMS_UI.RaportForm.resources

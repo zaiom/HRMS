@@ -49,11 +49,11 @@ namespace HRMS_UI
             //Zapełnienie formularza aktualnymi danymi
             //DanePracownika
 
-            imieValue.Text = GlobalData.daneUzytkownikow[0];
-            nazwiskoValue.Text = GlobalData.daneUzytkownikow[1];
-            dataUrodzeniaDateTimePicker.Value = DateTime.Parse(GlobalData.daneUzytkownikow[2]);
+            imieValue.Text = GlobalData.daneUzytkownika[0];
+            nazwiskoValue.Text = GlobalData.daneUzytkownika[1];
+            dataUrodzeniaDateTimePicker.Value = DateTime.Parse(GlobalData.daneUzytkownika[2]);
 
-            switch (GlobalData.daneUzytkownikow[3])
+            switch (GlobalData.daneUzytkownika[3])
             {
                 case "1":
                     wydzialComboBox.Text = "Wydzial Rozwoju Oprogramowania";
@@ -69,7 +69,7 @@ namespace HRMS_UI
                     break;
             }
 
-            switch (GlobalData.daneUzytkownikow[4])
+            switch (GlobalData.daneUzytkownika[4])
             {
                 case "1":
                     stanowiskoComboBox.Text = "Prezes";
@@ -85,9 +85,9 @@ namespace HRMS_UI
                     break;
             }
 
-            przelozonyComboBox.Text = GlobalData.daneUzytkownikow[5];
+            przelozonyComboBox.Text = GlobalData.daneUzytkownika[5];
 
-            switch (GlobalData.daneUzytkownikow[6])
+            switch (GlobalData.daneUzytkownika[6])
             {
                 case "1":
                     rolaComboBox.Text = "Administrator";
@@ -103,8 +103,8 @@ namespace HRMS_UI
                     break;
             }
 
-            numerKontaktowyValue.Text = GlobalData.daneUzytkownikow[8];
-            emailValue.Text = GlobalData.daneUzytkownikow[9];
+            numerKontaktowyValue.Text = GlobalData.daneUzytkownika[8];
+            emailValue.Text = GlobalData.daneUzytkownika[9];
 
             //Dane umowy
             rodzajUmowyComboBox.Text = GlobalData.daneUmowy[0];
@@ -349,7 +349,7 @@ namespace HRMS_UI
                 if (dialogResult == DialogResult.Yes)
                 {
                     UmowyModel model = new UmowyModel(
-                    GlobalData.daneUzytkownikow[7],
+                    GlobalData.daneUzytkownika[7],
                     rodzajUmowyComboBox.Text,
                     pensjaValue.Text,
                     dataZatrudnieniaDateTimePicker.Value,
@@ -424,7 +424,7 @@ namespace HRMS_UI
                         //stanowiskoComboBox.Text,
                         stanowiskoId.ToString(),
                         przelozonyComboBox.Text,
-                        GlobalData.daneUzytkownikow[7],
+                        GlobalData.daneUzytkownika[7],
                         numerKontaktowyValue.Text,
                         emailValue.Text,
                         //rolaComboBox.Text);

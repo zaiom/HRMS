@@ -30,8 +30,8 @@ namespace HRMS_UI
             if (listaPracownikowListBox.SelectedIndex != -1)
             {
                 GlobalData.idUzytkownika = listaPracownikowListBox.SelectedItem.ToString();
-                GlobalData.daneUzytkownikow = GlobalConfig.Connection.PobierzDanePracownika(GlobalData.idUzytkownika);
-                GlobalData.daneUmowy = GlobalConfig.Connection.PobierzDaneUmowy(GlobalData.daneUzytkownikow[7]);
+                GlobalData.daneUzytkownika = GlobalConfig.Connection.PobierzDanePracownika(GlobalData.idUzytkownika);
+                GlobalData.daneUmowy = GlobalConfig.Connection.PobierzDaneUmowy(GlobalData.daneUzytkownika[7]);
                 GlobalData.daneLogowania = GlobalConfig.Connection.PobierzDaneLogowania(GlobalData.idUzytkownika);
 
                 ModyfikujDanePracownikaForm existingModyfikujDanePracownikaForm = Application.OpenForms.OfType<ModyfikujDanePracownikaForm>().FirstOrDefault();

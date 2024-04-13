@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            uprawnieniaButton = new Button();
+            raportButton = new Button();
             zadaniaButton = new Button();
             zarzadzajButton = new Button();
             menuLabel = new Label();
@@ -38,21 +38,21 @@
             menuStrip.SuspendLayout();
             SuspendLayout();
             // 
-            // uprawnieniaButton
+            // raportButton
             // 
-            uprawnieniaButton.FlatAppearance.BorderColor = Color.Silver;
-            uprawnieniaButton.FlatAppearance.BorderSize = 0;
-            uprawnieniaButton.FlatAppearance.MouseDownBackColor = Color.Gray;
-            uprawnieniaButton.FlatAppearance.MouseOverBackColor = Color.WhiteSmoke;
-            uprawnieniaButton.FlatStyle = FlatStyle.Flat;
-            uprawnieniaButton.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point);
-            uprawnieniaButton.Location = new Point(105, 120);
-            uprawnieniaButton.Name = "uprawnieniaButton";
-            uprawnieniaButton.Size = new Size(370, 80);
-            uprawnieniaButton.TabIndex = 0;
-            uprawnieniaButton.Text = "Uprawnienia";
-            uprawnieniaButton.UseVisualStyleBackColor = true;
-            uprawnieniaButton.Click += uprawnieniaButton_Click;
+            raportButton.FlatAppearance.BorderColor = Color.Silver;
+            raportButton.FlatAppearance.BorderSize = 0;
+            raportButton.FlatAppearance.MouseDownBackColor = Color.Gray;
+            raportButton.FlatAppearance.MouseOverBackColor = Color.WhiteSmoke;
+            raportButton.FlatStyle = FlatStyle.Flat;
+            raportButton.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point);
+            raportButton.Location = new Point(105, 230);
+            raportButton.Name = "raportButton";
+            raportButton.Size = new Size(370, 80);
+            raportButton.TabIndex = 0;
+            raportButton.Text = "Raport";
+            raportButton.UseVisualStyleBackColor = true;
+            raportButton.Click += uprawnieniaButton_Click;
             // 
             // zadaniaButton
             // 
@@ -62,7 +62,7 @@
             zadaniaButton.FlatAppearance.MouseOverBackColor = Color.WhiteSmoke;
             zadaniaButton.FlatStyle = FlatStyle.Flat;
             zadaniaButton.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            zadaniaButton.Location = new Point(105, 230);
+            zadaniaButton.Location = new Point(105, 120);
             zadaniaButton.Name = "zadaniaButton";
             zadaniaButton.Size = new Size(370, 80);
             zadaniaButton.TabIndex = 1;
@@ -130,7 +130,7 @@
             Controls.Add(menuLabel);
             Controls.Add(zarzadzajButton);
             Controls.Add(zadaniaButton);
-            Controls.Add(uprawnieniaButton);
+            Controls.Add(raportButton);
             Controls.Add(menuStrip);
             Name = "MenuForm";
             Text = "Menu";
@@ -142,7 +142,7 @@
 
         #endregion
 
-        private Button uprawnieniaButton;
+        private Button raportButton;
         private Button zadaniaButton;
         private Button zarzadzajButton;
         private Label menuLabel;

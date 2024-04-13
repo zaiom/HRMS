@@ -12,7 +12,7 @@ namespace HRMS_Lib.Modele
         public static int LoggedUserId { get; set; }
         public static int LoggedUserRole { get; set; }
         //dane uzytkownika, ktorego dane chce zmienic admin/moderator
-        public static List<string> daneUzytkownikow { get; set; }
+        public static List<string> daneUzytkownika { get; set; }
         public static string idUzytkownika { get; set; }
         public static List<string> daneUmowy { get; set; }
         public static List<string> daneLogowania { get; set; }
