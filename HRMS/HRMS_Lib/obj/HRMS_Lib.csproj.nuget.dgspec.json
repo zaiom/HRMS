@@ -42,7 +42,7 @@
           "dependencies": {
             "Dapper": {
               "target": "Package",
-              "version": "[2.1.28, )"
+              "version": "[2.1.44, )"
             },
             "System.Configuration.ConfigurationManager": {
               "target": "Package",
@@ -51,6 +51,10 @@
             "System.Data.SqlClient": {
               "target": "Package",
               "version": "[4.8.6, )"
+            },
+            "iTextSharp": {
+              "target": "Package",
+              "version": "[5.5.13.3, )"
             }
           },
           "imports": [

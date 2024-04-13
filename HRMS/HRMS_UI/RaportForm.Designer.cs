@@ -99,7 +99,7 @@
             // 
             thisMonthZagadnieniaLabel.AutoSize = true;
             thisMonthZagadnieniaLabel.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            thisMonthZagadnieniaLabel.Location = new Point(33, 114);
+            thisMonthZagadnieniaLabel.Location = new Point(21, 100);
             thisMonthZagadnieniaLabel.Name = "thisMonthZagadnieniaLabel";
             thisMonthZagadnieniaLabel.Size = new Size(261, 20);
             thisMonthZagadnieniaLabel.TabIndex = 47;
@@ -109,7 +109,7 @@
             // 
             thisMonthZagadnieniaValue.AutoSize = true;
             thisMonthZagadnieniaValue.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            thisMonthZagadnieniaValue.Location = new Point(310, 114);
+            thisMonthZagadnieniaValue.Location = new Point(297, 100);
             thisMonthZagadnieniaValue.Name = "thisMonthZagadnieniaValue";
             thisMonthZagadnieniaValue.Size = new Size(62, 20);
             thisMonthZagadnieniaValue.TabIndex = 48;
@@ -119,7 +119,7 @@
             // 
             overallZagadnieniaLabel.AutoSize = true;
             overallZagadnieniaLabel.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            overallZagadnieniaLabel.Location = new Point(33, 155);
+            overallZagadnieniaLabel.Location = new Point(21, 140);
             overallZagadnieniaLabel.Name = "overallZagadnieniaLabel";
             overallZagadnieniaLabel.Size = new Size(164, 20);
             overallZagadnieniaLabel.TabIndex = 49;
@@ -129,7 +129,7 @@
             // 
             overallZagadnieniaValue.AutoSize = true;
             overallZagadnieniaValue.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            overallZagadnieniaValue.Location = new Point(203, 155);
+            overallZagadnieniaValue.Location = new Point(203, 140);
             overallZagadnieniaValue.Name = "overallZagadnieniaValue";
             overallZagadnieniaValue.Size = new Size(62, 20);
             overallZagadnieniaValue.TabIndex = 50;
@@ -139,7 +139,7 @@
             // 
             thisMonthTimeLabel.AutoSize = true;
             thisMonthTimeLabel.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            thisMonthTimeLabel.Location = new Point(33, 195);
+            thisMonthTimeLabel.Location = new Point(21, 195);
             thisMonthTimeLabel.Name = "thisMonthTimeLabel";
             thisMonthTimeLabel.Size = new Size(288, 20);
             thisMonthTimeLabel.TabIndex = 51;
@@ -149,7 +149,7 @@
             // 
             thisMonthTimeValue.AutoSize = true;
             thisMonthTimeValue.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            thisMonthTimeValue.Location = new Point(337, 195);
+            thisMonthTimeValue.Location = new Point(323, 195);
             thisMonthTimeValue.Name = "thisMonthTimeValue";
             thisMonthTimeValue.Size = new Size(62, 20);
             thisMonthTimeValue.TabIndex = 52;
@@ -159,7 +159,7 @@
             // 
             overallTimeLabel.AutoSize = true;
             overallTimeLabel.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            overallTimeLabel.Location = new Point(33, 237);
+            overallTimeLabel.Location = new Point(21, 235);
             overallTimeLabel.Name = "overallTimeLabel";
             overallTimeLabel.Size = new Size(193, 20);
             overallTimeLabel.TabIndex = 53;
@@ -169,7 +169,7 @@
             // 
             overallTimeValue.AutoSize = true;
             overallTimeValue.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            overallTimeValue.Location = new Point(242, 250);
+            overallTimeValue.Location = new Point(229, 235);
             overallTimeValue.Name = "overallTimeValue";
             overallTimeValue.Size = new Size(62, 20);
             overallTimeValue.TabIndex = 54;
@@ -179,7 +179,7 @@
             // 
             thisMonthZadaniaLabel.AutoSize = true;
             thisMonthZadaniaLabel.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            thisMonthZadaniaLabel.Location = new Point(33, 294);
+            thisMonthZadaniaLabel.Location = new Point(21, 290);
             thisMonthZadaniaLabel.Name = "thisMonthZadaniaLabel";
             thisMonthZadaniaLabel.Size = new Size(232, 20);
             thisMonthZadaniaLabel.TabIndex = 55;
@@ -189,7 +189,7 @@
             // 
             thisMonthZadaniaValue.AutoSize = true;
             thisMonthZadaniaValue.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            thisMonthZadaniaValue.Location = new Point(286, 294);
+            thisMonthZadaniaValue.Location = new Point(268, 290);
             thisMonthZadaniaValue.Name = "thisMonthZadaniaValue";
             thisMonthZadaniaValue.Size = new Size(62, 20);
             thisMonthZadaniaValue.TabIndex = 56;
@@ -199,7 +199,7 @@
             // 
             overallZadaniaLabel.AutoSize = true;
             overallZadaniaLabel.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            overallZadaniaLabel.Location = new Point(33, 329);
+            overallZadaniaLabel.Location = new Point(21, 330);
             overallZadaniaLabel.Name = "overallZadaniaLabel";
             overallZadaniaLabel.Size = new Size(135, 20);
             overallZadaniaLabel.TabIndex = 57;
@@ -209,7 +209,7 @@
             // 
             overallZadaniaValue.AutoSize = true;
             overallZadaniaValue.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            overallZadaniaValue.Location = new Point(188, 329);
+            overallZadaniaValue.Location = new Point(171, 330);
             overallZadaniaValue.Name = "overallZadaniaValue";
             overallZadaniaValue.Size = new Size(62, 20);
             overallZadaniaValue.TabIndex = 58;

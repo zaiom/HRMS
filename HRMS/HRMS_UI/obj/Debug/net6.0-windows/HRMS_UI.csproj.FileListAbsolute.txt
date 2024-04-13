@@ -38,3 +38,5 @@ C:\Gry\Inżynierka\HRMS\HRMS_UI\obj\Debug\net6.0-windows\HRMS_UI.ModyfikujDanePr
 C:\Gry\Inżynierka\HRMS\HRMS_UI\obj\Debug\net6.0-windows\HRMS_UI.DodajZagadnienieForm.resources
 C:\Gry\Inżynierka\HRMS\HRMS_UI\obj\Debug\net6.0-windows\HRMS_UI.PrzydzielZagadnienieForm.resources
 C:\Gry\Inżynierka\HRMS\HRMS_UI\obj\Debug\net6.0-windows\HRMS_UI.RaportForm.resources
+C:\Gry\Inżynierka\HRMS\HRMS_UI\bin\Debug\net6.0-windows\BouncyCastle.Crypto.dll
+C:\Gry\Inżynierka\HRMS\HRMS_UI\bin\Debug\net6.0-windows\itextsharp.dll
