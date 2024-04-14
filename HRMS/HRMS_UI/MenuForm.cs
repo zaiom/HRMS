@@ -88,6 +88,12 @@ namespace HRMS_UI
         private void wylogujToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GlobalData.LoggedUserId = 0;
+            GlobalData.LoggedUserRole = 0;
+            GlobalData.daneUzytkownika = new List<string>();
+            GlobalData.idUzytkownika = "";
+            GlobalData.daneUmowy = new List<string>();
+            GlobalData.daneLogowania = new List<string>();
+
             LogowanieForm logowanieForm = new LogowanieForm();
             logowanieForm.Show();
             this.Close();

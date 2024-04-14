@@ -68,7 +68,8 @@ namespace HRMS_UI
             document.Open();
 
             //Czcionka
-            BaseFont rodzajCzcionki = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, BaseFont.NOT_EMBEDDED);
+            BaseFont rodzajCzcionki = BaseFont.CreateFont(@"c:\windows\fonts\arial.ttf", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
+           // BaseFont rodzajCzcionki = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, BaseFont.NOT_EMBEDDED);
 
             //Czciionka tekstu
             //iTextSharp.text.Font czcionkaTekstu = new iTextSharp.text.Font(FontFactory.GetFont("Calibri", BaseFont.CP1250, BaseFont.NOT_EMBEDDED, 12));

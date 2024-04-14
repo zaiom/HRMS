@@ -172,9 +172,8 @@
             // 
             // ostatnieZadaniaDataGridView
             // 
-            ostatnieZadaniaDataGridView.AllowUserToResizeColumns = false;
             ostatnieZadaniaDataGridView.AllowUserToResizeRows = false;
-            ostatnieZadaniaDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
+            ostatnieZadaniaDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
             ostatnieZadaniaDataGridView.BackgroundColor = Color.White;
             ostatnieZadaniaDataGridView.BorderStyle = BorderStyle.None;
             ostatnieZadaniaDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
