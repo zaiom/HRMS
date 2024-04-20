@@ -52,7 +52,7 @@
             raportButton.TabIndex = 0;
             raportButton.Text = "Raport";
             raportButton.UseVisualStyleBackColor = true;
-            raportButton.Click += uprawnieniaButton_Click;
+            raportButton.Click += raportButton_Click;
             // 
             // zadaniaButton
             // 

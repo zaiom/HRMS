@@ -20,9 +20,10 @@ namespace HRMS_UI
             idPracownikaToolStripMenuItem.Text = $"Jesteś zalogowany jako: {GlobalData.LoggedUserId.ToString()}";               // powoduje, ze w menuform w lewym gornym
                                                                                                                                 // rogu wyswietla sie id aktualnie
                                                                                                                                 // zalogowanego pracownika
+            KeyPreview = true;
         }
 
-        private void uprawnieniaButton_Click(object sender, EventArgs e)
+        private void raportButton_Click(object sender, EventArgs e)
         {
             // Sprawdź, czy formularz UprawnieniaForm jest już otwarty
             RaportForm existingRaportForm = Application.OpenForms.OfType<RaportForm>().FirstOrDefault();

@@ -23,6 +23,8 @@ namespace HRMS_UI
             ListBoxWireUp();                                                                                                //"oczyszcza" zawartość listBoxa a następnie dodaje
                                                                                                                             //idPracownikow o nizszej roli od zalogowanego uzytkownika
             listaPracownikowListBox.SelectedIndexChanged += listaPracownikowListBox_SelectedIndexChanged;
+
+            KeyPreview = true;
         }
 
         private void modyfikujButton_Click(object sender, EventArgs e)

@@ -183,7 +183,6 @@
             ostatnieZadaniaDataGridView.RowTemplate.Height = 25;
             ostatnieZadaniaDataGridView.Size = new Size(750, 150);
             ostatnieZadaniaDataGridView.TabIndex = 47;
-            ostatnieZadaniaDataGridView.CellContentClick += ostatnieZadaniaDataGridView_CellContentClick;
             // 
             // ZadaniaForm
             // 

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             imieNazwiskoLabel = new Label();
-            generujRaportBurron = new Button();
+            generujRaportButton = new Button();
             zamknijButton = new Button();
             idPracownikaLabel = new Label();
             thisMonthZagadnieniaLabel = new Label();
@@ -44,6 +44,9 @@
             thisMonthZadaniaValue = new Label();
             overallZadaniaLabel = new Label();
             overallZadaniaValue = new Label();
+            dataLabel = new Label();
+            h1Label = new Label();
+            h2Label = new Label();
             SuspendLayout();
             // 
             // imieNazwiskoLabel
@@ -56,19 +59,19 @@
             imieNazwiskoLabel.TabIndex = 5;
             imieNazwiskoLabel.Text = "Imię i nazwisko";
             // 
-            // generujRaportBurron
+            // generujRaportButton
             // 
-            generujRaportBurron.FlatAppearance.BorderColor = Color.Silver;
-            generujRaportBurron.FlatAppearance.MouseDownBackColor = Color.Gray;
-            generujRaportBurron.FlatAppearance.MouseOverBackColor = Color.WhiteSmoke;
-            generujRaportBurron.FlatStyle = FlatStyle.Flat;
-            generujRaportBurron.Location = new Point(116, 406);
-            generujRaportBurron.Name = "generujRaportBurron";
-            generujRaportBurron.Size = new Size(134, 41);
-            generujRaportBurron.TabIndex = 6;
-            generujRaportBurron.Text = "Generuj raport PDF";
-            generujRaportBurron.UseVisualStyleBackColor = true;
-            generujRaportBurron.Click += generujRaportBurron_Click;
+            generujRaportButton.FlatAppearance.BorderColor = Color.Silver;
+            generujRaportButton.FlatAppearance.MouseDownBackColor = Color.Gray;
+            generujRaportButton.FlatAppearance.MouseOverBackColor = Color.WhiteSmoke;
+            generujRaportButton.FlatStyle = FlatStyle.Flat;
+            generujRaportButton.Location = new Point(116, 406);
+            generujRaportButton.Name = "generujRaportButton";
+            generujRaportButton.Size = new Size(134, 41);
+            generujRaportButton.TabIndex = 6;
+            generujRaportButton.Text = "Generuj raport PDF";
+            generujRaportButton.UseVisualStyleBackColor = true;
+            generujRaportButton.Click += generujRaportButton_Click;
             // 
             // zamknijButton
             // 
@@ -215,12 +218,45 @@
             overallZadaniaValue.TabIndex = 58;
             overallZadaniaValue.Text = "<none>";
             // 
+            // dataLabel
+            // 
+            dataLabel.AutoSize = true;
+            dataLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataLabel.Location = new Point(524, 36);
+            dataLabel.Name = "dataLabel";
+            dataLabel.Size = new Size(49, 21);
+            dataLabel.TabIndex = 59;
+            dataLabel.Text = "Data: ";
+            // 
+            // h1Label
+            // 
+            h1Label.AutoSize = true;
+            h1Label.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            h1Label.Location = new Point(382, 195);
+            h1Label.Name = "h1Label";
+            h1Label.Size = new Size(19, 21);
+            h1Label.TabIndex = 60;
+            h1Label.Text = "h";
+            // 
+            // h2Label
+            // 
+            h2Label.AutoSize = true;
+            h2Label.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            h2Label.Location = new Point(290, 235);
+            h2Label.Name = "h2Label";
+            h2Label.Size = new Size(19, 21);
+            h2Label.TabIndex = 61;
+            h2Label.Text = "h";
+            // 
             // RaportForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(669, 470);
+            Controls.Add(h2Label);
+            Controls.Add(h1Label);
+            Controls.Add(dataLabel);
             Controls.Add(overallZadaniaValue);
             Controls.Add(overallZadaniaLabel);
             Controls.Add(thisMonthZadaniaValue);
@@ -235,7 +271,7 @@
             Controls.Add(thisMonthZagadnieniaLabel);
             Controls.Add(idPracownikaLabel);
             Controls.Add(zamknijButton);
-            Controls.Add(generujRaportBurron);
+            Controls.Add(generujRaportButton);
             Controls.Add(imieNazwiskoLabel);
             Name = "RaportForm";
             Text = "Raport";
@@ -246,7 +282,7 @@
 
         #endregion
         private Label imieNazwiskoLabel;
-        private Button generujRaportBurron;
+        private Button generujRaportButton;
         private Button zamknijButton;
         private Label idPracownikaLabel;
         private Label thisMonthZagadnieniaLabel;
@@ -261,5 +297,8 @@
         private Label thisMonthZadaniaValue;
         private Label overallZadaniaLabel;
         private Label overallZadaniaValue;
+        private Label dataLabel;
+        private Label h1Label;
+        private Label h2Label;
     }
 }
