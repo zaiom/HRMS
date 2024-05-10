@@ -1,0 +1,4 @@
+1. Otwórz SQL Server Management Studio (SSMS) i zaloguj się do serwera baz danych.
+2. Kliknij prawym przyciskiem myszy na "Databases" w oknie "Object Explorer" i wybierz opcję "Restore Database".
+3. Wybierz opcję "Device" i wskaż ścieżkę do pliku .bak.
+4. Naciśnij przycisk "OK", aby rozpocząć proces przywracania bazy danych.
