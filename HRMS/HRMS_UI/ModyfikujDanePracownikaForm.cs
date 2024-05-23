@@ -110,7 +110,17 @@ namespace HRMS_UI
             rodzajUmowyComboBox.Text = GlobalData.daneUmowy[0];
             pensjaValue.Text = GlobalData.daneUmowy[1];
             dataZatrudnieniaDateTimePicker.Value = DateTime.Parse(GlobalData.daneUmowy[2]);
-            dataKoncaUmowyDateTimePicker.Value = DateTime.Parse(GlobalData.daneUmowy[3]);
+            //dataKoncaUmowyDateTimePicker.Value = DateTime.Parse(GlobalData.daneUmowy[3]);
+            dataKoncaUmowyDateTimePicker.MinDate = DateTime.Today; // Ustawia dzisiejszą datę jako minimalną
+            DateTime dataKoncaUmowy;
+            if (DateTime.TryParse(GlobalData.daneUmowy[3], out dataKoncaUmowy))
+            {
+                dataKoncaUmowyDateTimePicker.Value = dataKoncaUmowy;
+            }
+            else
+            {
+                dataKoncaUmowyDateTimePicker.Value = dataKoncaUmowyDateTimePicker.MinDate; // Ustawia dzisiejszą datę jako domyślną
+            }
 
             //Dane logowania
             loginValue.Text = GlobalData.daneLogowania[0];

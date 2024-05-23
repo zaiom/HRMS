@@ -30,6 +30,7 @@ namespace HRMS_Lib
         List<string> PobierzDaneUmowy(string idUmowy);
         List<string> PobierzDaneLogowania(string idPracownika);
         //ZarzadzajForm -> Buttony
+        void UstawNULLidPracownika(string idPracownika);
         void UsunPracownika(string idPracownika, string idUmowy);
         //ModyfikujDanePracownika
         UmowyModel ModyfikujUmowe(UmowyModel model);
@@ -56,5 +57,6 @@ namespace HRMS_Lib
         string PobierzCzasOverall(string idPracownika);
         string PobierzZadaniaThisMonth(string idPracownika);
         string PobierzZadaniaOverall(string idPracownika);
+        string SprawdzCzyPrzypisanoZagadnienie(string idPracownika, string idZagadnienia);
     }
 }

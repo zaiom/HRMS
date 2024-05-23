@@ -40,6 +40,7 @@
             przydzielLinkLabel = new LinkLabel();
             zamknijButton = new Button();
             ostatnieZadaniaDataGridView = new DataGridView();
+            wybierzNumerZagadnieniaLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)ostatnieZadaniaDataGridView).BeginInit();
             SuspendLayout();
             // 
@@ -58,6 +59,7 @@
             // opisValue
             // 
             opisValue.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            opisValue.ForeColor = Color.Silver;
             opisValue.Location = new Point(339, 57);
             opisValue.Multiline = true;
             opisValue.Name = "opisValue";
@@ -78,9 +80,9 @@
             opisLabel.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             opisLabel.Location = new Point(338, 20);
             opisLabel.Name = "opisLabel";
-            opisLabel.Size = new Size(54, 25);
+            opisLabel.Size = new Size(323, 25);
             opisLabel.TabIndex = 3;
-            opisLabel.Text = "Opis:";
+            opisLabel.Text = "Poniżej wpisz opis podjętych działań:";
             // 
             // czasLabel
             // 
@@ -135,23 +137,23 @@
             // dodajLinkLabel
             // 
             dodajLinkLabel.AutoSize = true;
-            dodajLinkLabel.Location = new Point(338, 285);
+            dodajLinkLabel.Location = new Point(303, 275);
             dodajLinkLabel.Name = "dodajLinkLabel";
-            dodajLinkLabel.Size = new Size(38, 15);
+            dodajLinkLabel.Size = new Size(104, 15);
             dodajLinkLabel.TabIndex = 12;
             dodajLinkLabel.TabStop = true;
-            dodajLinkLabel.Text = "Dodaj";
+            dodajLinkLabel.Text = "Dodaj zagadnienie";
             dodajLinkLabel.LinkClicked += dodajLinkLabel_LinkClicked;
             // 
             // przydzielLinkLabel
             // 
             przydzielLinkLabel.AutoSize = true;
-            przydzielLinkLabel.Location = new Point(338, 319);
+            przydzielLinkLabel.Location = new Point(303, 308);
             przydzielLinkLabel.Name = "przydzielLinkLabel";
-            przydzielLinkLabel.Size = new Size(53, 15);
+            przydzielLinkLabel.Size = new Size(119, 15);
             przydzielLinkLabel.TabIndex = 13;
             przydzielLinkLabel.TabStop = true;
-            przydzielLinkLabel.Text = "Przydziel";
+            przydzielLinkLabel.Text = "Przydziel zagadnienie";
             przydzielLinkLabel.Visible = false;
             przydzielLinkLabel.LinkClicked += przydzielLinkLabel_LinkClicked;
             // 
@@ -184,12 +186,23 @@
             ostatnieZadaniaDataGridView.Size = new Size(750, 150);
             ostatnieZadaniaDataGridView.TabIndex = 47;
             // 
+            // wybierzNumerZagadnieniaLabel
+            // 
+            wybierzNumerZagadnieniaLabel.AutoSize = true;
+            wybierzNumerZagadnieniaLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            wybierzNumerZagadnieniaLabel.Location = new Point(12, 9);
+            wybierzNumerZagadnieniaLabel.Name = "wybierzNumerZagadnieniaLabel";
+            wybierzNumerZagadnieniaLabel.Size = new Size(173, 17);
+            wybierzNumerZagadnieniaLabel.TabIndex = 48;
+            wybierzNumerZagadnieniaLabel.Text = "Wybierz numer zagadnienia:";
+            // 
             // ZadaniaForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(786, 578);
+            Controls.Add(wybierzNumerZagadnieniaLabel);
             Controls.Add(ostatnieZadaniaDataGridView);
             Controls.Add(zamknijButton);
             Controls.Add(przydzielLinkLabel);
@@ -226,5 +239,6 @@
         private LinkLabel przydzielLinkLabel;
         private Button zamknijButton;
         private DataGridView ostatnieZadaniaDataGridView;
+        private Label wybierzNumerZagadnieniaLabel;
     }
 }

@@ -250,7 +250,7 @@ namespace HRMS_Lib
             {
                 connection.Open();
 
-                string query = $"SELECT idPracownika FROM Pracownicy where Rola > {idRoli}";
+                string query = $"SELECT idPracownika FROM Pracownicy where Rola >= {idRoli}";
 
                 ids = connection.Query<int>(query).AsList();
 
@@ -273,16 +273,16 @@ namespace HRMS_Lib
 
                 if (result != null)
                 {
-                    danePracownika.Add(result.Imie);
-                    danePracownika.Add(result.Nazwisko);
-                    danePracownika.Add(result.dataUrodzenia);
-                    danePracownika.Add(result.Wydzial.ToString());
-                    danePracownika.Add(result.Stanowisko.ToString());
-                    danePracownika.Add(result.Przelozony.ToString());
-                    danePracownika.Add(result.Rola.ToString());
-                    danePracownika.Add(result.umowaPracownika.ToString());
-                    danePracownika.Add(result.numerKontaktowy);
-                    danePracownika.Add(result.email);
+                    danePracownika.Add(result.Imie ?? string.Empty);
+                    danePracownika.Add(result.Nazwisko ?? string.Empty);
+                    danePracownika.Add(result.dataUrodzenia ?? string.Empty);
+                    danePracownika.Add(result.Wydzial?.ToString() ?? string.Empty);
+                    danePracownika.Add(result.Stanowisko?.ToString() ?? string.Empty);
+                    danePracownika.Add(result.Przelozony?.ToString() ?? string.Empty);
+                    danePracownika.Add(result.Rola?.ToString() ?? string.Empty);
+                    danePracownika.Add(result.umowaPracownika?.ToString() ?? string.Empty);
+                    danePracownika.Add(result.numerKontaktowy ?? string.Empty);
+                    danePracownika.Add(result.email ?? string.Empty);
                 }
 
                 return danePracownika;
@@ -332,6 +332,21 @@ namespace HRMS_Lib
                 }
 
                 return daneLogowania;
+            }
+        }
+
+        public void UstawNULLidPracownika(string idPracownika)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("HRMS_DB")))
+            {
+                connection.Open();
+
+                var p = new DynamicParameters();
+                p.Add("@idPracownika", idPracownika);
+
+                connection.Execute("dbo.spUstawNULLidPracownikaZadania", p, commandType: CommandType.StoredProcedure);
+                connection.Execute("dbo.spUstawNULLidPracownikaWydzial", p, commandType: CommandType.StoredProcedure);
+                connection.Execute("dbo.spUstawNULLidPracownikaPrzelozony", p, commandType: CommandType.StoredProcedure);
             }
         }
 
@@ -661,6 +676,23 @@ namespace HRMS_Lib
                 zadania = connection.QueryFirstOrDefault<string>(query);
 
                 return zadania;
+            }
+        }
+
+        public string SprawdzCzyPrzypisanoZagadnienie(string idPracownika, string idZagadnienia)
+        {
+            string result = "";
+
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("HRMS_DB")))
+            {
+                connection.Open();
+
+                string query = $"SELECT idZadania FROM Zadania WHERE Opis='Przydzielenie zagadnienia numer {idZagadnienia}' and idPracownika = {idPracownika};";
+
+
+                result = connection.QueryFirstOrDefault<string>(query);
+
+                return result;
             }
         }
     }

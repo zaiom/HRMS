@@ -69,25 +69,40 @@ namespace HRMS_UI
         {
             DateTime todayDate = DateTime.Now;
 
-            if (ValidateForm())
+            if (numerZagadnieniaComboBox.SelectedIndex != -1 && idPracownikaComboBox.SelectedIndex != -1)
             {
-                ZadaniaModel model = new ZadaniaModel(
-                    $"Przydzielenie zagadnienia numer {numerZagadnieniaComboBox.Text}",
-                    numerZagadnieniaComboBox.Text,
-                    idPracownikaComboBox.Text,
-                    todayDate,
-                    0);
+                string selectedIdZagadnienia = numerZagadnieniaComboBox.SelectedItem.ToString();
+                string selectedIdPracownika = idPracownikaComboBox.SelectedItem.ToString();
 
-                GlobalConfig.Connection.DodajZadanie(model);
+                string idZadania = GlobalConfig.Connection.SprawdzCzyPrzypisanoZagadnienie(selectedIdPracownika, selectedIdZagadnienia);
 
-                numerZagadnieniaComboBox.SelectedIndex = -1;
-                idPracownikaComboBox.SelectedIndex = -1;
+                if (!string.IsNullOrEmpty(idZadania))
+                {
+                    MessageBox.Show("Ten pracownik jest już przydzielony do tego zagadnienia.", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                else
+                {
+                    if (ValidateForm())
+                    {
+                        ZadaniaModel model = new ZadaniaModel(
+                            $"Przydzielenie zagadnienia numer {numerZagadnieniaComboBox.Text}",
+                            numerZagadnieniaComboBox.Text,
+                            idPracownikaComboBox.Text,
+                            todayDate,
+                            0);
 
-                MessageBox.Show("Poprawnie przydzielono zagadnienie.", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        GlobalConfig.Connection.DodajZadanie(model);
+                        numerZagadnieniaComboBox.SelectedIndex = -1;
+                        idPracownikaComboBox.SelectedIndex = -1;
+
+                        MessageBox.Show("Poprawnie przydzielono zagadnienie.", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
             }
             else
             {
-                MessageBox.Show("Formularz posiada niepoprawne dane. Proszę poprawić je i spróbować ponownie.", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Nie wybrano żadnego pracownika lub zagadnienia.", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
