@@ -45,7 +45,7 @@ namespace HRMS_UI
                 //    return;
                 //}
 
-                if (GlobalData.LoggedUserRole == 1)
+                if (GlobalData.LoggedUserRole == 1 || GlobalData.LoggedUserRole == 2)
                 {
                     if (existingModyfikujDanePracownikaForm != null)
                     {
@@ -136,9 +136,9 @@ namespace HRMS_UI
                     case "3":
                         danePracownika[3] = "Dzial Finansowo-Ksiegowy";
                         break;
-                    //default:
-                    //    danePracownika[3] = "Brak danych";
-                    //    break;
+                        //default:
+                        //    danePracownika[3] = "Brak danych";
+                        //    break;
                 }
 
                 switch (danePracownika[4])
@@ -152,9 +152,9 @@ namespace HRMS_UI
                     case "3":
                         danePracownika[4] = "Manager";
                         break;
-                    //default:
-                    //    danePracownika[4] = "Brak danych";
-                    //    break;
+                        //default:
+                        //    danePracownika[4] = "Brak danych";
+                        //    break;
                 }
 
                 switch (danePracownika[6])
@@ -168,9 +168,9 @@ namespace HRMS_UI
                     case "3":
                         danePracownika[6] = "Użytkownik";
                         break;
-                    //default:
-                    //    danePracownika[6] = "Brak danych";
-                    //    break;
+                        //default:
+                        //    danePracownika[6] = "Brak danych";
+                        //    break;
                 }
 
                 // Ustawienie informacji o pracowniku w labelu

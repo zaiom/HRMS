@@ -34,6 +34,7 @@
             dodajButton = new Button();
             modyfikujButton = new Button();
             usunButton = new Button();
+            idPracownikowLabel = new Label();
             SuspendLayout();
             // 
             // listaPracownikowListBox
@@ -42,9 +43,9 @@
             listaPracownikowListBox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             listaPracownikowListBox.FormattingEnabled = true;
             listaPracownikowListBox.ItemHeight = 20;
-            listaPracownikowListBox.Location = new Point(26, 22);
+            listaPracownikowListBox.Location = new Point(26, 42);
             listaPracownikowListBox.Name = "listaPracownikowListBox";
-            listaPracownikowListBox.Size = new Size(344, 104);
+            listaPracownikowListBox.Size = new Size(344, 84);
             listaPracownikowListBox.TabIndex = 1;
             // 
             // zamknijButton
@@ -114,12 +115,23 @@
             usunButton.UseVisualStyleBackColor = true;
             usunButton.Click += usunButton_Click;
             // 
+            // idPracownikowLabel
+            // 
+            idPracownikowLabel.AutoSize = true;
+            idPracownikowLabel.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            idPracownikowLabel.Location = new Point(26, 9);
+            idPracownikowLabel.Name = "idPracownikowLabel";
+            idPracownikowLabel.Size = new Size(118, 20);
+            idPracownikowLabel.TabIndex = 7;
+            idPracownikowLabel.Text = "ID Pracowników:";
+            // 
             // ZarzadzajForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(532, 413);
+            Controls.Add(idPracownikowLabel);
             Controls.Add(usunButton);
             Controls.Add(modyfikujButton);
             Controls.Add(dodajButton);
@@ -141,5 +153,6 @@
         private Button dodajButton;
         private Button modyfikujButton;
         private Button usunButton;
+        private Label idPracownikowLabel;
     }
 }

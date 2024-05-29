@@ -569,7 +569,7 @@ namespace HRMS_Lib
             {
                 connection.Open();
 
-                string query = $"SELECT idZagadnienia, Opis, CONVERT(varchar, Dzien, 104) as Dzien, Czas FROM Zadania WHERE idPracownika = {idPracownika} AND idZagadnienia = {idZagadnienia};";
+                string query = $"SELECT idZagadnienia, Opis, CONVERT(varchar, Dzien, 23) as Dzien, Czas FROM Zadania WHERE idPracownika = {idPracownika} AND idZagadnienia = {idZagadnienia};";
 
                 var results = connection.Query<ZadaniaModel>(query).ToList();
 

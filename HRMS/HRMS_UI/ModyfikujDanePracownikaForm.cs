@@ -115,6 +115,17 @@ namespace HRMS_UI
             DateTime dataKoncaUmowy;
             if (DateTime.TryParse(GlobalData.daneUmowy[3], out dataKoncaUmowy))
             {
+                // Sprawdź, czy dataKoncaUmowy mieści się w zakresie dozwolonym przez DateTimePicker
+                if (dataKoncaUmowy < dataKoncaUmowyDateTimePicker.MinDate)
+                {
+                    dataKoncaUmowy = dataKoncaUmowyDateTimePicker.MinDate;
+                }
+                else if (dataKoncaUmowy > dataKoncaUmowyDateTimePicker.MaxDate)
+                {
+
+                    dataKoncaUmowy = dataKoncaUmowyDateTimePicker.MaxDate;
+                }
+
                 dataKoncaUmowyDateTimePicker.Value = dataKoncaUmowy;
             }
             else

@@ -59,7 +59,7 @@
             // opisValue
             // 
             opisValue.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            opisValue.ForeColor = Color.Silver;
+            opisValue.ForeColor = Color.Black;
             opisValue.Location = new Point(339, 57);
             opisValue.Multiline = true;
             opisValue.Name = "opisValue";
