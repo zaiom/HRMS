@@ -1,0 +1,2 @@
+# HRMS
+Human Resource Management System is a Winforms application that allows users to streamline personnel management processes and provide an effective tool to support the growth and success of the organization.
